@@ -1,0 +1,5 @@
+CPLEX Parameter File Version 12.2.0.1
+
+  CPX_PARAM_MIPEMPHASIS     0
+  CPX_PARAM_REPEATPRESOLVE -1
+  CPX_PARAM_PROBE           0

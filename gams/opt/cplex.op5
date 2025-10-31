@@ -1,0 +1,7 @@
+ mipstart=5
+ bardisplay=1
+ relaxfixedinfeas=1
+ simdisplay=1
+ solvefinal=1
+ parallelmode=-1
+* lpmethod=6

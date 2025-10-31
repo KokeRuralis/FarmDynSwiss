@@ -1,0 +1,8 @@
+SubSolver    conopt4
+SubSolverOpt 1
+reftype penalty
+initMu      10
+updateFac 1.E-1
+numsolves 2
+finalMu 1.E-4
+allSolves

@@ -1,0 +1,5308 @@
+<?xml version="1.0" encoding="ISO-8859-15" standalone="yes"?>
+<tables  xmlns:xi="http://www.w3.org/2001/XInclude">
+<table>
+  <theme>Farm program - Animal, mean</theme>
+  <name>Herd summary, mean</name>
+  <defpivot>RI0P</defpivot>
+  <isActivity>YES</isActivity>
+  <activitySel>herds</activitySel>
+  <regionSel>FromDataCube</regionSel>
+  <dim5Sel>red[0-9]+_regex</dim5Sel>
+  <yearSel>mean_regex</yearSel>
+  <dim6Text>Breeds</dim6Text>
+  <dim6Sel>(?i)(^$|SI|HF)_regex</dim6Sel>
+  <item>
+    <itemName>Herd size</itemName>
+    <key>levl</key>
+    <unit>Heads</unit>
+  </item>
+  <item>
+    <itemName>Revenues</itemName>
+    <key>reve</key>
+    <unit>Euro/head</unit>
+  </item>
+  <item>
+    <itemName>Variable costs</itemName>
+    <key>vCost</key>
+    <unit>Euro/head</unit>
+  </item>
+  <item>
+    <itemName>Variable costs not specified</itemName>
+    <key>vCostO</key>
+    <unit>Euro/head</unit>
+  </item>
+  <item>
+    <itemName>Remonte</itemName>
+    <key>remonte</key>
+    <unit>Euro/head</unit>
+  </item>
+  <item>
+    <itemName>Costs of concentrates</itemName>
+    <key>fCost</key>
+    <unit>Euro/head</unit>
+  </item>
+  <item>
+    <itemName>Costs for own produced feed</itemName>
+    <key>fnmCost</key>
+    <unit>Euro/head</unit>
+  </item>
+  <item>
+    <itemName>Gross margin</itemName>
+    <key>gm</key>
+    <unit>Euro/head</unit>
+  </item>
+  <item>
+    <itemName>Labour</itemName>
+    <key>labHour</key>
+    <unit>hours/head</unit>
+  </item>
+  <item>
+    <itemName>Milk yield</itemName>
+    <key>milk</key>
+    <unit>liter/head and year</unit>
+  </item>
+  <item>
+    <itemName>Number of lactations</itemName>
+    <key>nLac</key>
+    <unit></unit>
+  </item>
+  <item>
+    <itemName>Length</itemName>
+    <key>prodLength</key>
+    <unit>Month</unit>
+  </item>
+</table>
+<table>
+  <theme>Farm program - Animal, mean</theme>
+  <name>Cows summary by yield, mean</name>
+  <defpivot>RI0P</defpivot>
+  <isActivity>YES</isActivity>
+  <activitySel>cows</activitySel>
+  <regionSel>FromDataCube</regionSel>
+  <dim5Sel>red[0-9]+_regex</dim5Sel>
+  <dim6Text>Breeds</dim6Text>
+  <dim6Sel>(?i)(^$|SI|HF)_regex</dim6Sel>
+  <yearSel>mean_regex</yearSel>
+  <item>
+    <itemName>Herd size</itemName>
+    <key>levl</key>
+    <unit>Heads</unit>
+  </item>
+  <item>
+    <itemName>Revenues</itemName>
+    <key>reve</key>
+    <unit>Euro/head</unit>
+  </item>
+  <item>
+    <itemName>Variable costs</itemName>
+    <key>vCost</key>
+    <unit>Euro/head</unit>
+  </item>
+  <item>
+    <itemName>Variable costs not specified</itemName>
+    <key>vCostO</key>
+    <unit>Euro/head</unit>
+  </item>
+  <item>
+    <itemName>Costs of concentrates</itemName>
+    <key>fCost</key>
+    <unit>Euro/head</unit>
+  </item>
+  <item>
+    <itemName>Gross margin</itemName>
+    <key>gm</key>
+    <unit>Euro/head</unit>
+  </item>
+  <item>
+    <itemName>Labour</itemName>
+    <key>labHour</key>
+    <unit>hours/head</unit>
+  </item>
+  <item>
+    <itemName>Milk yield</itemName>
+    <key>milk</key>
+    <unit>liter/head and year</unit>
+  </item>
+  <item>
+    <itemName>Number of lactations</itemName>
+    <key>nLac</key>
+    <unit>liter/head and year</unit>
+  </item>
+</table>
+
+
+<table>
+  <theme>Farm program - Animal, mean</theme>
+  <name>Feeding by herds, mean</name>
+  <defpivot>RI0P</defpivot>
+  <isActivity>YES</isActivity>
+  <activitySel>herds</activitySel>
+  <regionSel>FromDataCube</regionSel>
+  <dim5Sel>red[0-9]+_regex</dim5Sel>
+  <dim6Text>Breeds</dim6Text>
+  <dim6Sel>(?i)(^$|SI|HF)_regex</dim6Sel>
+  <yearSel>mean_regex</yearSel>
+  <item>
+    <itemName>Concentrate type 1 for cattle</itemName>
+    <key>ConcCattle1</key>
+    <unit>kg per day</unit>
+  </item>
+  <item>
+    <itemName>Concentrate type 2 for cattle</itemName>
+    <key>ConcCattle2</key>
+    <unit>kg per day</unit>
+  </item>
+  <item>
+    <itemName>Concentrate type 3 for cattle</itemName>
+    <key>ConcCattle3</key>
+    <unit>kg per day</unit>
+  </item>
+  <item>
+    <itemName>grass silage, early</itemName>
+    <key>earlyGrasSil</key>
+    <unit>kg per day, DM</unit>
+  </item>
+  <item>
+    <itemName>grass silage, middle</itemName>
+    <key>middleGrasSil</key>
+    <unit>kg per day, DM</unit>
+  </item>
+  <item>
+    <itemName>grass silage, late</itemName>
+    <key>lateGrasSil</key>
+    <unit>kg per da, DM</unit>
+  </item>
+  <item>
+    <itemName>Maiz silage (35% dry matter)</itemName>
+    <key>maizSil</key>
+    <unit>kg per day, fresh</unit>
+  </item>
+  <item>
+    <itemName>Fresh grass,early</itemName>
+    <key>earlyGraz</key>
+    <unit>kg per day, DM</unit>
+  </item>
+  <item>
+    <itemName>Fresh grass,middle</itemName>
+    <key>middleGraz</key>
+    <unit>kg per day, DM</unit>
+  </item>
+  <item>
+    <itemName>Fresh grass,late</itemName>
+    <key>lateGraz</key>
+    <unit>kg per day, DM</unit>
+  </item>
+  <item>
+    <itemName>milk Powder</itemName>
+    <key>milkPowder</key>
+    <unit>Euro/year</unit>
+  </item>
+  <item>
+    <itemName>Oils for feed</itemName>
+    <key>oilsForFeed</key>
+    <unit>Euro/year</unit>
+  </item>
+  <item>
+    <itemName>Winter wheat</itemName>
+    <key>WinterWheat</key>
+    <unit>kg per phase</unit>
+  </item>
+  <item>
+    <itemName>Summer Cereal</itemName>
+    <key>SummerCere</key>
+    <unit>kg per phaser</unit>
+  </item>
+  <item>
+    <itemName>Summer Triticale</itemName>
+    <key>SummerTriticale</key>
+    <unit>kg per phaser</unit>
+  </item>
+  <item>
+    <itemName>Maize CornCobMix</itemName>
+    <key>MaizCCM</key>
+    <unit>kg per phase</unit>
+  </item>
+  <item>
+    <itemName>Winterbarley</itemName>
+    <key>Winterbarley</key>
+    <unit>kg per phase</unit>
+  </item>
+  <item>
+    <itemName>Winterrye</itemName>
+    <key>Winterrye</key>
+    <unit>kg per phase</unit>
+  </item>
+   <item>
+    <itemName>SoybeanMeal</itemName>
+    <key>soybeanmeal</key>
+    <unit>kg per phase</unit>
+  </item>
+   <item>
+    <itemName>SoybeanOil</itemName>
+    <key>soybeanoil</key>
+    <unit>kg per phase</unit>
+  </item>
+ <item>
+    <itemName>Mineral Concentrates</itemName>
+    <key>minFu</key>
+    <unit>kg per phase</unit>
+  </item>
+</table>
+<table>
+  <theme>Farm program - Animal, mean</theme>
+  <name>Requirements by herds, mean</name>
+  <defpivot>RI0P</defpivot>
+  <isActivity>YES</isActivity>
+  <activitySel>herds</activitySel>
+  <regionSel>FromDataCube</regionSel>
+  <dim5Sel>red[0-9]+_regex</dim5Sel>
+  <dim6Text>Breeds</dim6Text>
+  <dim6Sel>(?i)(^$|SI|HF)_regex</dim6Sel>
+  <yearSel>mean_regex</yearSel>
+  <item>
+    <itemName>Net enery</itemName>
+    <key>Enne</key>
+    <unit>MJ</unit>
+  </item>
+  <item>
+    <itemName>Crude protein</itemName>
+    <key>CRPR</key>
+    <unit>kg</unit>
+  </item>
+  <item>
+    <itemName>Dry matter</itemName>
+    <key>DRMX</key>
+    <unit>Kg</unit>
+  </item>
+</table>
+
+<table>
+  <theme>Farm program - Animal, mean</theme>
+  <name>Cows feeding by yield, mean</name>
+  <defpivot>RI0P</defpivot>
+  <isActivity>YES</isActivity>
+  <activitySel>cows</activitySel>
+  <regionSel>FromDataCube</regionSel>
+  <dim5Sel>red[0-9]+_regex</dim5Sel>
+  <dim6Text>Breeds</dim6Text>
+  <dim6Sel>(?i)(^$|SI|HF)_regex</dim6Sel>
+  <yearSel>mean_regex</yearSel>
+  <item>
+    <itemName>Concentrate type 1</itemName>
+    <key>ConcCattle1</key>
+    <unit>kg per day</unit>
+  </item>
+  <item>
+    <itemName>Concentrate type 2</itemName>
+    <key>ConcCattle2</key>
+    <unit>kg per day</unit>
+  </item>
+  <item>
+    <itemName>Concentrate type 3</itemName>
+    <key>ConcCattle3</key>
+    <unit>kg per day</unit>
+  </item>
+  <item>
+    <itemName>Grass silage (35% dry matter)</itemName>
+    <key>grasSil</key>
+    <unit>kg per day</unit>
+  </item>
+  <item>
+    <itemName>Maiz silage (35% dry matter)</itemName>
+    <key>maizSil</key>
+    <unit>kg per day</unit>
+  </item>
+  <item>
+    <itemName>grass silage, early</itemName>
+    <key>earlyGrasSil</key>
+    <unit>kg per day, DM</unit>
+  </item>
+  <item>
+    <itemName>grass silage, middle</itemName>
+    <key>middleGrasSil</key>
+    <unit>kg per day, DM</unit>
+  </item>
+  <item>
+    <itemName>grass silage, late</itemName>
+    <key>lateGrasSil</key>
+    <unit>kg per da, DM</unit>
+  </item>
+  <item>
+    <itemName>Maiz silage (35% dry matter)</itemName>
+    <key>maizSil</key>
+    <unit>kg per day, fresh</unit>
+  </item>
+  <item>
+    <itemName>Fresh grass,early</itemName>
+    <key>earlyGraz</key>
+    <unit>kg per day, DM</unit>
+  </item>
+  <item>
+    <itemName>Fresh grass,middle</itemName>
+    <key>middleGraz</key>
+    <unit>kg per day, DM</unit>
+  </item>
+  <item>
+    <itemName>Fresh grass,late</itemName>
+    <key>lateGraz</key>
+    <unit>kg per day, DM</unit>
+  </item>
+  <item>
+    <itemName>milk Powder</itemName>
+    <key>milkPowder</key>
+    <unit>Euro/year</unit>
+  </item>
+  <item>
+    <itemName>Oils for feed</itemName>
+    <key>oilsForFeed</key>
+    <unit>Euro/year</unit>
+  </item>
+  <item>
+    <itemName>Soy bean meal</itemName>
+    <key>soybeanMeal</key>
+    <unit>Euro/year</unit>
+  </item>
+</table>
+<table>
+  <theme>Farm program - Animal, mean</theme>
+  <name>Stables utilization, mean</name>
+  <defpivot>RI0P</defpivot>
+  <isActivity>YES</isActivity>
+  <activitySel>stableTypes</activitySel>
+  <regionSel>FromDataCube</regionSel>
+  <dim5Sel>red[0-9]+_regex</dim5Sel>
+  <yearSel>mean_regex</yearSel>
+  <dim6Sel>_regex</dim6Sel>
+  <item>
+    <itemName>Places available</itemName>
+    <key>Places</key>
+    <unit>count</unit>
+  </item>
+  <item>
+    <itemName>Places free</itemName>
+    <key>FreePlaces</key>
+    <unit>count</unit>
+  </item>
+</table>
+
+<table>
+  <name>Herd summary, time series</name>
+  <clone>Herd summary, mean</clone>
+  <theme>Farm program - Animal, time series</theme>
+  <yearSel>^[0-9]*$_regex</yearSel>
+  <defpivot>RI0Y</defpivot>
+</table>
+<table>
+  <name>Herd summary, time series graph</name>
+  <clone>Herd summary, time series</clone>
+  <theme>Farm program - Animal, time series</theme>
+  <yearSel>^[0-9]*$_regex</yearSel>
+  <defview>Line chart</defview>
+  <lineChartMaxSeries>15</lineChartMaxSeries>
+  <defpivot>A0Y0</defpivot>
+</table>
+<table>
+  <name>Cows summary by yield, time series</name>
+  <clone>Cows summary by yield, mean</clone>
+  <theme>Farm program - Animal, time series</theme>
+  <yearSel>^[0-9]*$_regex</yearSel>
+  <defpivot>RI0Y</defpivot>
+</table>
+<table>
+  <name>Feeding by herds, time series</name>
+  <clone>Feeding by herds, mean</clone>
+  <theme>Farm program - Animal, time series</theme>
+  <yearSel>^[0-9]*$_regex</yearSel>
+  <defpivot>RI0Y</defpivot>
+</table>
+<table>
+  <name>Requirements by herds, time series</name>
+  <clone>Requirements by herds, mean</clone>
+  <theme>Farm program - Animal, time series</theme>
+  <yearSel>^[0-9]*$_regex</yearSel>
+  <defpivot>RI0Y</defpivot>
+</table>
+<table>
+  <name>Cows feeding by yield, time series</name>
+  <clone>Cows feeding by yield, mean</clone>
+  <theme>Farm program - Animal, time series</theme>
+  <yearSel>^[0-9]*$_regex</yearSel>
+  <defpivot>RI0Y</defpivot>
+</table>
+<table>
+  <name>Stables utilization, time series</name>
+  <clone>Stables utilization, mean</clone>
+  <theme>Farm program - Animal, time series</theme>
+  <defpivot>RI0Y</defpivot>
+  <yearSel>^[0-9]*$_regex</yearSel>
+</table>
+
+
+
+<table>
+  <theme>Farm program - Crops, mean</theme>
+  <name>Crops summary, mean</name>
+  <defpivot>RI0P</defpivot>
+  <isActivity>YES</isActivity>
+  <activitySel>crops</activitySel>
+  <regionSel>FromDataCube</regionSel>
+  <yearSel>mean_regex</yearSel>
+  <dim5Sel>red[0-9]+_regex</dim5Sel>
+  <dim6Sel>|plough|minTill|noTill|eco|normal|fert80p|fert60p|fert40p|fert20p_regex</dim6Sel>
+  <item>
+    <itemName>Hectares</itemName>
+    <key>levl</key>
+    <unit>Heads</unit>
+  </item>
+  <item>
+    <itemName>Yield</itemName>
+    <key>yield</key>
+    <unit>t/ha</unit>
+  </item>
+  <item>
+    <itemName>Revenues</itemName>
+    <key>reve</key>
+    <unit>Euro/ha</unit>
+  </item>
+  <item>
+    <itemName>Price</itemName>
+    <key>price</key>
+    <unit>Euro/t</unit>
+  </item>
+  <item>
+    <itemName>Variable costs</itemName>
+    <key>vCost</key>
+    <unit>Euro/ha</unit>
+  </item>
+  <item>
+    <itemName>Gross margin</itemName>
+    <key>gm</key>
+    <unit>Euro/ha</unit>
+  </item>
+  <item>
+    <itemName>Labour</itemName>
+    <key>labHour</key>
+    <unit>hours/ha</unit>
+  </item>
+</table>
+<table>
+  <name>Crops summary, mean, pie chart</name>
+  <clone>Crops summary, mean</clone>
+  <defview>Pie chart</defview>
+  <defpivot>R0A0</defpivot>
+</table>
+<table>
+  <theme>Farm program - Crops, mean</theme>
+  <name>Crops, intensities</name>
+  <defpivot>RI0P</defpivot>
+  <isActivity>YES</isActivity>
+  <activitySel>crops</activitySel>
+  <regionSel>FromDataCube</regionSel>
+  <yearSel>mean_regex</yearSel>
+  <dim5Sel>red[0-9]+_regex</dim5Sel>
+  <dim6Sel>_regex</dim6Sel>
+  <dim6Text>hide</dim6Text>
+    <item>
+       <key>normal</key>
+       <itemName>Full N fert</itemName>
+       <unit>ha</unit>
+    </item>
+    <item>
+       <key>fert80p</key>
+       <itemName>20% reduced N fert</itemName>
+       <unit>ha</unit>
+    </item>
+    <item>
+       <key>fert60p</key>
+       <itemName>40% reduced N fert</itemName>
+       <unit>ha</unit>
+    </item>
+    <item>
+       <key>fert40p</key>
+       <itemName>60% reduced N fert</itemName>
+       <unit>ha</unit>
+    </item>
+    <item>
+       <key>fert20p</key>
+       <itemName>80% reduced N fert</itemName>
+       <unit>ha</unit>
+    </item>
+</table>
+<table>
+  <theme>Farm program - Crops, mean</theme>
+  <name>Tillage type, mean</name>
+  <defpivot>RI0P</defpivot>
+  <isActivity>YES</isActivity>
+  <activitySel>till</activitySel>
+  <regionSel>FromDataCube</regionSel>
+  <dim5Sel>red[0-9]+_regex</dim5Sel>
+  <yearSel>mean_regex</yearSel>
+  <item>
+    <itemName>Hectares</itemName>
+    <key>levl</key>
+    <unit>Heads</unit>
+  </item>
+</table>
+<table>
+  <theme>Farm program - Crops, mean</theme>
+  <name>Crops, tillage</name>
+  <defpivot>RI0P</defpivot>
+  <isActivity>YES</isActivity>
+  <activitySel>crops</activitySel>
+  <regionSel>FromDataCube</regionSel>
+  <yearSel>mean_regex</yearSel>
+  <dim5Sel>red[0-9]+_regex</dim5Sel>
+  <dim6Sel>_regex</dim6Sel>
+  <dim6Text>hide</dim6Text>
+    <item>
+       <key>plough</key>
+       <itemName>Plough</itemName>
+       <unit>ha</unit>
+    </item>
+    <item>
+       <key>minTill</key>
+       <itemName>Minimum tillage with chiselplough</itemName>
+       <unit>ha</unit>
+    </item>
+    <item>
+       <key>noTill</key>
+       <itemName>No tillage with direct seed</itemName>
+       <unit>ha</unit>
+    </item>
+</table>
+<table>
+  <theme>Farm program - Crops, mean</theme>
+  <name>Crop costs, mean</name>
+  <defpivot>RI0P</defpivot>
+  <isActivity>YES</isActivity>
+  <activitySel>crops</activitySel>
+  <regionSel>FromDataCube</regionSel>
+  <dim5Sel>red[0-9]+_regex</dim5Sel>
+  <dim6Sel>(?i)[^$|plough|minTill|noTill|eco|normal|fert80p|fert60p|fert40p|fert20p]_regex</dim6Sel>
+  <yearSel>mean_regex</yearSel>
+  <item>
+    <itemName>Variable costs</itemName>
+    <key>vCost</key>
+    <unit>Euro/ha</unit>
+  </item>
+  <item>
+    <itemName>Diesel</itemName>
+    <key>diesel</key>
+    <unit>Euro/ha</unit>
+  </item>
+  <item>
+    <itemName>AHL N-fertilizer</itemName>
+    <key>AHL</key>
+    <unit>Euro/ha</unit>
+  </item>
+  <item>
+    <itemName>ASS N-fertilizer</itemName>
+    <key>ASS</key>
+    <unit>Euro/ha</unit>
+  </item>
+  <item>
+    <itemName>Lime</itemName>
+    <key>Lime</key>
+    <unit>Euro/ha</unit>
+  </item>
+  <item>
+    <itemName>PK_18_10 fertilizer</itemName>
+    <key>PK_18_10</key>
+    <unit>Euro/ha</unit>
+  </item>
+  <item>
+    <itemName>KAS fertilizer</itemName>
+    <key>KAS</key>
+    <unit>Euro/ha</unit>
+  </item>
+  <item>
+    <itemName>Kali-Magnesia fertilizer</itemName>
+    <key>KaliMag</key>
+    <unit>Euro/ha</unit>
+  </item>
+  <item>
+    <itemName>Seed cost</itemName>
+    <key>Seed</key>
+    <unit>Euro/ha</unit>
+  </item>
+  <item>
+    <itemName>Herbicides</itemName>
+    <key>Herb</key>
+    <unit>Euro/ha</unit>
+  </item>
+  <item>
+    <itemName>Fungicides</itemName>
+    <key>Fung</key>
+    <unit>Euro/ha</unit>
+  </item>
+  <item>
+    <itemName>Insecticies</itemName>
+    <key>Insect</key>
+    <unit>Euro/ha</unit>
+  </item>
+  <item>
+    <itemName>Growth control straw</itemName>
+    <key>growthContr</key>
+    <unit>Euro/ha</unit>
+  </item>
+  <item>
+    <itemName>Water</itemName>
+    <key>water</key>
+    <unit>Euro/ha</unit>
+  </item>
+  <item>
+    <itemName>Hail insurance</itemName>
+    <key>hailIns</key>
+    <unit>Euro/ha</unit>
+  </item>
+  <item>
+    <itemName>Variable machinery costs</itemName>
+    <key>other</key>
+    <unit>Euro/year</unit>
+  </item>
+  <item>
+    <itemName>Fixed variable machinery costs handled variable</itemName>
+    <key>fixedMach</key>
+    <unit>Euro/year</unit>
+  </item>
+</table>
+
+<table>
+  <name>Crops, time series</name>
+  <clone>Crops summary, mean</clone>
+  <theme>Farm program - Crops, time series</theme>
+  <yearSel>^[0-9]*$_regex</yearSel>
+  <defpivot>RI0Y</defpivot>
+</table>
+<table>
+  <name>Tillage type, time series</name>
+  <clone>Tillage type, mean</clone>
+  <theme>Farm program - Crops, time series</theme>
+  <yearSel>^[0-9]*$_regex</yearSel>
+  <defpivot>RI0Y</defpivot>
+</table>
+
+<table>
+  <theme>Assets, mean</theme>
+  <name>Buildings, mean</name>
+  <defpivot>RI0P</defpivot>
+  <isActivity>YES</isActivity>
+  <activitySel>buildings</activitySel>
+  <regionSel>FromDataCube</regionSel>
+  <dim5Sel>red[0-9]+_regex</dim5Sel>
+  <dim6Sel>_regex</dim6Sel>
+  <yearSel>mean_regex</yearSel>
+  <item>
+    <itemName>Inventory</itemName>
+    <key>Invent</key>
+    <unit>count</unit>
+  </item>
+  <item>
+    <itemName>Newly built</itemName>
+    <key>new</key>
+    <unit>count</unit>
+  </item>
+  <item>
+    <itemName>Price</itemName>
+    <key>price</key>
+    <unit>Euro</unit>
+  </item>
+  <item>
+    <itemName>Replacements, 15 years lifetime</itemName>
+    <key>middle</key>
+    <unit>count</unit>
+  </item>
+  <item>
+    <itemName>Replacements, 10 years lifetime</itemName>
+    <key>short</key>
+    <unit>count</unit>
+  </item>
+  <item>
+    <itemName>UnUsed</itemName>
+    <key>UnUsed</key>
+    <unit>count</unit>
+  </item>
+</table>
+
+<table>
+  <theme>Assets, mean</theme>
+  <name>Machines, mean</name>
+  <defpivot>RI0P</defpivot>
+  <isActivity>YES</isActivity>
+  <activitySel>machines</activitySel>
+  <regionSel>FromDataCube</regionSel>
+  <dim5Sel>red[0-9]+_regex</dim5Sel>
+  <dim6Sel>_regex</dim6Sel>
+  <yearSel>mean_regex</yearSel>
+  <item>
+    <itemName>Inventory</itemName>
+    <key>Invent</key>
+    <unit>in operating hours or ha</unit>
+  </item>
+  <item>
+    <itemName>Newly bought</itemName>
+    <key>new</key>
+    <unit>count</unit>
+  </item>
+  <item>
+    <itemName>Price</itemName>
+    <key>Price</key>
+    <unit>Euro</unit>
+  </item>
+  <item>
+    <itemName>Investment</itemName>
+    <key>newCost</key>
+    <unit>Euro</unit>
+  </item>
+  <item>
+    <itemName>Use per year</itemName>
+    <key>use</key>
+    <unit>hour or ha</unit>
+  </item>
+  <item>
+    <itemName>Operating costs per year (repair, lubricants etc.)</itemName>
+    <key>costs</key>
+    <unit>Euro</unit>
+  </item>
+</table>
+<table>
+  <theme>Assets, mean</theme>
+  <name>Biogas plants, mean</name>
+  <defpivot>RI0P</defpivot>
+  <isActivity>YES</isActivity>
+  <activitySel>biogas</activitySel>
+  <regionSel>FromDataCube</regionSel>
+  <dim5Sel>red[0-9]+_regex</dim5Sel>
+  <dim6Sel>_regex</dim6Sel>
+  <yearSel>mean_regex</yearSel>
+  <item>
+    <itemName>Inventory</itemName>
+    <key>Invent</key>
+    <unit>count</unit>
+  </item>
+  <item>
+    <itemName>Used for EEG2004</itemName>
+    <key>E2004</key>
+    <unit>count</unit>
+  </item>
+  <item>
+    <itemName>Used for EEG2009</itemName>
+    <key>E2009</key>
+    <unit>count</unit>
+  </item>
+  <item>
+    <itemName>Used for EEG2009 with manure bonus</itemName>
+    <key>EM2009</key>
+    <unit>count</unit>
+  </item>
+  <item>
+    <itemName>Investment in fermenter</itemName>
+    <key>ih20</key>
+    <unit>count</unit>
+  </item>
+  <item>
+    <itemName>Investment in 10 year parts</itemName>
+    <key>ih10</key>
+    <unit>count</unit>
+  </item>
+  <item>
+    <itemName>Investment in 7 year parts</itemName>
+    <key>ih7</key>
+    <unit>count</unit>
+  </item>
+</table>
+
+
+<table>
+  <name>Buildings, time series</name>
+  <clone>Buildings, mean</clone>
+  <theme>Assets, time series</theme>
+  <defpivot>RI0Y</defpivot>
+  <yearSel>^[0-9]*$_regex</yearSel>
+</table>
+<table>
+  <name>Machines, time series</name>
+  <clone>Machines, mean</clone>
+  <theme>Assets, time series</theme>
+  <defpivot>RI0Y</defpivot>
+  <yearSel>^[0-9]*$_regex</yearSel>
+</table>
+<table>
+  <name>Biogas plants, time series</name>
+  <clone>Biogas plants, mean</clone>
+  <theme>Assets, time series</theme>
+  <defpivot>RI0Y</defpivot>
+  <yearSel>^[0-9]*$_regex</yearSel>
+</table>
+
+<table>
+  <theme>Biogas, mean</theme>
+  <name>Biogas overview, mean</name>
+  <defpivot>RI0P</defpivot>
+  <isActivity>YES</isActivity>
+  <activitySel>Biogas_regex</activitySel>
+  <regionSel>FromDataCube</regionSel>
+  <dim5Sel>red[0-9]+_regex</dim5Sel>
+  <dim6Sel>_regex</dim6Sel>
+  <yearSel>mean_regex</yearSel>
+  <item>
+    <itemName>Revenues</itemName>
+    <key>sreve</key>
+    <unit>Euro</unit>
+  </item>
+  <item>
+    <itemName>Variable cost</itemName>
+    <key>VCost</key>
+    <unit>Euro</unit>
+  </item>
+  <item>
+    <itemName>Cost for buying crops</itemName>
+    <key>cropCost</key>
+    <unit>Euro</unit>
+  </item>
+  <item>
+    <itemName>Cost for buying manure</itemName>
+    <key>manureCost</key>
+    <unit>Euro</unit>
+  </item>
+  <item>
+    <itemName>Other variable cost</itemName>
+    <key>VCostO</key>
+    <unit>Euro</unit>
+  </item>
+  <item>
+    <itemName>Gross margin</itemName>
+    <key>gm</key>
+    <unit>Euro</unit>
+  </item>
+  <item>
+    <itemName>Investments</itemName>
+    <key>InvCost</key>
+    <unit>Euro</unit>
+  </item>
+  <item>
+    <itemName>Labour use</itemName>
+    <key>hours</key>
+    <unit>h</unit>
+  </item>
+
+</table>
+
+<table>
+  <theme>Biogas, mean</theme>
+  <name>Biogas output, mean</name>
+  <defpivot>RI0P</defpivot>
+  <isActivity>YES</isActivity>
+  <activitySel>biogas</activitySel>
+  <regionSel>FromDataCube</regionSel>
+  <dim5Sel>red[0-9]+_regex</dim5Sel>
+  <dim6Sel>_regex</dim6Sel>
+  <yearSel>mean_regex</yearSel>
+  <item>
+    <itemName>Electricity</itemName>
+    <key>Elec</key>
+    <unit>kw</unit>
+  </item>
+  <item>
+    <itemName>Electricity from crops</itemName>
+    <key>ElecCrop</key>
+    <unit>kw</unit>
+  </item>
+  <item>
+    <itemName>Electricity from manure</itemName>
+    <key>ElecManure</key>
+    <unit>kw</unit>
+  </item>
+  <item>
+    <itemName>Heat</itemName>
+    <key>Heat</key>
+    <unit>kw</unit>
+  </item>
+  <item>
+    <itemName>Digestate from Crops</itemName>
+    <key>digCrop</key>
+    <unit>m3</unit>
+  </item>
+  <item>
+    <itemName>Digestate from Manure</itemName>
+    <key>digMan</key>
+    <unit>m3</unit>
+  </item>
+</table>
+
+
+<table>
+  <theme>Biogas, mean</theme>
+  <name>Biogas input use, mean</name>
+  <defpivot>RI0P</defpivot>
+  <isActivity>YES</isActivity>
+  <activitySel>biogas</activitySel>
+  <regionSel>FromDataCube</regionSel>
+  <dim5Sel>red[0-9]+_regex</dim5Sel>
+  <dim6Sel>_regex</dim6Sel>
+  <yearSel>mean_regex</yearSel>
+  <item>
+    <itemName>Maize, silage (total)</itemName>
+    <key>MaizSil</key>
+    <unit>t</unit>
+  </item>
+  <item>
+    <itemName>Maize, silage (purchased)</itemName>
+    <key>maizSil_purch</key>
+    <unit>t</unit>
+  </item>
+  <item>
+    <itemName>Maize, silage (on farm)</itemName>
+    <key>maizSil_onFarm</key>
+    <unit>t</unit>
+  </item>
+  <item>
+    <itemName>Grass, silage (total)</itemName>
+    <key>grasSil</key>
+    <unit>t</unit>
+  </item>
+  <item>
+    <itemName>>Grass, silage (purchased)</itemName>
+    <key>grasSil_purch</key>
+    <unit>t</unit>
+  </item>
+  <item>
+    <itemName>>Grass, silage (on farm)</itemName>
+    <key>grasSil_onFarm</key>
+    <unit>t</unit>
+  </item>
+  <item>
+    <itemName>Cattle manure (total)</itemName>
+    <key>manCatt</key>
+    <unit>m3</unit>
+  </item>
+   <item>
+    <itemName>Cattle manure (purchased)</itemName>
+    <key>manCatt_purch</key>
+    <unit>m3</unit>
+  </item>
+   <item>
+    <itemName>Cattle manure (on farm)</itemName>
+    <key>manCatt_feed</key>
+    <unit>m3</unit>
+  </item>
+  <item>
+    <itemName>Pig manure (total)</itemName>
+    <key>manPig</key>
+    <unit>m3</unit>
+  </item>
+   <item>
+    <itemName>Pig manure (purchased)</itemName>
+    <key>manPig_purch</key>
+    <unit>m3</unit>
+  </item>
+   <item>
+    <itemName>Pig manure (on farm)</itemName>
+    <key>manPig_feed</key>
+    <unit>m3</unit>
+  </item>
+  <item>
+    <itemName>Maize, corn (on farm)</itemName>
+    <key>maizCorn_onFarm</key>
+    <unit>t</unit>
+  </item>
+  <item>
+    <itemName>Maize, CCM (on farm)</itemName>
+    <key>maizCCM_onFarm</key>
+    <unit>t</unit>
+  </item>
+  <item>
+    <itemName>Wheat, whole crop silage (on farm)</itemName>
+    <key>wheatGPS_onFarm</key>
+    <unit>t</unit>
+  </item>
+</table>
+
+
+
+
+<table>
+  <theme>Work, mean</theme>
+  <name>Overview work, mean</name>
+  <defpivot>RI0P</defpivot>
+  <isActivity>YES</isActivity>
+  <activitySel>worksummary</activitySel>
+  <regionSel>FromDataCube</regionSel>
+  <dim5Sel>red[0-9]+_regex</dim5Sel>
+  <yearSel>mean_regex</yearSel>
+  <dim6Sel>_regex</dim6Sel>
+  <item>
+    <itemName>Hours</itemName>
+    <key>hours</key>
+    <unit>per year</unit>
+  </item>
+</table>
+<table>
+  <name>Overview work, mean, pie chart</name>
+  <clone>Overview work, mean</clone>
+  <activitySel>worksum</activitySel>
+  <defView>Pie chart</defView>
+</table>
+<table>
+  <theme>Work, mean</theme>
+  <name>OffFarm, mean</name>
+  <defpivot>RI0P</defpivot>
+  <isActivity>YES</isActivity>
+  <activitySel>work</activitySel>
+  <regionSel>FromDataCube</regionSel>
+  <dim5Sel>red[0-9]+_regex</dim5Sel>
+  <dim6Sel>_regex</dim6Sel>
+  <yearSel>mean_regex</yearSel>
+  <item>
+    <itemName>Hours, yearly, including commuting</itemName>
+    <key>hours</key>
+    <unit></unit>
+  </item>
+  <item>
+    <itemName>Wage</itemName>
+    <key>wage</key>
+    <unit>Euros/ha</unit>
+  </item>
+  <item>
+    <itemName>Yearly net income</itemName>
+    <key>earn</key>
+    <unit>Euro</unit>
+  </item>
+  <item>
+    <itemName>Count</itemName>
+    <key>#</key>
+    <unit></unit>
+  </item>
+</table>
+
+<table>
+  <name>Overview work, time series</name>
+  <clone>Overview work, mean</clone>
+  <theme>Work, time series</theme>
+  <defpivot>RI0Y</defpivot>
+  <yearSel>^[0-9]*$_regex</yearSel>
+</table>
+<table>
+  <name>Overview work, time series, line chart</name>
+  <clone>Overview work, time series</clone>
+  <activitySel>worksum</activitySel>
+  <defpivot>A0Y0</defpivot>
+  <defView>Line chart</defView>
+</table>
+<table>
+  <name>OffFarm, time series</name>
+  <clone>OffFarm, mean</clone>
+  <theme>Work, time series</theme>
+  <defpivot>RI0Y</defpivot>
+  <yearSel>^[0-9]*$_regex</yearSel>
+</table>
+<table>
+  <theme>Economics, mean</theme>
+  <name>Revenues, mean</name>
+  <defpivot>RI0P</defpivot>
+  <isActivity>YES</isActivity>
+  <activitySel>reve</activitySel>
+  <regionSel>FromDataCube</regionSel>
+  <dim5Sel>red[0-9]+_regex</dim5Sel>
+  <dim6Sel>_regex</dim6Sel>
+  <item>
+    <itemName>Revenues</itemName>
+    <key>sum</key>
+    <unit>Euro/year</unit>
+  </item>
+</table>
+<table>
+  <theme>Economics, mean</theme>
+  <name>Costs, mean</name>
+  <defpivot>RI0P</defpivot>
+  <isActivity>NO</isActivity>
+  <productSel>Quant,Price,Sum</productSel>
+  <regionSel>FromDataCube</regionSel>
+  <dim5Sel>red[0-9]+_regex</dim5Sel>
+  <dim6Sel>_regex</dim6Sel>
+  <yearSel>mean_regex</yearSel>
+  <item>
+    <itemName>Variable costs</itemName>
+    <key>vCost</key>
+    <unit>Euro/year</unit>
+  </item>
+  <item>
+    <itemName>Variable costs not specified</itemName>
+    <key>vCostO</key>
+    <unit>Euro/year</unit>
+  </item>
+  <item>
+    <itemName>Diesel</itemName>
+    <key>diesel</key>
+    <unit>Euro/year</unit>
+  </item>
+  <item>
+    <itemName>AHL N-fertilizer</itemName>
+    <key>AHL</key>
+    <unit>Euro/year</unit>
+  </item>
+  <item>
+    <itemName>ASS N-fertilizer</itemName>
+    <key>ASS</key>
+    <unit>Euro/year</unit>
+  </item>
+  <item>
+    <itemName>Lime</itemName>
+    <key>Lime</key>
+    <unit>Euro/year</unit>
+  </item>
+  <item>
+    <itemName>PK_18_10 fertilizer</itemName>
+    <key>PK_18_10</key>
+    <unit>Euro/year</unit>
+  </item>
+  <item>
+    <itemName>KAS fertilizer</itemName>
+    <key>KAS</key>
+    <unit>Euro/year</unit>
+  </item>
+  <item>
+    <itemName>Kali-Magnesia fertilizer</itemName>
+    <key>KaliMag</key>
+    <unit>Euro/year</unit>
+  </item>
+  <item>
+    <itemName>Seed cost</itemName>
+    <key>Seed</key>
+    <unit>Euro/year</unit>
+  </item>
+  <item>
+    <itemName>Herbicides</itemName>
+    <key>Herb</key>
+    <unit>Euro/year</unit>
+  </item>
+  <item>
+    <itemName>Fungicides</itemName>
+    <key>Fung</key>
+    <unit>Euro/year</unit>
+  </item>
+  <item>
+    <itemName>Insecticies</itemName>
+    <key>Insect</key>
+    <unit>Euro/year</unit>
+  </item>
+  <item>
+    <itemName>Growth control straw</itemName>
+    <key>growthContr</key>
+    <unit>Euro/year</unit>
+  </item>
+  <item>
+    <itemName>Water</itemName>
+    <key>water</key>
+    <unit>Euro/year</unit>
+  </item>
+  <item>
+    <itemName>Hail insurance</itemName>
+    <key>hailIns</key>
+    <unit>Euro/year</unit>
+  </item>
+  <item>
+    <itemName>Variable machinery costs</itemName>
+    <key>other</key>
+    <unit>Euro/year</unit>
+  </item>
+  <item>
+    <itemName>Fixed variable machinery costs handled variable</itemName>
+    <key>fixedMach</key>
+    <unit>Euro/year</unit>
+  </item>
+  <item>
+    <itemName>ConcCattle1</itemName>
+    <key>ConcCattle1</key>
+    <unit>Euro/year</unit>
+  </item>
+  <item>
+    <itemName>ConcCattle2</itemName>
+    <key>ConcCattle2</key>
+    <unit>Euro/year</unit>
+  </item>
+  <item>
+    <itemName>ConcCattle3</itemName>
+    <key>ConcCattle3</key>
+    <unit>Euro/year</unit>
+  </item>
+  <item>
+    <itemName>milk Powder</itemName>
+    <key>milkPowder</key>
+    <unit>Euro/year</unit>
+  </item>
+  <item>
+    <itemName>Oils for feed</itemName>
+    <key>oilsForFeed</key>
+    <unit>Euro/year</unit>
+  </item>
+  <item>
+    <itemName>Soy bean meal</itemName>
+    <key>soybeanMeal</key>
+    <unit>Euro/year</unit>
+  </item>
+  <item>
+    <itemName>Soy bean oil</itemName>
+    <key>soybeanOil</key>
+    <unit>Euro/year</unit>
+  </item>
+  <item>
+    <itemName>MinFu</itemName>
+    <key>Mineal feed additivites</key>
+    <unit>Euro/year</unit>
+  </item>
+  <item>
+    <itemName>ConcPigs1</itemName>
+    <key>ConcPigs1</key>
+    <unit>Euro/year</unit>
+  </item>
+  <item>
+    <itemName>ConcPigs2</itemName>
+    <key>ConcPigs2</key>
+    <unit>Euro/year</unit>
+  </item>
+  <item>
+    <itemName>ConcPigs3</itemName>
+    <key>ConcPigs3</key>
+    <unit>Euro/year</unit>
+  </item>
+  <item>
+    <itemName>youngSow</itemName>
+    <key>youngSow</key>
+    <unit>Euro/year</unit>
+  </item>
+  <item>
+    <itemName>piglet</itemName>
+    <key>piglet</key>
+    <unit>Euro/year</unit>
+  </item>
+  <item>
+    <itemName>Winter wheat for feeding</itemName>
+    <key>winterWheat</key>
+    <unit>Euro/year</unit>
+  </item>
+  <item>
+    <itemName>Winter barley for feeding</itemName>
+    <key>winterBarley</key>
+    <unit>Euro/year</unit>
+  </item>
+  <item>
+    <itemName>Summer cereals for feeding</itemName>
+    <key>summerCere</key>
+    <unit>Euro/year</unit>
+  </item>
+  <item>
+    <itemName>Cost of handling manure (incl. transfers)</itemName>
+    <key>manCost</key>
+    <unit>Euro/year</unit>
+  </item>
+  <item>
+    <itemName>Maintenance and insurance buildings</itemName>
+    <key>buildCost</key>
+    <unit>Euro/year</unit>
+  </item>
+</table>
+
+
+<table>
+  <theme>Economics, mean</theme>
+  <name>Cash balance, mean</name>
+  <defpivot>RI0P</defpivot>
+  <isActivity>YES</isActivity>
+  <activitySel>cashbal</activitySel>
+  <regionSel>FromDataCube</regionSel>
+  <dim5Sel>red[0-9]+_regex</dim5Sel>
+  <dim6Sel>_regex</dim6Sel>
+  <yearSel>mean_regex</yearSel>
+  <item>
+    <itemName>sum</itemName>
+    <key>sum</key>
+    <unit>Euro/year</unit>
+  </item>
+</table>
+
+<table>
+  <theme>Economics, mean</theme>
+  <name>Revenues minus costs per SON, mean</name>
+  <defpivot>RI0P</defpivot>
+  <isActivity>YES</isActivity>
+  <activitySel>obje</activitySel>
+  <regionSel>FromDataCube</regionSel>
+  <dim5Sel>red[0-9]+_regex</dim5Sel>
+  <dim6Sel>_regex</dim6Sel>
+  <yearSel>mean_regex</yearSel>
+  <item>
+    <itemName>Standard price assumptions</itemName>
+    <key>S1</key>
+    <unit>Euro/year and SON</unit>
+  </item>
+  <item>
+    <itemName>20% higher price for animal products</itemName>
+    <key>S2</key>
+    <unit>Euro/year and SON</unit>
+  </item>
+  <item>
+    <itemName>20% higher crop prices and feed costs</itemName>
+    <key>S3</key>
+    <unit>Euro/year and SON</unit>
+  </item>
+</table>
+<table>
+  <theme>Economics, mean</theme>
+  <name>Production and related revenues, mean</name>
+  <defpivot>RI0P</defpivot>
+  <isActivity>YES</isActivity>
+  <activitySel>prods</activitySel>
+  <regionSel>FromDataCube</regionSel>
+  <dim5Sel>red[0-9]+_regex</dim5Sel>
+  <dim6Sel>_regex</dim6Sel>
+  <yearSel>mean_regex</yearSel>
+  <item>
+    <itemName>Quantity produced</itemName>
+    <key>OQuant</key>
+    <unit>t or kg or kw</unit>
+  </item>
+  <item>
+    <itemName>Quantity sold</itemName>
+    <key>SQuant</key>
+    <unit>t or kg or kw</unit>
+  </item>
+  <item>
+    <itemName>Price</itemName>
+    <key>Price</key>
+    <unit>Euro/t or kg or kw</unit>
+  </item>
+  <item>
+    <itemName>Revenues</itemName>
+    <key>SReve</key>
+    <unit>Euro</unit>
+  </item>
+</table>
+<table>
+  <name>Revenues, time series</name>
+  <clone>Revenues, mean</clone>
+  <theme>Economics, time series</theme>
+  <yearSel>^[0-9]*$_regex</yearSel>
+  <defpivot>RI0Y</defpivot>
+</table>
+<table>
+  <name>Revenues, time series, line chart</name>
+  <clone>Revenues, time series</clone>
+  <defpivot>A0Y0</defpivot>
+  <defView>Line chart</defView>
+</table>
+<table>
+  <name>Cash balance, time series</name>
+  <clone>Cash balance, mean</clone>
+  <theme>Economics, time series</theme>
+  <yearSel>^[0-9]*$_regex</yearSel>
+  <defpivot>RI0Y</defpivot>
+</table>
+<table>
+  <name>Cash balance, time series, line chart</name>
+  <clone>Cash balance, time series</clone>
+  <defpivot>A0Y0</defpivot>
+  <defView>Line chart</defView>
+</table>
+<table>
+  <name>Production and related revenues, time series</name>
+  <clone>Production and related revenues, mean</clone>
+  <theme>Economics, time series</theme>
+  <yearSel>^[0-9]*$_regex</yearSel>
+  <defpivot>RI0Y</defpivot>
+</table>
+
+<table>
+  <theme>Nitrogen</theme>
+  <name>N Crops, per ha, mean</name>
+  <defpivot>RI0P</defpivot>
+  <isActivity>YES</isActivity>
+  <activitySel>crops</activitySel>
+  <regionSel>FromDataCube</regionSel>
+  <dim5Sel>red[0-9]+_regex</dim5Sel>
+  <dim6Sel>_regex</dim6Sel>
+  <yearSel>mean_regex</yearSel>
+  <item>
+    <itemName>Total Need</itemName>
+    <key>NNeed</key>
+    <unit>kg N</unit>
+  </item>
+  <item>
+    <itemName>N from last year</itemName>
+    <key>NPrev</key>
+    <unit>kg N</unit>
+  </item>
+  <item>
+    <itemName>Mineral N applied</itemName>
+    <key>NMIN</key>
+    <unit>kg N</unit>
+  </item>
+  <item>
+    <itemName>Total N from air and soil</itemName>
+    <key>NBas</key>
+    <unit>kg</unit>
+  </item>
+  <item>
+    <itemName>Total N from soil</itemName>
+    <key>NMineral</key>
+    <unit>kg</unit>
+  </item>
+  <item>
+    <itemName>Total N from air</itemName>
+    <key>NatmDep</key>
+    <unit>kg</unit>
+  </item>
+  <item>
+    <itemName>Grazing</itemName>
+    <key>NGraz</key>
+    <unit>kg N</unit>
+  </item>
+  <item>
+    <itemName>Broad spread</itemName>
+    <key>NapplSpread</key>
+    <unit>kg N</unit>
+  </item>
+  <item>
+    <itemName>drag hose</itemName>
+    <key>NapplTailh</key>
+    <unit>kg N</unit>
+  </item>
+  <item>
+    <itemName>Injected</itemName>
+    <key>NapplInjec</key>
+    <unit>kg N</unit>
+  </item>
+  <item>
+    <itemName>Losses</itemName>
+    <key>NLossesApplic</key>
+    <unit>kg</unit>
+  </item>
+  <item>
+    <itemName> .. of which NH3 losses manure</itemName>
+    <key>NH3Man</key>
+    <unit>kg</unit>
+  </item>
+  <item>
+    <itemName> .. of which NH3 losses mineral</itemName>
+    <key>NH3Min</key>
+    <unit>kg</unit>
+  </item>
+  <item>
+    <itemName> .. of which leaching</itemName>
+    <key>NLeach</key>
+    <unit>kg</unit>
+  </item>
+  <item>
+    <itemName>N at end of year</itemName>
+    <key>NEnd</key>
+    <unit>kg N</unit>
+  </item>
+</table>
+<table>
+  <theme>Phosphate</theme>
+  <name>P2O5 Crops, per ha, mean</name>
+  <defpivot>RI0P</defpivot>
+  <isActivity>YES</isActivity>
+  <activitySel>crops</activitySel>
+  <regionSel>FromDataCube</regionSel>
+  <dim5Sel>red[0-9]+_regex</dim5Sel>
+  <dim6Sel>_regex</dim6Sel>
+  <item>
+    <itemName>Total Need</itemName>
+    <key>PNeed</key>
+    <unit>kg P2O5</unit>
+  </item>
+  <item>
+    <itemName>Mineral</itemName>
+    <key>PMIN</key>
+    <unit>kg P2O5</unit>
+  </item>
+  <item>
+    <itemName>Grazing</itemName>
+    <key>PGraz</key>
+    <unit>kg P2O5</unit>
+  </item>
+  <item>
+    <itemName>Broad spread</itemName>
+    <key>PapplSpread</key>
+    <unit>kg P2O5</unit>
+  </item>
+  <item>
+    <itemName>Drag hose</itemName>
+    <key>PapplTailh</key>
+    <unit>kg P2O5</unit>
+  </item>
+  <item>
+    <itemName>Injected</itemName>
+    <key>PapplInjec</key>
+    <unit>kg P2O5</unit>
+  </item>
+</table>
+<table>
+  <theme>Nitrogen</theme>
+  <name>N total, mean</name>
+  <defpivot>RI0P</defpivot>
+  <isActivity>YES</isActivity>
+  <activitySel>sum</activitySel>
+  <regionSel>FromDataCube</regionSel>
+  <dim5Sel>red[0-9]+_regex</dim5Sel>
+  <dim6Sel>_regex</dim6Sel>
+  <item>
+    <itemName>Total Need</itemName>
+    <key>NNeed</key>
+    <unit>kg</unit>
+  </item>
+  <item>
+    <itemName>Mineral</itemName>
+    <key>NMIN</key>
+    <unit>kg N</unit>
+  </item>
+  <item>
+    <itemName>Grazing</itemName>
+    <key>NGraz</key>
+    <unit>kg N</unit>
+  </item>
+  <item>
+    <itemName>Broad spread</itemName>
+    <key>NapplSpread</key>
+    <unit>kg N</unit>
+  </item>
+  <item>
+    <itemName>Drag hose</itemName>
+    <key>NapplTailh</key>
+    <unit>kg N</unit>
+  </item>
+  <item>
+    <itemName>Injected</itemName>
+    <key>NapplInjec</key>
+    <unit>kg N</unit>
+  </item>
+</table>
+<table>
+  <theme>Phosphate</theme>
+  <name>P2O5 total, mean</name>
+  <defpivot>RI0P</defpivot>
+  <isActivity>YES</isActivity>
+  <activitySel>sum</activitySel>
+  <regionSel>FromDataCube</regionSel>
+  <dim5Sel>red[0-9]+_regex</dim5Sel>
+  <dim6Sel>_regex</dim6Sel>
+  <item>
+    <itemName>Total Need</itemName>
+    <key>PNeed</key>
+    <unit>kg P2O5</unit>
+  </item>
+  <item>
+    <itemName>Mineral</itemName>
+    <key>PMIN</key>
+    <unit>kg P2O5</unit>
+  </item>
+  <item>
+    <itemName>Grazing</itemName>
+    <key>PGraz</key>
+    <unit>kg P2O5</unit>
+  </item>
+  <item>
+    <itemName>Broad spread</itemName>
+    <key>PapplSpread</key>
+    <unit>kg P2O5</unit>
+  </item>
+  <item>
+    <itemName>drag hose</itemName>
+    <key>PapplTailh</key>
+    <unit>kg P2O5</unit>
+  </item>
+  <item>
+    <itemName>Injected</itemName>
+    <key>PapplInjec</key>
+    <unit>kg P2O5</unit>
+  </item>
+</table>
+
+
+<table>
+  <theme>Nitrogen</theme>
+  <name>N Crops, per ha, time series</name>
+  <clone>N Crops, per ha, mean</clone>
+  <defpivot>RI0Y</defpivot>
+  <yearSel>^[0-9]*$_regex</yearSel>
+</table>
+<table>
+  <theme>Nitrogen</theme>
+  <name>N Crops, total, mean</name>
+  <clone>N Crops, per ha, mean</clone>
+  <defpivot>RI0P</defpivot>
+  <evalAll>VAL*VAL[*,*,levl]</evalAll>
+</table>
+<table>
+  <name>N Crops, total, time series</name>
+  <clone>N Crops, total, mean</clone>
+  <theme>Nitrogen</theme>
+  <yearSel>^[0-9]*$_regex</yearSel>
+  <defpivot>RI0Y</defpivot>
+</table>
+<table>
+  <name>P2O5 Crops, per ha, time series</name>
+  <clone>P2O5 Crops, per ha, mean</clone>
+  <theme>Nitrogen</theme>
+  <yearSel>^[0-9]*$_regex</yearSel>
+  <defpivot>RI0Y</defpivot>
+</table>
+<table>
+  <theme>Phosphate</theme>
+  <name>P2O5 crops, total, mean</name>
+  <clone>P2O5 crops, per ha, mean</clone>
+  <defpivot>RI0P</defpivot>
+  <evalAll>VAL*VAL[*,*,levl]</evalAll>
+</table>
+<table>
+  <theme>Phosphate</theme>
+  <name>P2O5 crops, total, time series</name>
+  <clone>P2O5 crops, total, mean</clone>
+  <yearSel>^[0-9]*$_regex</yearSel>
+  <defpivot>RI0Y</defpivot>
+</table>
+<table>
+  <theme>Nitrogen</theme>
+  <name>N in different soil depths</name>
+  <defpivot>RI0P</defpivot>
+  <isActivity>NO</isActivity>
+  <productSel>months</productSel>
+  <regionSel>FromDataCube</regionSel>
+  <dim5Sel>red[0-9]+_regex</dim5Sel>
+  <item>
+    <itemName>0-30 cm</itemName>
+    <key>top</key>
+    <unit>kg</unit>
+  </item>
+  <item>
+    <itemName>30-60 cm</itemName>
+    <key>middle</key>
+    <unit>kg</unit>
+  </item>
+  <item>
+    <itemName>60-90 cm</itemName>
+    <key>deep</key>
+    <unit>kg</unit>
+  </item>
+  <item>
+    <itemName>below</itemName>
+    <key>below</key>
+    <unit>kg</unit>
+  </item>
+</table>
+<table>
+  <theme>Nitrogen</theme>
+  <name>N in soil, by weather and month</name>
+  <defpivot>RI0P</defpivot>
+  <isActivity>NO</isActivity>
+  <productSel>months</productSel>
+  <regionSel>FromDataCube</regionSel>
+  <dim5Sel>red[0-9]+_regex</dim5Sel>
+  <item>
+    <itemName>Normal</itemName>
+    <key>norm</key>
+    <unit>kg</unit>
+  </item>
+  <item>
+    <itemName>dry</itemName>
+    <key>dry</key>
+    <unit>kg</unit>
+  </item>
+  <item>
+    <itemName>wet</itemName>
+    <key>wet</key>
+    <unit>kg</unit>
+  </item>
+</table>
+<table>
+  <theme>Nitrogen</theme>
+  <name>N in soil, by weather and soil depth</name>
+  <clone>N in different soil depths</clone>
+  <productSel>weather</productSel>
+</table>
+<table>
+  <theme>Nitrogen</theme>
+  <name>N Balance, per month, mean</name>
+  <defpivot>RI0P</defpivot>
+  <isActivity>NO</isActivity>
+  <productSel>months</productSel>
+  <regionSel>FromDataCube</regionSel>
+  <dim5Sel>red[0-9]+_regex</dim5Sel>
+  <item>
+    <itemName>Total Need</itemName>
+    <key>NNeed</key>
+    <unit>kg</unit>
+  </item>
+  <item>
+    <itemName>Total application min and org</itemName>
+    <key>NApplied</key>
+    <unit>kg</unit>
+  </item>
+  <item>
+    <itemName>Total mineral N application</itemName>
+    <key>NMinApplied</key>
+    <unit>kg</unit>
+  </item>
+  <item>
+    <itemName>Total N from air and soil</itemName>
+    <key>NBas</key>
+    <unit>kg</unit>
+  </item>
+  <item>
+    <itemName>Total N from soil</itemName>
+    <key>NMineral</key>
+    <unit>kg</unit>
+  </item>
+  <item>
+    <itemName>Total N from air</itemName>
+    <key>NatmDep</key>
+    <unit>kg</unit>
+  </item>
+  <item>
+    <itemName>N excreted during grazing</itemName>
+    <key>NGraz</key>
+    <unit>kg N</unit>
+  </item>
+  <item>
+    <itemName>N Manure excreted in stables</itemName>
+    <key>NManure</key>
+    <unit>kg</unit>
+  </item>
+  <item>
+    <itemName>In storage</itemName>
+    <key>NInStorage</key>
+    <unit>kg</unit>
+  </item>
+  <item>
+    <itemName>Losses storage</itemName>
+    <key>NLossesStorage</key>
+    <unit>kg</unit>
+  </item>
+  <item>
+    <itemName>Broad spread</itemName>
+    <key>NapplSpread</key>
+    <unit>kg N</unit>
+  </item>
+  <item>
+    <itemName>drag hose</itemName>
+    <key>NapplTailh</key>
+    <unit>kg N</unit>
+  </item>
+  <item>
+    <itemName>Injected</itemName>
+    <key>NapplInjec</key>
+    <unit>kg N</unit>
+  </item>
+  <item>
+    <itemName>Losses</itemName>
+    <key>NLossesApplic</key>
+    <unit>kg</unit>
+  </item>
+  <item>
+    <itemName> .. of which NH3 losses manure</itemName>
+    <key>NH3Man</key>
+    <unit>kg</unit>
+  </item>
+  <item>
+    <itemName> .. of which NH3 losses mineral</itemName>
+    <key>NH3Min</key>
+    <unit>kg</unit>
+  </item>
+  <item>
+    <itemName> .. of which leaching</itemName>
+    <key>NLeach</key>
+    <unit>kg</unit>
+  </item>
+
+</table>
+<table>
+  <theme>Phosphate</theme>
+  <name>P2O5 balance, per month, mean</name>
+  <defpivot>RI0P</defpivot>
+  <isActivity>NO</isActivity>
+  <productSel>months</productSel>
+  <regionSel>FromDataCube</regionSel>
+  <dim5Sel>red[0-9]+_regex</dim5Sel>
+  <item>
+    <itemName>P excreted during grazing</itemName>
+    <key>P Graz</key>
+    <unit>kg P2O5</unit>
+  </item>
+  <item>
+    <itemName>P Manure excreted</itemName>
+    <key>PManure</key>
+    <unit>kg P205</unit>
+  </item>
+  <item>
+    <itemName>In storage</itemName>
+    <key>PInStorage</key>
+    <unit>kg P205</unit>
+  </item>
+  <item>
+    <itemName>Losses storage</itemName>
+    <key>PLossesStorage</key>
+    <unit>kg P205</unit>
+  </item>
+  <item>
+    <itemName>Broad spread</itemName>
+    <key>PapplSpread</key>
+    <unit>kg P205</unit>
+  </item>
+  <item>
+    <itemName>drag hose</itemName>
+    <key>PapplTailh</key>
+    <unit>kg P205</unit>
+  </item>
+  <item>
+    <itemName>Injected</itemName>
+    <key>PapplInjec</key>
+    <unit>kg P205</unit>
+  </item>
+  <item>
+    <itemName>Losses application</itemName>
+    <key>PLossesApplic</key>
+    <unit>kg P205</unit>
+  </item>
+  <item>
+    <itemName>Total application min and org</itemName>
+    <key>PApplied</key>
+    <unit>kg P205</unit>
+  </item>
+  <item>
+    <itemName>Total mineral P application</itemName>
+    <key>PMinApplied</key>
+    <unit>kg P205</unit>
+  </item>
+
+</table>
+<table>
+  <theme>Nitrogen</theme>
+  <name>N balance, per month, per ha</name>
+  <clone>N Balance, per month, mean</clone>
+  <!-- region,activity,product,year,scen,dim5...dim9 -->
+
+  <evalAll>VAL/(VAL[*,cropped,arab]+VAL[*,cropped,gras])</evalAll>
+</table>
+<table>
+  <theme>Nitrogen</theme>
+  <name>N balance, per month, time series</name>
+  <clone>N Balance, per month, mean</clone>
+  <yearSel>^[0-9]*$_regex</yearSel>
+  <defpivot>RI0Y</defpivot>
+</table>
+<table>
+  <theme>Nitrogen</theme>
+  <name>N balance, yearly, time series</name>
+  <clone>N Balance, per month, mean</clone>
+  <productSel>Quant</productSel>
+  <yearSel>^[0-9]*$_regex</yearSel>
+  <defpivot>RD0I</defpivot>
+</table>
+<table>
+  <theme>Nitrogen</theme>
+  <name>N balance per ha, yearly, time series</name>
+  <clone>N balance, yearly, time series</clone>
+  <evalAll>VAL/(VAL[*,cropped,arab]+VAL[*,cropped,gras])</evalAll>
+  <yearSel>^[0-9]*$_regex</yearSel>
+</table>
+<table>
+  <theme>Phosphate</theme>
+  <name>P2O5 balance, per month, time series</name>
+  <clone>P2O5 balance, per month, mean</clone>
+  <defpivot>RI0Y</defpivot>
+  <yearSel>^[0-9]*$_regex</yearSel>
+</table>
+<table>
+  <theme>Phospate</theme>
+  <name>P2O5 balance, yearly, time series</name>
+  <clone>P2O5 Balance, per month, mean</clone>
+  <productSel>Quant</productSel>
+  <yearSel>^[0-9]*$_regex</yearSel>
+  <defpivot>RD0I</defpivot>
+</table>
+
+
+<table>
+  <theme>Environmental Policy</theme>
+  <name>Core Variables</name>
+  <defpivot>RDPI</defpivot>
+  <isActivity>No</isActivity>
+  <productSel>Quant</productSel>
+  <regionSel>FromDataCube</regionSel>
+  <dim5Sel>red[0-9]+_regex</dim5Sel>
+  <item>
+    <itemName>Total land</itemName>
+    <key>sumland</key>
+    <unit>ha</unit>
+  </item>
+  <item>
+    <itemName>Cows</itemName>
+    <key>sumHerdCows</key>
+    <unit>n</unit>
+  </item>
+  <item>
+    <itemName>LU total per ha</itemName>
+    <key>LUperha</key>
+    <unit>LU per ha and a</unit>
+  </item>
+  <item>
+    <itemName>LU total per ha grazing</itemName>
+    <key>LUperhaGraz</key>
+    <unit>LU per ha and a</unit>
+  </item>
+  <item>
+    <itemName>Yearly milk output</itemName>
+    <key>milkYear</key>
+    <unit>kg</unit>
+  </item>
+  <item>
+    <itemName>N Surplus allowed</itemName>
+    <key>surplusDuevAllowedN</key>
+    <unit>kg N/ha/a</unit>
+  </item>
+  <item>
+    <itemName>N surplus</itemName>
+    <key>NSurplus</key>
+    <unit>kg N per ha and year</unit>
+  </item>
+  <item>
+    <itemName>P Surplus allowed</itemName>
+    <key>surplusDuevAllowedP</key>
+    <unit>kg P/ha/a</unit>
+  </item>
+  <item>
+    <itemName>P Surplus</itemName>
+    <key>PSurplus</key>
+    <unit>kg P/ha/a</unit>
+  </item>
+  <item>
+    <itemName>N organic allowed (Duev)</itemName>
+    <key>NOrganicApplAllowed</key>
+    <unit>kg Norg/ha/a</unit>
+  </item>
+  <item>
+    <itemName>N organic allowed Derogation (Duev)</itemName>
+    <key>NOrganicApplAllowedDer</key>
+    <unit>kg Norg/ha/a</unit>
+  </item>
+  <item>
+    <itemName>N organic applied(DueV)</itemName>
+    <key>NOrganicApplied</key>
+    <unit>kg Norg/ha/a</unit>
+  </item>
+  <item>
+    <itemName>N over plant need</itemName>
+    <key>NOverPlantNeed</key>
+    <unit>kg N/ha/a</unit>
+  </item>
+  <item>
+    <itemName>P over plant need</itemName>
+    <key>POverPlantNeed</key>
+    <unit>kg P/ha/a</unit>
+  </item>
+  <item>
+    <itemName>Manure export</itemName>
+    <key>manExportVol</key>
+    <unit>m3/a</unit>
+  </item>
+</table>
+
+<table>
+  <theme>Environmental Policy</theme>
+  <name>Emissions per a, source</name>
+  <defpivot>RDPI</defpivot>
+  <isActivity>No</isActivity>
+  <productSel>Quant</productSel>
+  <regionSel>FromDataCube</regionSel>
+  <dim5Sel>red[0-9]+_regex</dim5Sel>
+ <item>
+    <itemName>N surplus</itemName>
+    <key>NSurplus</key>
+    <unit>kg/ha/a</unit>
+  </item>
+  <item>
+    <itemName>P Surplus</itemName>
+    <key>PSurplus</key>
+    <unit>kg/ha/a</unit>
+  </item>
+  <item>
+    <itemName>N SoilSurBal</itemName>
+    <key>SoilSurfaceBalanceN</key>
+    <unit>kg/ha/a</unit>
+  </item>
+  <item>
+    <itemName>P SoilSurBal</itemName>
+    <key>SoilSurfaceBalanceP</key>
+    <unit>kg/ha/a</unit>
+  </item>
+  <item>
+    <itemName>StaSto NH3</itemName>
+    <key>staStoNH3</key>
+    <unit>kg/a</unit>
+  </item>
+  <item>
+    <itemName>StaSto N2O</itemName>
+    <key>staStoN2O</key>
+    <unit>kg/a</unit>
+  </item>
+  <item>
+    <itemName>StaSto N2Oin</itemName>
+    <key>staStoN2Oind</key>
+    <unit>kg/a</unit>
+  </item>
+  <item>
+    <itemName>StaSto NOx</itemName>
+    <key>staStoNOx</key>
+    <unit>kg/a</unit>
+  </item>
+  <item>
+    <itemName>StaSto N2</itemName>
+    <key>staStoN2</key>
+    <unit>kg/a</unit>
+  </item>
+  <item>
+    <itemName>ManPas NH3</itemName>
+    <key>manPasNH3</key>
+    <unit>kg/a</unit>
+  </item>
+  <item>
+    <itemName>ManPas N2O</itemName>
+    <key>manPasN2O</key>
+    <unit>kg/a</unit>
+  </item>
+  <item>
+    <itemName>ManPas NOx</itemName>
+    <key>manPasNOx</key>
+    <unit>kg/a</unit>
+  </item>
+  <item>
+    <itemName>ManPas N2</itemName>
+    <key>manPasN2</key>
+    <unit>kg/a</unit>
+  </item>
+  <item>
+    <itemName>ApplMa NH3</itemName>
+    <key>applManNH3</key>
+    <unit>kg/a</unit>
+  </item>
+  <item>
+    <itemName>ApplMa N2O</itemName>
+    <key>applManN2O</key>
+    <unit>kg/a</unit>
+  </item>
+  <item>
+    <itemName>ApplMa N2Oind</itemName>
+    <key>applManN2Oind</key>
+    <unit>kg/a</unit>
+  </item>
+  <item>
+    <itemName>ApplMa N2</itemName>
+    <key>applManN2</key>
+    <unit>kg/a</unit>
+  </item>
+  <item>
+    <itemName>ApplMin Nag</itemName>
+    <key>applMinAggr</key>
+    <unit>kg/a</unit>
+  </item>
+</table>
+
+<table>
+  <theme>Environmental Policy</theme>
+  <name>Emissions per a, type</name>
+  <defpivot>RDPI</defpivot>
+  <isActivity>No</isActivity>
+  <productSel>Quant</productSel>
+  <regionSel>FromDataCube</regionSel>
+  <dim5Sel>red[0-9]+_regex</dim5Sel>
+  <item>
+    <itemName>N SoilSurBal</itemName>
+    <key>SoilSurfaceBalanceN</key>
+    <unit>kg/ha/a</unit>
+  </item>
+  <item>
+    <itemName>P SoilSurBal</itemName>
+    <key>SoilSurfaceBalanceP</key>
+    <unit>kg/ha/a</unit>
+  </item>
+  <item>
+    <itemName>NH3</itemName>
+    <key>NH3aggr</key>
+    <unit>kg/a</unit>
+  </item>
+  <item>
+    <itemName>N2O</itemName>
+    <key>N2Oaggr</key>
+    <unit>kg/a</unit>
+  </item>
+  <item>
+    <itemName>NOx</itemName>
+    <key>NOxaggr</key>
+    <unit>kg/a</unit>
+  </item>
+  <item>
+    <itemName>N2</itemName>
+    <key>N2aggr</key>
+    <unit>kg/a</unit>
+  </item>
+</table>
+
+<table>
+  <theme>Environmental Policy</theme>
+  <name>Emissions per a and 1000 kg milk, type</name>
+  <defpivot>RDPI</defpivot>
+  <isActivity>No</isActivity>
+  <productSel>Quant</productSel>
+  <regionSel>FromDataCube</regionSel>
+  <dim5Sel>red[0-9]+_regex</dim5Sel>
+  <item>
+    <itemName>N Surplus (leach)</itemName>
+    <key>NSurplusLeachMilk</key>
+    <unit>kg/a/1000 kg milk</unit>
+  </item>
+  <item>
+    <itemName>P Surplus (leach)</itemName>
+    <key>PSurplusLeachMilk</key>
+    <unit>kg/a/1000 kg milk</unit>
+  </item>
+  <item>
+    <itemName>NH3</itemName>
+    <key>NH3aggrMilk</key>
+    <unit>kg/a/1000 kg milk</unit>
+  </item>
+  <item>
+    <itemName>N2O</itemName>
+    <key>N2OaggrMilk</key>
+    <unit>kg/a/1000 kg milk</unit>
+  </item>
+  <item>
+    <itemName>NOx</itemName>
+    <key>NOxaggrMilk</key>
+    <unit>kg/a/1000 kg milk</unit>
+  </item>
+  <item>
+    <itemName>N2</itemName>
+    <key>N2aggrMilk</key>
+    <unit>kg/a/1000 kg milk</unit>
+  </item>
+</table>
+
+<table>
+  <theme>Environmental Policy</theme>
+  <name>N balance</name>
+  <defpivot>RDPI</defpivot>
+  <isActivity>No</isActivity>
+  <productSel>Quant</productSel>
+  <regionSel>FromDataCube</regionSel>
+  <dim5Sel>red[0-9]+_regex</dim5Sel>
+  <item>
+    <itemName>N Surplus allowed</itemName>
+    <key>surplusDuevAllowedN</key>
+    <unit>kg N/ha/a</unit>
+  </item>
+  <item>
+    <itemName>N surplus</itemName>
+    <key>NSurplus</key>
+    <unit>kg N/ha/a</unit>
+  </item>
+  <item>
+    <itemName>N Input Organic</itemName>
+    <key>NInputOrgNBalanceDuev</key>
+    <unit>kg N/ha/a</unit>
+  </item>
+  <item>
+    <itemName>N Input Synthetic</itemName>
+    <key>NInputSyntNBalanceDuev</key>
+    <unit>kg N/ha/a</unit>
+  </item>
+  <item>
+    <itemName>N Output</itemName>
+    <key>NOutputNBalanceDuev</key>
+    <unit>kg N/ha/a</unit>
+  </item>
+</table>
+
+<table>
+  <theme>Environmental Policy</theme>
+  <name>P balance</name>
+  <defpivot>RDPI</defpivot>
+  <isActivity>No</isActivity>
+  <productSel>Quant</productSel>
+  <regionSel>FromDataCube</regionSel>
+  <dim5Sel>red[0-9]+_regex</dim5Sel>
+  <item>
+    <itemName>P Surplus allowed</itemName>
+    <key>surplusDuevAllowedP</key>
+    <unit>kg P/ha/a</unit>
+  </item>
+  <item>
+    <itemName>P surplus</itemName>
+    <key>PSurplus</key>
+    <unit>kg P/ha/a</unit>
+  </item>
+  <item>
+    <itemName>P Input Organic</itemName>
+    <key>PInputOrgPBalanceDuev</key>
+    <unit>kg P/ha/a</unit>
+  </item>
+  <item>
+    <itemName>P Input Synthetic</itemName>
+    <key>PInputSyntPBalanceDuev</key>
+    <unit>kg P/ha/a</unit>
+  </item>
+  <item>
+    <itemName>P Output</itemName>
+    <key>POutputPBalanceDuev</key>
+    <unit>kg P/ha/a</unit>
+  </item>
+</table>
+
+<table>
+  <theme>Environmental Policy</theme>
+  <name>Manure Export</name>
+  <defpivot>RDPI</defpivot>
+  <isActivity>No</isActivity>
+  <productSel>Quant</productSel>
+  <regionSel>FromDataCube</regionSel>
+  <dim5Sel>red[0-9]+_regex</dim5Sel>
+  <item>
+    <itemName>Manure export</itemName>
+    <key>manExportVol</key>
+    <unit>m3/a</unit>
+  </item>
+  <item>
+    <itemName>N export</itemName>
+    <key>manExportN</key>
+    <unit>kg N/a</unit>
+  </item>
+  <item>
+    <itemName>P export</itemName>
+    <key>manExportP</key>
+    <unit>kg P/a</unit>
+  </item>
+</table>
+
+<table>
+  <theme>GHGs</theme>
+  <name>Overview GHGs</name>
+  <defpivot>RI0Y</defpivot>
+  <isActivity>YES</isActivity>
+  <activitySel>GHGs</activitySel>
+  <regionSel>FromDataCube</regionSel>
+  <dim5Sel>red[0-9]+_regex</dim5Sel>
+  <item>
+    <itemName>Carbon price</itemName>
+    <key>carbonPrice</key>
+    <unit>Euro</unit>
+  </item>
+  <item>
+    <itemName>Production based</itemName>
+    <key>ProdBased</key>
+    <unit>CO2 equ per year</unit>
+  </item>
+  <item>
+    <itemName>Activity based</itemName>
+    <key>ActBased</key>
+    <unit>CO2 equ per year</unit>
+  </item>
+  <item>
+    <itemName>Gen based</itemName>
+    <key>GenProdBased</key>
+    <unit>CO2 equ per year</unit>
+  </item>
+  <item>
+    <itemName>N based</itemName>
+    <key>NBased</key>
+    <unit>CO2 equ per year</unit>
+  </item>
+  <item>
+    <itemName>refInd</itemName>
+    <key>refInd</key>
+    <unit>CO2 equ per year</unit>
+  </item>
+</table>
+<table>
+  <theme>GHGs</theme>
+  <name>GHGs by source</name>
+  <defpivot>I0D0</defpivot>
+  <isActivity>NO</isActivity>
+  <productSel>ind</productSel>
+  <regionSel>FromDataCube</regionSel>
+  <dim5Sel>red[0-9]+_regex</dim5Sel>
+  <item>
+    <itemName>Enteric fermentation</itemName>
+    <key>entFerm_CH4</key>
+    <unit>CO2 equ per year</unit>
+  </item>
+  <item>
+    <itemName>Manure storage, CH4</itemName>
+    <key>manStorage_CH4</key>
+    <unit>CO2 equ per year</unit>
+  </item>
+  <item>
+    <itemName>Manure storage, N2O</itemName>
+    <key>manStorage_N2O</key>
+    <unit>CO2 equ per year</unit>
+  </item>
+  <item>
+    <itemName>Manure application, CH4</itemName>
+    <key>manApplic_CH4</key>
+    <unit>CO2 equ per year</unit>
+  </item>
+  <item>
+    <itemName>Manure application, N2O</itemName>
+    <key>manApplic_N2O</key>
+    <unit>CO2 equ per year</unit>
+  </item>
+  <item>
+    <itemName>NH3 from manure, N2O</itemName>
+    <key>NH3Man_N2O</key>
+    <unit>CO2 equ per year</unit>
+  </item>
+  <item>
+    <itemName>Synthetic, N2O</itemName>
+    <key>synthApplic_N2O</key>
+    <unit>CO2 equ per year</unit>
+  </item>
+  <item>
+    <itemName>NH3 from synthetic, N2O</itemName>
+    <key>NH3Min_N2O</key>
+    <unit>CO2 equ per year</unit>
+  </item>
+  <item>
+    <itemName>Leaching, N2O</itemName>
+    <key>NLEACH_N2O</key>
+    <unit>CO2 equ per year</unit>
+  </item>
+  <item>
+    <itemName>Background soils, N2O</itemName>
+    <key>backSoil_N2O</key>
+    <unit>CO2 equ per year</unit>
+  </item>
+  <item>
+    <itemName>Background soils, CH4</itemName>
+    <key>backSoil_CH4</key>
+    <unit>CO2 equ per year</unit>
+  </item>
+</table>
+
+<table>
+  <theme>GHGs</theme>
+  <name>MACs and GHGs</name>
+  <defview>Line chart</defview>
+  <defpivot>0R0D</defpivot>
+  <isActivity>YES</isActivity>
+  <activitySel>GHGs</activitySel>
+  <regionSel>FromDataCube</regionSel>
+  <dim5Sel>red[0-9]+_regex</dim5Sel>
+  <item>
+    <itemName>Production based</itemName>
+    <key>ProdBased</key>
+    <unit>CO2 equ per year</unit>
+  </item>
+  <item>
+    <itemName>Activity based</itemName>
+    <key>ActBased</key>
+    <unit>CO2 equ per year</unit>
+  </item>
+ <item>
+    <itemName>Gen based</itemName>
+    <key>GenProdBased</key>
+    <unit>CO2 equ per year</unit>
+  </item>
+  <item>
+    <itemName>N based</itemName>
+    <key>NBased</key>
+    <unit>CO2 equ per year</unit>
+  </item>
+  <item>
+    <itemName>refInd</itemName>
+    <key>refInd</key>
+    <unit>CO2 equ per year</unit>
+  </item>
+</table>
+
+<table>
+  <theme>DueV</theme>
+  <name>Nitrogen Surplus</name>
+  <defview>Line chart</defview>
+  <defpivot>0R0D</defpivot>
+  <isActivity>No</isActivity>
+  <productSel>Quant</productSel>
+  <regionSel>FromDataCube</regionSel>
+  <dim5Sel>red[0-9]+_regex</dim5Sel>
+  <item>
+    <itemName>Suplus per total</itemName>
+    <key>surplusDueV</key>
+    <unit>kg N</unit>
+  </item>
+</table>
+<table>
+  <theme>Biodiversity</theme>
+  <name>SMART</name>
+  <defpivot>I0SP</defpivot>
+  <isActivity>NO</isActivity>
+  <regionSel>FromDataCube</regionSel>
+  <dim5Sel>FromDataCube</dim5Sel>
+  <productSel>(?i)(^$|driver|rel|val|Species|EcoSys|Genetic)_regex</productSel>
+  <dim6Sel>_regex</dim6Sel>
+  <dim6Text>hide</dim6Text>
+  <item>
+    <itemName>Proportion of arable land with zero or minimum tillage</itemName>
+    <key>182</key>
+  </item>
+  <item>
+    <itemName>Proportion of arable land with zero tillage</itemName>
+    <key>208</key>
+  </item>
+  <item>
+    <itemName>Proportion of arable land devoted to temporary grasslands               </itemName>
+    <key>215</key>
+  </item>
+  <item>
+    <itemName>Proportion of arable land of cover crops under sown                     </itemName>
+    <key>219</key>
+  </item>
+  <item>
+    <itemName>Share of permanent grass land on total agricultural land                </itemName>
+    <key>222</key>
+  </item>
+  <item>
+    <itemName>Share of EFA land on total agricultural land                            </itemName>
+    <key>229</key>
+  </item>
+  <item>
+    <itemName>Share of land without chemical herbizides on total agricultural land    </itemName>
+    <key>231</key>
+  </item>
+  <item>
+    <itemName>Share of land without chemical fungicides on total agricultural land    </itemName>
+    <key>233</key>
+  </item>
+  <item>
+    <itemName>Share of land without chemical insectides on total agricultural land    </itemName>
+    <key>234</key>
+  </item>
+  <item>
+    <itemName>How many elements does the crop rotation consist of?                    </itemName>
+    <key>236</key>
+  </item>
+  <item>
+    <itemName>How much land is mulched?                                               </itemName>
+    <key>237</key>
+  </item>
+  <item>
+    <itemName>Hybrid livestock?                                                       </itemName>
+    <key>249</key>
+  </item>
+  <item>
+    <itemName>Share of extensive grassland on total permanent grassland               </itemName>
+    <key>253</key>
+  </item>
+  <item>
+    <itemName>Share of catch crops on arable land                                     </itemName>
+    <key>285</key>
+  </item>
+  <item>
+    <itemName>Share of farmyard manure on organic manure                              </itemName>
+    <key>308</key>
+  </item>
+  <item>
+    <itemName>Mineral N per ha of agricultural land                                   </itemName>
+    <key>323</key>
+  </item>
+  <item>
+    <itemName>Easily dissolvable mineral P per ha of agricultural land, in P205       </itemName>
+    <key>324</key>
+  </item>
+  <item>
+    <itemName>Average # of cuts on grassland                                          </itemName>
+    <key>620</key>
+  </item>
+  <item>
+    <itemName>Spec diversity</itemName>
+    <key>Species</key>
+  </item>
+  <item>
+    <itemName>Ecosystem diversity</itemName>
+    <key>EcoSys</key>
+  </item>
+  <item>
+    <itemName>Genetic diversity</itemName>
+    <key>Genetic</key>
+  </item>
+  <item>
+    <itemName>Overall diversity</itemName>
+    <key>SMART</key>
+  </item>
+</table>
+<table>
+  <theme>Biodiversity</theme>
+  <name>SALCA</name>
+  <defpivot>I0SP</defpivot>
+  <isActivity>NO</isActivity>
+  <regionSel>FromDataCube</regionSel>
+  <itemDim>dim6</itemDim>
+  <activitySel>crops,total</activitySel>
+  <productSel>(?i)(Summary|Grassland flora|Flora arable land|Birds|Small mammals|Amphibians|Mollusks|Spiders|Ground beetles|Butterflies|Wild bees|Grasshoppers)_regex</productSel>
+  <dim6Sel>_regex</dim6Sel>
+  <dim6Text>hide</dim6Text>
+  <item>
+    <itemName>Normal requirements, value</itemName>
+    <key>cur_GAV</key>
+  </item>
+  <item>
+    <itemName>Normal requirements, Min</itemName>
+    <key>min_GAV</key>
+  </item>
+  <item>
+    <itemName>Normal requirements, Max</itemName>
+    <key>max_GAV</key>
+  </item>
+  <item>
+    <itemName>Normal requirements, Pot</itemName>
+    <key>pot_GAV</key>
+    <unit>%</unit>
+  </item>
+  <item>
+    <itemName>Higher requirements, value</itemName>
+    <key>cur_HOA</key>
+  </item>
+  <item>
+    <itemName>Higher requirements, Min</itemName>
+    <key>min_HOA</key>
+  </item>
+  <item>
+    <itemName>Higher requirements, Max</itemName>
+    <key>max_HOA</key>
+  </item>
+  <item>
+    <itemName>Higher requirements, Pot</itemName>
+    <key>pot_HOA</key>
+    <unit>%</unit>
+  </item>
+  <item>
+    <itemName>Average, value</itemName>
+    <key>cur_AVG</key>
+  </item>
+  <item>
+    <itemName>Average, Min</itemName>
+    <key>min_AVG</key>
+  </item>
+  <item>
+    <itemName>Average, Max</itemName>
+    <key>max_AVG</key>
+  </item>
+  <item>
+    <itemName>Average, Pot</itemName>
+    <key>pot_AVG</key>
+    <unit>%</unit>
+  </item>
+  <item>
+    <itemName>Acreage</itemName>
+    <key>Ha</key>
+    <unit>ha</unit>
+  </item>
+</table>
+<table>
+  <theme>Biodiversity</theme>
+  <name>SALCA, crop perspective</name>
+  <clone>SALCA</clone>
+  <defpivot>I0SA</defpivot>
+</table>
+<table>
+  <theme>Biodiversity</theme>
+  <name>Paracchini</name>
+  <defpivot>I0SP</defpivot>
+  <isActivity>NO</isActivity>
+  <regionSel>FromDataCube</regionSel>
+  <dim5Sel>FromDataCube</dim5Sel>
+  <productSel>(?i)(^$|val|wgt)_regex</productSel>
+  <dim6Sel>_regex</dim6Sel>
+  <dim6Text>hide</dim6Text>
+  <item>
+    <itemName>Shannon</itemName>
+    <key>shan</key>
+  </item>
+  <item>
+    <itemName>Ruminant density</itemName>
+    <key>rum</key>
+  </item>
+  <item>
+    <itemName>N-Fert</itemName>
+    <key>fert</key>
+  </item>
+  <item>
+    <itemName>Total index</itemName>
+    <key>sol</key>
+    <unit>Index [0-1]</unit>
+  </item>
+</table>
+<table>
+  <theme>Algorithm</theme>
+  <name>Model attributes</name>
+  <defpivot>RI0P</defpivot>
+  <isActivity>NO</isActivity>
+  <productSel>sum</productSel>
+  <regionSel>FromDataCube</regionSel>
+  <dim5Sel>FromDataCube</dim5Sel>
+  <dim6Sel>_regex</dim6Sel>
+  <dim6Text>hide</dim6Text>
+  <yearSel>mean_regex</yearSel>
+  <yearText>hide</yearText>
+  <item>
+    <itemName>Total solution time</itemName>
+    <key>resUsd</key>
+    <unit>sec</unit>
+  </item>
+  <item>
+    <itemName>Model execution time total</itemName>
+    <key>etSolve</key>
+    <unit>sec</unit>
+  </item>
+  <item>
+    <itemName>Model generation time</itemName>
+    <key>resGen</key>
+    <unit>sec</unit>
+  </item>
+  <item>
+    <itemName>Time for solving algorithm</itemName>
+    <key>etAlg</key>
+    <unit>sec</unit>
+  </item>
+  <item>
+    <itemName>Solver time</itemName>
+    <key>etSolver</key>
+    <unit>sec</unit>
+  </item>
+  <item>
+    <itemName>Number of iterations</itemName>
+    <key>iterUsd</key>
+    <unit></unit>
+  </item>
+  <item>
+    <itemName>Number of nodes</itemName>
+    <key>nodUsd</key>
+    <unit></unit>
+  </item>
+  <item>
+    <itemName>Number of constraints</itemName>
+    <key>numEqu</key>
+    <unit></unit>
+  </item>
+  <item>
+    <itemName>Number of variables</itemName>
+    <key>numVar</key>
+    <unit></unit>
+  </item>
+  <item>
+    <itemName> ... of which discrete</itemName>
+    <key>numDVar</key>
+    <unit></unit>
+  </item>
+  <item>
+    <itemName>Objective value</itemName>
+    <key>objVal</key>
+    <unit></unit>
+  </item>
+  <item>
+    <itemName>Objective value estimated</itemName>
+    <key>objVal</key>
+    <unit></unit>
+  </item>
+</table>
+
+
+
+<table>
+  <theme>Old tables</theme>
+  <name>Land use, mean</name>
+  <defpivot>RI0P</defpivot>
+  <isActivity>YES</isActivity>
+  <activitySel>landuse</activitySel>
+  <regionSel>FromDataCube</regionSel>
+  <yearSel>mean_regex</yearSel>
+  <dim5Sel>red[0-9]+_regex</dim5Sel>
+  <dim6Sel>_regex</dim6Sel>
+  <dim6Text>hide</dim6Text>
+  <item>
+    <itemName>Arable</itemName>
+    <key>Arab</key>
+    <unit>ha</unit>
+  </item>
+  <item>
+    <itemName>Grasland</itemName>
+    <key>Gras</key>
+    <unit>ha</unit>
+  </item>
+</table>
+<table>
+  <theme>Old tables</theme>
+  <name>Costs per ha, mean</name>
+  <clone>Costs, mean</clone>
+  <evalAll>VAL/(VAL[*,cropped,arab]+VAL[*,cropped,gras])</evalAll>
+</table>
+<table>
+  <theme>Old tables</theme>
+  <name>Revenues per ha, mean</name>
+  <clone>Revenues, mean</clone>
+  <evalAll>VAL/(VAL[*,cropped,arab]+VAL[*,cropped,gras])</evalAll>
+</table>
+<table>
+  <theme>Old tables</theme>
+  <name>Cash balance per ha, mean</name>
+  <clone>Cash balance, mean</clone>
+  <evalAll>VAL/(VAL[*,cropped,arab]+VAL[*,cropped,gras])</evalAll>
+</table>
+
+
+<table>
+  <theme>Old tables</theme>
+  <name>Crop intensities, mean</name>
+  <defpivot>RI0P</defpivot>
+  <isActivity>YES</isActivity>
+  <activitySel>intens</activitySel>
+  <regionSel>FromDataCube</regionSel>
+  <dim5Sel>red[0-9]+_regex</dim5Sel>
+  <yearSel>mean_regex</yearSel>
+  <item>
+    <itemName>Hectares</itemName>
+    <key>levl</key>
+    <unit>Heads</unit>
+  </item>
+</table>
+<table>
+  <name>Land use, time series</name>
+  <clone>Land use, mean</clone>
+  <theme>Old tables</theme>
+  <yearSel>^[0-9]*$_regex</yearSel>
+  <defpivot>RI0Y</defpivot>
+</table>
+
+<table>
+  <name>Crops,intensities, time series</name>
+  <clone>Crops, intensities</clone>
+  <theme>Old tables</theme>
+  <yearSel>^[0-9]*$_regex</yearSel>
+  <defpivot>RI0Y</defpivot>
+</table>
+<table>
+  <name>Crop intensities, time series</name>
+  <clone>Crop intensities, mean</clone>
+  <theme>Old tables</theme>
+  <yearSel>^[0-9]*$_regex</yearSel>
+  <defpivot>RI0Y</defpivot>
+</table>
+<table>
+  <name>Crops,tillage, time series</name>
+  <clone>Crops, tillage</clone>
+  <theme>Old tables</theme>
+  <yearSel>^[0-9]*$_regex</yearSel>
+  <defpivot>RI0Y</defpivot>
+</table>
+
+<table>
+  <theme>Meta analysis</theme>
+  <name>MACs</name>
+  <defpivot>0Q0P</defpivot>
+  <isActivity>YES</isActivity>
+  <activitySel>GHGs</activitySel>
+  <regionSel>FromDataCube</regionSel>
+  <dim5Sel>red[0-9]+_regex</dim5Sel>
+  <productText>Indicator for normalization</productText>
+  <item>
+    <itemName>Production based</itemName>
+    <key>ProdBased</key>
+    <unit>CO2 equ per year</unit>
+  </item>
+  <item>
+    <itemName>Activity based</itemName>
+    <key>ActBased</key>
+    <unit>CO2 equ per year</unit>
+  </item>
+ <item>
+    <itemName>Gen based</itemName>
+    <key>GenProdBased</key>
+    <unit>CO2 equ per year</unit>
+  </item>
+  <item>
+    <itemName>N based</itemName>
+    <key>NBased</key>
+    <unit>CO2 equ per year</unit>
+  </item>
+  <item>
+    <itemName>refInd</itemName>
+    <key>refInd</key>
+    <unit>CO2 equ per year</unit>
+  </item>
+</table>
+
+<table>
+  <theme>Meta analysis</theme>
+  <name>Explanatory vars</name>
+  <defpivot>0Q0P</defpivot>
+  <isActivity>YES</isActivity>
+  <activitySel>explanatoryVars</activitySel>
+  <regionSel>FromDataCube</regionSel>
+  <dim5Sel>red[0-9]+_regex</dim5Sel>
+  <productText>Indicator for normalization</productText>
+  <item>
+    <itemName>Production based</itemName>
+    <key>ProdBased</key>
+    <unit>CO2 equ per year</unit>
+  </item>
+  <item>
+    <itemName>Activity based</itemName>
+    <key>ActBased</key>
+    <unit>CO2 equ per year</unit>
+  </item>
+ <item>
+    <itemName>Gen based</itemName>
+    <key>GenProdBased</key>
+    <unit>CO2 equ per year</unit>
+  </item>
+  <item>
+    <itemName>N based</itemName>
+    <key>NBased</key>
+    <unit>CO2 equ per year</unit>
+  </item>
+  <item>
+    <itemName>refInd</itemName>
+    <key>refInd</key>
+    <unit>CO2 equ per year</unit>
+  </item>
+</table>
+
+ <activity>
+    <key>IdleGras</key>
+    <itemName>Idling grass land</itemName>
+    <sel>[all,crops]</sel>
+ </activity>
+
+ <activity>
+    <key>normal</key>
+    <itemName>Normal intensity</itemName>
+    <sel>[all,intens]</sel>
+ </activity>
+ <activity>
+    <key>fert80p</key>
+    <itemName>20% reduced N fert</itemName>
+    <sel>[all,intens]</sel>
+ </activity>
+ <activity>
+    <key>fert60p</key>
+    <itemName>40% reduced N fert</itemName>
+    <sel>[all,intens]</sel>
+ </activity>
+ <activity>
+    <key>fert40p</key>
+    <itemName>60% reduced N fert</itemName>
+    <sel>[all,intens]</sel>
+ </activity>
+ <activity>
+    <key>fert20p</key>
+    <itemName>80% reduced N fert</itemName>
+    <sel>[all,intens]</sel>
+ </activity>
+ <activity>
+    <key>plough</key>
+    <itemName>Plough</itemName>
+    <sel>[all,till]</sel>
+ </activity>
+ <activity>
+    <key>minTill</key>
+    <itemName>Minimum tillage with chiselplough</itemName>
+    <sel>[all,till]</sel>
+ </activity>
+ <activity>
+    <key>noTill</key>
+    <itemName>No tillage with direct seed</itemName>
+    <sel>[all,till]</sel>
+ </activity>
+
+ <activity>
+    <key>Milk</key>
+    <itemName>milk</itemName>
+    <sel>[all,prods]</sel>
+ </activity>
+ <activity>
+    <key>oldCow</key>
+    <itemName>Old cows</itemName>
+    <sel>[all,prods]</sel>
+ </activity>
+ <activity>
+    <key>youngCow</key>
+    <itemName>Productive cows</itemName>
+    <sel>[all,prods]</sel>
+ </activity>
+ <activity>
+    <key>mCalv</key>
+    <itemName>Mal calves</itemName>
+    <sel>[all,prods]</sel>
+ </activity>
+ <activity>
+    <key>mCalvRaisSold</key>
+    <itemName>Mal calves, sold</itemName>
+    <sel>[all,prods]</sel>
+ </activity>
+ <activity>
+    <key>fCalv</key>
+    <itemName>Female calves</itemName>
+    <sel>[all,prods]</sel>
+ </activity>
+ <activity>
+    <key>fCalvRaisSold</key>
+    <itemName>Female calves, sold</itemName>
+    <sel>[all,prods]</sel>
+ </activity>
+ <activity>
+    <key>Pig</key>
+    <itemName>Fattened pigs for slaughter</itemName>
+    <sel>[all,prods]</sel>
+ </activity>
+ <activity>
+    <key>oldSow</key>
+    <itemName>Old sows for slaughter</itemName>
+    <sel>[all,prods]</sel>
+ </activity>
+ <activity>
+    <key>BullMeat_SI</key>
+    <itemName>Bull meat, Simmental</itemName>
+    <sel>[all,prods]</sel>
+ </activity>
+ <activity>
+    <key>BullMeat_HF</key>
+    <itemName>Bull meat, HF</itemName>
+    <sel>[all,prods]</sel>
+ </activity>
+ <activity>
+    <key>HeifsSoldMotherCows</key>
+    <itemName>Sold heifers, mother cows</itemName>
+    <sel>[all,prods]</sel>
+ </activity>
+ <activity>
+    <key>sows</key>
+    <itemName>Sows</itemName>
+    <sel>[all,herds]</sel>
+ </activity>
+ <activity>
+    <key>fattners</key>
+    <itemName>Finish Phase Fattners</itemName>
+    <sel>[all,herds]</sel>
+ </activity>
+ <activity>
+    <key>latefattners</key>
+    <itemName>Late Phase Fattners</itemName>
+    <sel>[all,herds]</sel>
+ </activity>
+ <activity>
+    <key>midfattners</key>
+    <itemName>Mid Phase Fattners</itemName>
+    <sel>[all,herds]</sel>
+ </activity>
+ <activity>
+    <key>earlyfattners</key>
+    <itemName>Early Phase Fattners</itemName>
+    <sel>[all,herds]</sel>
+ </activity>
+
+
+
+ <activity>
+    <key>piglets</key>
+    <itemName>Piglets born</itemName>
+    <sel>[all,herds]</sel>
+ </activity>
+ <activity>
+    <key>pigletSold</key>
+    <itemName>Piglets raised and sold</itemName>
+    <sel>[all,prods,herds]</sel>
+ </activity>
+ <activity>
+    <key>pigletRais</key>
+    <itemName>Piglets raised and used on farm</itemName>
+    <sel>[all,herds]</sel>
+ </activity>
+
+ <activity>
+    <key>cows</key>
+    <itemName>Cows</itemName>
+    <sel>[all,herds]</sel>
+ </activity>
+ <activity>
+    <key>motherCow</key>
+    <itemName>Suckler cows</itemName>
+    <sel>[all,herds]</sel>
+ </activity>
+ <activity>
+    <key>femaleCattle</key>
+    <itemName>Female cattle wo cows</itemName>
+    <sel>[all,herds]</sel>
+ </activity>
+ <activity>
+    <key>Heifers</key>
+    <itemName>Heifs</itemName>
+    <sel>[all,herds]</sel>
+ </activity>
+ <activity>
+    <key>remonte</key>
+    <itemName>Heifers used replacement</itemName>
+    <sel>[all,herds]</sel>
+ </activity>
+ <activity>
+    <key>remonteMotherCows</key>
+    <itemName>Heifers used replacement</itemName>
+    <sel>[all,herds]</sel>
+ </activity>
+ <activity>
+    <key>heifsSoldMotherCows</key>
+    <itemName>Heifers sold, mother cows</itemName>
+    <sel>[all,herds]</sel>
+ </activity>
+ <activity>
+    <key>heifsSold</key>
+    <itemName>Heifers, sold to market</itemName>
+    <sel>[all,herds]</sel>
+ </activity>
+ <activity>
+    <key>heifsBought</key>
+    <itemName>Heifers, bought from market</itemName>
+    <sel>[all,herds]</sel>
+ </activity>
+ <activity>
+    <key>fCalvsRais</key>
+    <itemName>Female calves raised</itemName>
+    <sel>[all,herds]</sel>
+ </activity>
+ <activity>
+    <key>fCalvsSold</key>
+    <itemName>Female calves sold</itemName>
+    <sel>[all,herds]</sel>
+ </activity>
+ <activity>
+    <key>MaleCattle</key>
+    <itemName>Male cattle</itemName>
+    <sel>[all,herds]</sel>
+ </activity>
+ <activity>
+    <key>mCalvsSold</key>
+    <itemName>Male calves sold at birth</itemName>
+    <sel>[all,herds]</sel>
+ </activity>
+ <activity>
+    <key>mCalvsRais</key>
+    <itemName>Male calves raised to 180 kg</itemName>
+    <sel>[all,herds]</sel>
+ </activity>
+ <activity>
+    <key>mCalvsRaisSold</key>
+    <itemName>Male calves sold 180 kg</itemName>
+    <sel>[all,herds]</sel>
+ </activity>
+ <activity>
+    <key>Bulls</key>
+    <itemName>Bulls</itemName>
+    <sel>[all,herds]</sel>
+ </activity>
+
+<xi:include href="herds.xml">
+<xi:fallback>
+</xi:fallback>
+</xi:include>
+
+ <activity>
+    <key>elec</key>
+    <itemName>Electricity from biogas plants</itemName>
+    <sel>[all,prods]</sel>
+ </activity>
+ <activity>
+    <key>heat</key>
+    <itemName>Heat from biogas plants</itemName>
+    <sel>[all,prods]</sel>
+ </activity>
+
+
+ <activity>
+    <key>Leisure</key>
+    <itemName>Leisure</itemName>
+    <sel>[all,worksummary,worksum]</sel>
+ </activity>
+ <activity>
+    <key>Total</key>
+    <itemName>Total</itemName>
+    <sel>[all,worksummary,total]</sel>
+ </activity>
+ <activity>
+    <key>onFarm</key>
+    <itemName>On farm</itemName>
+    <sel>[all,worksummary]</sel>
+ </activity>
+ <activity>
+    <key>offFarm</key>
+    <itemName>Off farm</itemName>
+    <sel>[all,work,worksummary,worksum]</sel>
+ </activity>
+ <activity>
+    <key>HiredLabour</key>
+    <itemName>Hired labour</itemName>
+    <sel>[all,work,worksummary,worksum]</sel>
+ </activity>
+ <activity>
+    <key>farmManag</key>
+    <itemName>General farm management</itemName>
+    <sel>[all,worksummary,worksum]</sel>
+ </activity>
+ <activity>
+    <key>cashCrops</key>
+    <itemName>Management crops</itemName>
+    <sel>[all,worksummary,worksum]</sel>
+ </activity>
+ <activity>
+    <key>dairy</key>
+    <itemName>Management dairy</itemName>
+    <sel>[all,worksummary,worksum]</sel>
+ </activity>
+ <activity>
+    <key>sowPig</key>
+    <itemName>Management sows and piglets</itemName>
+    <sel>[all,worksummary,worksum]</sel>
+ </activity>
+ <activity>
+    <key>fatPig</key>
+    <itemName>Management fattners</itemName>
+    <sel>[all,worksummary,worksum]</sel>
+ </activity>
+ <activity>
+    <key>beef</key>
+    <itemName>Management beef</itemName>
+    <sel>[all,worksummary,worksum]</sel>
+ </activity>
+ <activity>
+    <key>mothercows</key>
+    <itemName>Management mother cows</itemName>
+    <sel>[all,worksummary,worksum]</sel>
+ </activity>
+ <activity>
+    <key>crops</key>
+    <itemName>Crops</itemName>
+    <sel>[all,worksummary,worksum]</sel>
+ </activity>
+ <activity>
+    <key>anim</key>
+    <itemName>Animals</itemName>
+    <sel>[all,worksummary,worksum]</sel>
+ </activity>
+ <activity>
+    <key>Stable</key>
+    <itemName>Stable</itemName>
+    <sel>[all,worksummary,worksum]</sel>
+ </activity>
+ <activity>
+    <key>biogas</key>
+    <itemName>Biogas</itemName>
+    <sel>[all,worksummary,workum]</sel>
+ </activity>
+ <activity>
+    <key>buildings</key>
+    <itemName>Buildings</itemName>
+    <sel>[all]</sel>
+ </activity>
+ <activity>
+    <key>hourly</key>
+    <itemName>Working on a hourly basis</itemName>
+    <sel>[all,work]</sel>
+ </activity>
+ <activity>
+    <key>WorkOpp1</key>
+    <itemName>Working half time</itemName>
+    <sel>[all,work]</sel>
+ </activity>
+ <activity>
+    <key>WorkOpp2</key>
+    <itemName>Working full time</itemName>
+    <sel>[all,work]</sel>
+ </activity>
+ <activity>
+    <key>WorkOpp3</key>
+    <itemName>Working 1 full plus 1 half time</itemName>
+    <sel>[all,work]</sel>
+ </activity>
+
+ <activity>
+    <key>obje</key>
+    <itemName>Revenues-costs</itemName>
+    <sel>[all,obje]</sel>
+ </activity>
+
+ <activity>
+    <key>animRev</key>
+    <itemName>Revenues from animals</itemName>
+    <sel>[all,reve]</sel>
+ </activity>
+ <activity>
+    <key>cropRev</key>
+    <itemName>Revenues from crops</itemName>
+    <sel>[all,reve]</sel>
+ </activity>
+ <activity>
+    <key>bioGasRev</key>
+    <itemName>Revenues from biogas</itemName>
+    <sel>[all,reve]</sel>
+ </activity>
+ <activity>
+    <key>intRev</key>
+    <itemName>Revenues from interest</itemName>
+    <sel>[all,reve]</sel>
+ </activity>
+ <activity>
+    <key>rentRev</key>
+    <itemName>Revenues from renting out land</itemName>
+    <sel>[all,reve]</sel>
+ </activity>
+ <activity>
+    <key>offFarmRev</key>
+    <itemName>Revenues from working off farm</itemName>
+    <sel>[all,reve]</sel>
+ </activity>
+
+  <activity>
+    <itemName>Calories</itemName>
+    <key>calories</key>
+    <unit>KCal per year</unit>
+    <sel>[all,GHGs]</sel>
+ </activity>
+ <activity>
+    <key>FTE</key>
+    <itemName>Flow to equity</itemName>
+    <!-- <tooltip>Flow to equity: discounted cash balance at the end of the planning period where farm is liquidated</tooltip> -->
+    <sel>[all,cashbal,GHGs]</sel>
+ </activity>
+ <activity>
+    <key>liquid</key>
+    <itemName>cash balance</itemName>
+    <sel>[all,cashbal]</sel>
+ </activity>
+ <activity>
+    <key>profit</key>
+    <itemName>Profit</itemName>
+    <sel>[all,cashbal]</sel>
+ </activity>
+ <activity>
+    <key>depr</key>
+    <itemName>Depreciation</itemName>
+    <sel>[all,cashbal]</sel>
+ </activity>
+ <activity>
+    <key>netCashFlow</key>
+    <itemName>Net cash flow</itemName>
+    <sel>[all,cashbal]</sel>
+ </activity>
+ <activity>
+    <key>opCashFlow</key>
+    <itemName>Operational cash flow</itemName>
+    <sel>[all,cashbal]</sel>
+ </activity>
+ <activity>
+    <key>finCashFlow</key>
+    <itemName>Financial cash flow</itemName>
+    <sel>[all,cashbal]</sel>
+ </activity>
+ <activity>
+    <key>invCashFlow</key>
+    <itemName>Cash flow (dis)investments</itemName>
+    <sel>[all,cashbal]</sel>
+ </activity>
+ <activity>
+    <key>withDraw</key>
+    <itemName>Profit widthdrawals</itemName>
+    <sel>[all,cashbal]</sel>
+ </activity>
+ <activity>
+    <key>incomeTaxTot</key>
+    <itemName>Income Tax</itemName>
+    <sel>[all,cashbal]</sel>
+ </activity>
+ <activity>
+    <key>netWithDraw</key>
+    <itemName>Withdrawals after taxes</itemName>
+    <sel>[all,cashbal]</sel>
+ </activity>
+ <activity>
+    <key>sumInv</key>
+    <itemName>New investments</itemName>
+    <sel>[all,cashbal]</sel>
+ </activity>
+ <activity>
+    <key>credits</key>
+    <itemName>Outstanding credits</itemName>
+    <sel>[all,cashbal]</sel>
+ </activity>
+
+ <activity>
+    <key>tractor]</key>
+    <itemName>Tractor [German:Traktor]</itemName>
+    <sel>[all,machines]</sel>
+ </activity>
+ <activity>
+    <key>tractorSmall</key>
+    <itemName>Tractor, smaller size[German:Traktor, kleinere Grösse]</itemName>
+    <sel>[all,machines]</sel>
+ </activity>
+ <activity>
+    <key>combine</key>
+    <itemName>Combine [German:Mähdrescher]</itemName>
+    <sel>[all,machines]</sel>
+ </activity>
+ <activity>
+    <key>cuttingUnitCere</key>
+    <itemName>Cutting unit cereals[German:Getreideschneidwerk]</itemName>
+    <sel>[all,machines]</sel>
+ </activity>
+ <activity>
+    <key>cuttingUnitMaiz</key>
+    <itemName>Cutting unit maiz[German:Maispflücker, Vorsatz]</itemName>
+    <sel>[all,machines]</sel>
+ </activity>
+ <activity>
+    <key>cuttingAddRape[German:Rapstisch]</key>
+    <itemName>Additional cutting unit rape</itemName>
+    <sel>[all,machines]</sel>
+ </activity>
+ <activity>
+    <key>ThreeWayTippingTrailer[German:Dreiseitenkipper]</key>
+    <itemName>Three-way tipper</itemName>
+    <sel>[all,machines]</sel>
+ </activity>
+ <activity>
+    <key>plough[German:Pflug]</key>
+    <itemName>Plough[German:Pflug]</itemName>
+    <sel>[all,machines]</sel>
+ </activity>
+ <activity>
+    <key>chiselPlough[German:Schwergrubber]</key>
+    <itemName>Chisel plough[German:Schwergrubber]</itemName>
+    <sel>[all,machines]</sel>
+ </activity>
+ <activity>
+    <key>springTineHarrow[German:Federzinkenegge]</key>
+    <itemName>Spring tine harrow</itemName>
+    <sel>[all,machines]</sel>
+ </activity>
+ <activity>
+    <key>Fingerharrow[German:Hackstriegel]</key>
+    <itemName>Fingerharrow</itemName>
+    <sel>[all,machines]</sel>
+ </activity>
+ <activity>
+    <key>seedBedCombi[German:Saatbeetkombinatio</key>
+    <itemName>Seed bed combination[German:Saatbeetkombination]</itemName>
+    <sel>[all,machines]</sel>
+ </activity>
+ <activity>
+    <key>circHarrow[German:Scheibenegge]</key>
+    <itemName>Circular harrow</itemName>
+    <sel>[all,machines]</sel>
+ </activity>
+ <activity>
+    <key>rotaryHarrow</key>
+    <itemName>Rotary harrow[German:Kreiselegge]</itemName>
+    <sel>[all,machines]</sel>
+ </activity>
+ <activity>
+    <key>directSowMachine</key>
+    <itemName>Direct Sower[German:Direktsaatmaschine]</itemName>
+    <sel>[all,machines]</sel>
+ </activity>
+ <activity>
+    <key>sowMachine</key>
+    <itemName>Sower[German:Sämaschine]</itemName>
+    <sel>[all,machines]</sel>
+ </activity>
+ <activity>
+    <key>singleSeeder</key>
+    <itemName>Precision air seeder (maiz, beet)[German:Einzekornlegegerät]</itemName>
+    <sel>[all,machines]</sel>
+ </activity>
+ <activity>
+    <key>grasReSeedingUnit</key>
+    <itemName>Reseeding unit for gras[German:Ggrasnachsämaschine]</itemName>
+    <sel>[all,machines]</sel>
+ </activity>
+ <activity>
+    <key>mowerConditioner</key>
+    <itemName>Mower with conditioner[German:Rotationsmähwerk mit Mähaufbereitung]</itemName>
+    <sel>[all,machines]</sel>
+ </activity>
+ <activity>
+    <key>sprayer</key>
+    <itemName>Crop protection sprayer, 15m[German:Pflanzenspritze, 15m]</itemName>
+    <sel>[all,machines]</sel>
+ </activity>
+ <activity>
+    <key>fertSpreaderSmall</key>
+    <itemName>Fertiliser spreader, 800 l[German: Düngerstreuer, 800l]</itemName>
+    <sel>[all,machines]</sel>
+ </activity>
+ <activity>
+    <key>fertSpreaderLarge</key>
+    <itemName>Fertiliser spreader, 4000 l[German: Düngerstreuer, 4000l]</itemName>
+    <sel>[all,machines]</sel>
+ </activity>
+ <activity>
+    <key>manBarrel</key>
+    <itemName>Manure barrel</itemName>
+    <sel>[all,machines]</sel>
+ </activity>
+ <activity>
+    <key>draghose</key>
+    <itemName>Manure drag hose</itemName>
+    <sel>[all,machines]</sel>
+ </activity>
+ <activity>
+    <key>injector</key>
+    <itemName>Manure injector</itemName>
+    <sel>[all,machines]</sel>
+ </activity>
+ <activity>
+    <key>potatoPlanter</key>
+    <itemName>Potato planter</itemName>
+    <sel>[all,machines]</sel>
+ </activity>
+ <activity>
+    <key>potatoLifer</key>
+    <itemName>Potato lifter[German:Kartoffenbunkerroder]</itemName>
+    <sel>[all,machines]</sel>
+ </activity>
+ <activity>
+    <key>ridger[German:Kartoffelhäufer mit Dammformer]</key>
+    <itemName>Potato ridger</itemName>
+    <sel>[all,machines]</sel>
+ </activity>
+ <activity>
+    <key>Hoe</key>
+    <itemName>Hoe[German:Hackmaschine]</itemName>
+    <sel>[all,machines]</sel>
+ </activity>
+ <activity>
+    <key>haulmCutter</key>
+    <itemName>Potato hauml topper[German:Kartoffelkrautschläger]</itemName>
+    <sel>[all,machines]</sel>
+ </activity>
+ <activity>
+    <key>mulcher</key>
+    <itemName>Mulcher</itemName>
+    <sel>[all,machines]</sel>
+ </activity>
+ <activity>
+    <key>rake</key>
+    <itemName>Rake[German:Kreiselschwader]</itemName>
+    <sel>[all,machines]</sel>
+ </activity>
+ <activity>
+    <key>rotaryTedder[German:Kreiselzettwender]</key>
+    <itemName>Rotary tedder</itemName>
+    <sel>[all,machines]</sel>
+ </activity>
+ <activity>
+    <key>roller[German:Glattwalze]</key>
+    <itemName>Roller</itemName>
+    <sel>[all,machines]</sel>
+ </activity>
+ <activity>
+    <key>siloBlockCutter[German:Siloblockschneider, 3cbm]</key>
+    <itemName>Silo-Block-Cutter, 3cbm</itemName>
+    <sel>[all,machines]</sel>
+ </activity>
+ <activity>
+    <key>shearGrab</key>
+    <itemName>Sheargrab, 2cbm[German: Schneidszange, 2cbm]</itemName>
+    <sel>[all,machines]</sel>
+ </activity>
+ <activity>
+    <key>dungGrab</key>
+    <itemName>dungGrab, 1.25cbm [German:Dungzange, 1.25cbm]</itemName>
+    <sel>[all,machines]</sel>
+ </activity>
+ <activity>
+    <key>frontLoader</key>
+    <itemName>Front-Loader, 1750 DaN [German:Frontlader, 1750 DaN]</itemName>
+    <sel>[all,machines]</sel>
+ </activity>
+ <activity>
+    <key>fodderMixingVeh8</key>
+    <itemName>Fodder Mixing Vehicle, 8cbm[German:Futtermischwagen, 8cbm]</itemName>
+    <sel>[all,machines]</sel>
+ </activity>
+ <activity>
+    <key>fodderMixingVeh10</key>
+    <itemName>Fodder Mixing Vehicle, 10cbm[German:Futtermischwagen, 10cbm]</itemName>
+    <sel>[all,machines]</sel>
+ </activity>
+ <activity>
+    <key>fodderMixingVeh16</key>
+    <itemName>Fodder Mixing Vehicle, 16cbm[German:Futtermischwagen, 16cbm]</itemName>
+    <sel>[all,machines]</sel>
+ </activity>
+
+ <activity>
+    <key>Shed</key>
+    <itemName>Shed for suckler cows, 100 places</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+ <activity>
+    <key>ShedLarge</key>
+    <itemName>Shed for suckler cows, 200 places</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+ <activity>
+    <key>milk30</key>
+    <itemName>Dairy stable, 30 places</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+ <activity>
+    <key>milk45</key>
+    <itemName>Dairy stable, 45 places</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+ <activity>
+    <key>milk60</key>
+    <itemName>Dairy stable, 60 places</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+ <activity>
+    <key>milk75</key>
+    <itemName>Dairy stable, 75 places</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+ <activity>
+    <key>milk90</key>
+    <itemName>Dairy stable, 90 places</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+ <activity>
+    <key>milk105</key>
+    <itemName>Dairy stable, 105 places</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+ <activity>
+    <key>milk120</key>
+    <itemName>Dairy stable, 120 places</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+ <activity>
+    <key>milk135</key>
+    <itemName>Dairy stable, 135 places</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+ <activity>
+    <key>milk150</key>
+    <itemName>Dairy stable, 150 places</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+ <activity>
+    <key>milk165</key>
+    <itemName>Dairy stable, 165 places</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+ <activity>
+    <key>milk180</key>
+    <itemName>Dairy stable, 180 places</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+ <activity>
+    <key>milk195</key>
+    <itemName>Dairy stable, 195 places</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+ <activity>
+    <key>milk210</key>
+    <itemName>Dairy stable, 210 places</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+ <activity>
+    <key>milk225</key>
+    <itemName>Dairy stable, 225 places</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+ <activity>
+    <key>milk240</key>
+    <itemName>Dairy stable, 240 places</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+ <activity>
+    <key>youngCattle15</key>
+    <itemName>Young cattle stable, 15 places</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+ <activity>
+    <key>youngCattle30</key>
+    <itemName>Young cattle stable, 30 places</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+ <activity>
+    <key>youngCattle45</key>
+    <itemName>Young cattle stable, 45 places</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+ <activity>
+    <key>youngCattle60</key>
+    <itemName>Young cattle stable, 60 places</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+ <activity>
+    <key>youngCattle75</key>
+    <itemName>Young cattle stable, 75 places</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+ <activity>
+    <key>youngCattle90</key>
+    <itemName>Young cattle stable, 90 places</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+ <activity>
+    <key>youngCattle120</key>
+    <itemName>Young cattle stable, 210 places</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+ <activity>
+    <key>youngCattle150</key>
+    <itemName>Young cattle stable, 150 places</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+ <activity>
+    <key>youngCattle180</key>
+    <itemName>Young cattle stable, 180 places</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+ <activity>
+    <key>youngCattle210</key>
+    <itemName>Young cattle stable, 210 places</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+ <activity>
+    <key>youngCattle24</key>
+    <itemName>Young cattle stable, 240 places</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+ <activity>
+    <key>calves15</key>
+    <itemName>Calves, 15 places</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+ <activity>
+    <key>calves30</key>
+    <itemName>Calves, 30 places</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+ <activity>
+    <key>calves60</key>
+    <itemName>Calves, 60 places</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+ <activity>
+    <key>calves75</key>
+    <itemName>Calves, 75 places</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+ <activity>
+    <key>calves90</key>
+    <itemName>Calves, 90 places</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+ <activity>
+    <key>fat400</key>
+    <itemName>Fattner stable, 400 places</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+ <activity>
+    <key>fat400</key>
+    <itemName>Fattner stable, 400 places</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+ <activity>
+    <key>fat500</key>
+    <itemName>Fattner stable, 500 places</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+ <activity>
+    <key>fat800</key>
+    <itemName>Fattner stable, 800 places</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+ <activity>
+    <key>fat1000</key>
+    <itemName>Fattner stable, 1000 places</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+ <activity>
+    <key>fat1200</key>
+    <itemName>Fattner stable, 1200 places</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+ <activity>
+    <key>fat1500</key>
+    <itemName>Fattner stable, 1500 places</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+ <activity>
+    <key>fat1800</key>
+    <itemName>Fattner stable, 1800 places</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+ <activity>
+    <key>fat2400</key>
+    <itemName>Fattner stable, 2400 places</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+ <activity>
+    <key>sows120</key>
+    <itemName>Sow stable, 120 places</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+ <activity>
+    <key>sows200</key>
+    <itemName>Sow stable, 200 places</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+ <activity>
+    <key>sows250</key>
+    <itemName>Sow stable, 250 places</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+ <activity>
+    <key>sows300</key>
+    <itemName>Sow stable, 300 places</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+ <activity>
+    <key>sows400</key>
+    <itemName>Sow stable, 400 places</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+ <activity>
+    <key>sows500</key>
+    <itemName>Sow stable, 500 places</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+ <activity>
+    <key>piglet500</key>
+    <itemName>Piglet stable, 500 places</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+ <activity>
+    <key>piglet750</key>
+    <itemName>Piglet stable, 750 places</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+ <activity>
+    <key>piglet1000</key>
+    <itemName>Piglet stable, 1000 places</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+ <activity>
+    <key>piglet1500</key>
+    <itemName>Piglet stable, 1500 places</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+ <activity>
+    <key>piglet2000</key>
+    <itemName>Piglet stable, 2000 places</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+ <activity>
+    <key>potaStore500t</key>
+    <itemName>Potato storge 500t</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+ <activity>
+    <key>bunkerSilo880</key>
+    <itemName>Bunker silo, 880cbm</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+ <activity>
+    <key>bunkerSilo1540</key>
+    <itemName>Bunker silo, 1540cbm</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+ <activity>
+    <key>bunkerSilo2630</key>
+    <itemName>Bunker silo, 2630cbm</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+ <activity>
+    <key>bunkerSilo4250</key>
+    <itemName>Bunker silo, 4250cbm</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+ <activity>
+    <key>bunkerSilo8750</key>
+    <itemName>Bunker silo, 8750cbm</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+ <activity>
+    <key>bunkerSilo10800</key>
+    <itemName>Bunker silo, 10800cbm</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+ <activity>
+    <key>bunkerSilo26250</key>
+    <itemName>Bunker silo, 26250cbm</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+ <activity>
+    <key>silo500</key>
+    <itemName>Manure Silo, 500cbm</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+ <activity>
+    <key>silo1000</key>
+    <itemName>Manure Silo, 1000cbm</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+ <activity>
+    <key>silo1500</key>
+    <itemName>Manure Silo, 1500cbm</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+ <activity>
+    <key>silo2000</key>
+    <itemName>Manure Silo, 2000cbm</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+ <activity>
+    <key>silo3000</key>
+    <itemName>Manure Silo, 3000cbm</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+<activity>
+    <key>silo4000</key>
+    <itemName>Manure Silo, 4000mcbm</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+<activity>
+    <key>silo5000</key>
+    <itemName>Manure Silo, 5000cbm</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+<activity>
+    <key>silo6000</key>
+    <itemName>Manure Silo, 6000cbm</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+<activity>
+    <key>silo8000</key>
+    <itemName>Manure Silo, 8000cbm</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+<activity>
+    <key>silo10000</key>
+    <itemName>Manure Silo, 10000cbm</itemName>
+    <sel>[all,buildings]</sel>
+ </activity>
+ <activity>
+    <key>milkCow</key>
+    <itemName>Stables for milk cows</itemName>
+    <sel>[all,stableTypes]</sel>
+ </activity>
+ <activity>
+    <key>youngCattle</key>
+    <itemName>Stables for young cattle</itemName>
+    <sel>[all,stableTypes]</sel>
+ </activity>
+ <activity>
+    <key>calves</key>
+    <itemName>Stables for calves</itemName>
+    <sel>[all,stableTypes]</sel>
+ </activity>
+ <activity>
+    <key>fattners</key>
+    <itemName>Stables for fattners</itemName>
+    <sel>[all,stableTypes]</sel>
+ </activity>
+ <activity>
+    <key>sows</key>
+    <itemName>Stables for sows</itemName>
+    <sel>[all,stableTypes]</sel>
+ </activity>
+ <activity>
+    <key>piglets</key>
+    <itemName>Stables for piglets</itemName>
+    <sel>[all,stableTypes]</sel>
+ </activity>
+ <activity>
+    <key>150KW</key>
+    <itemName>Biogas fermenter, 150 kw</itemName>
+    <sel>[all,biogas]</sel>
+ </activity>
+  <activity>
+    <key>250KW</key>
+    <itemName>Biogas fermenter, 250 kw</itemName>
+    <sel>[all,biogas]</sel>
+ </activity>
+ <activity>
+    <key>500KW</key>
+    <itemName>Biogas fermenter, 500 kw</itemName>
+    <sel>[all,biogas]</sel>
+ </activity>
+ <activity>
+    <key>E2004</key>
+    <itemName>EEG 2004</itemName>
+    <sel>[all,biogas]</sel>
+ </activity>
+ <activity>
+    <key>E2009</key>
+    <itemName>EEG 2009</itemName>
+    <sel>[all,biogas]</sel>
+ </activity>
+ <activity>
+    <key>EM2009</key>
+    <itemName>EEG 2009 with manure bonus</itemName>
+    <sel>[all,biogas]</sel>
+ </activity>
+ <activity>
+    <key>E2012</key>
+    <itemName>EEG 2012</itemName>
+    <sel>[all,biogas]</sel>
+ </activity>
+
+
+ <activity>
+    <key>GHGs</key>
+    <itemName>Green House Gas emisisons in CO2 equivalent</itemName>
+    <sel>[all,GHGs]</sel>
+ </activity>
+ <activity>
+    <key>mac</key>
+    <itemName>Marginal abatement costs</itemName>
+    <sel>[all,GHGs]</sel>
+ </activity>
+  <activity>
+    <key>avAC</key>
+    <itemName>average abatement costs</itemName>
+    <sel>[all,GHGs]</sel>
+ </activity>
+  <activity>
+    <key>totAC</key>
+    <itemName>total abatement costs</itemName>
+    <sel>[all,GHGs]</sel>
+ </activity>
+ <activity>
+    <key>totLand</key>
+    <itemName>Total land</itemName>
+    <sel>[all,landuse]</sel>
+ </activity>
+ <activity>
+    <key>cropped</key>
+    <itemName>cropped</itemName>
+    <sel>[all,landuse]</sel>
+ </activity>
+ <activity>
+    <key>buyLand</key>
+    <itemName>Buying of land</itemName>
+    <sel>[all,landuse]</sel>
+ </activity>
+ <activity>
+    <key>rentOut</key>
+    <itemName>Renting out of land</itemName>
+    <sel>[all,landuse]</sel>
+ </activity>
+
+ <activity>
+    <key>nCows</key>
+    <itemName>Size of starting cow herd</itemName>
+    <sel>[explanatoryVars]</sel>
+ </activity>
+ <activity>
+    <key>milkYield</key>
+    <itemName>Average starting milk yield</itemName>
+    <sel>[explanatoryVars]</sel>
+ </activity>
+ <activity>
+    <key>stableYear</key>
+    <itemName>Age of stables</itemName>
+    <sel>[explanatoryVars]</sel>
+ </activity>
+ <activity>
+    <key>Aks</key>
+    <itemName>Number of Aks</itemName>
+    <sel>[explanatoryVars]</sel>
+ </activity>
+ <activity>
+    <key>maxStockingRate</key>
+    <itemName>maximum stocking rate allowed</itemName>
+    <sel>[explanatoryVars]</sel>
+ </activity>
+ <activity>
+    <key>lastYear</key>
+    <itemName>lastYear of simulation</itemName>
+    <sel>[explanatoryVars]</sel>
+ </activity>
+ <activity>
+    <key>redLevl</key>
+    <itemName>reduction levl</itemName>
+    <sel>[explanatoryVars]</sel>
+ </activity>
+
+
+
+
+
+ <product>
+    <key>Quant</key>
+    <itemName>Quantities</itemName>
+    <sel>[all,Quant]</sel>
+ </product>
+ <product>
+    <key>Price</key>
+    <itemName>Price</itemName>
+    <sel>[all,Price]</sel>
+ </product>
+ <product>
+    <key>norm</key>
+    <itemName>normal weather</itemName>
+    <sel>[weather]</sel>
+ </product>
+ <product>
+    <key>wet</key>
+    <itemName>wet weather</itemName>
+    <sel>[weather]</sel>
+ </product>
+ <product>
+    <key>dry</key>
+    <itemName>dry weather</itemName>
+    <sel>[weather]</sel>
+ </product>
+ <product>
+    <key>JAN</key>
+    <itemName>Jan</itemName>
+    <sel>[months]</sel>
+ </product>
+ <product>
+    <key>FEB</key>
+    <itemName>Feb</itemName>
+    <sel>[months]</sel>
+ </product>
+ <product>
+    <key>MAR</key>
+    <itemName>Mar</itemName>
+    <sel>[months]</sel>
+ </product>
+ <product>
+    <key>APR</key>
+    <itemName>Apr</itemName>
+    <sel>[months]</sel>
+ </product>
+ <product>
+    <key>MAY</key>
+    <itemName>May</itemName>
+    <sel>[months]</sel>
+ </product>
+ <product>
+    <key>JUN</key>
+    <itemName>Jun</itemName>
+    <sel>[months]</sel>
+ </product>
+ <product>
+    <key>JUL</key>
+    <itemName>Jul</itemName>
+    <sel>[months]</sel>
+ </product>
+ <product>
+    <key>AUG</key>
+    <itemName>Aug</itemName>
+    <sel>[months]</sel>
+ </product>
+ <product>
+    <key>SEP</key>
+    <itemName>Sep</itemName>
+    <sel>[months]</sel>
+ </product>
+ <product>
+    <key>OCT</key>
+    <itemName>Oct</itemName>
+    <sel>[months]</sel>
+ </product>
+ <product>
+    <key>NOV</key>
+    <itemName>Nov</itemName>
+    <sel>[months]</sel>
+ </product>
+ <product>
+    <key>DEC</key>
+    <itemName>Dec</itemName>
+    <sel>[months]</sel>
+ </product>
+ <product>
+    <key>ActBased</key>
+    <itemName>ActBased</itemName>
+    <sel>[ind]</sel>
+ </product>
+ <product>
+    <key>ProdBased</key>
+    <itemName>ProdBased</itemName>
+    <sel>[ind]</sel>
+ </product>
+ <product>
+    <key>GenProdBased</key>
+    <itemName>GenProdBased</itemName>
+    <sel>[ind]</sel>
+ </product>
+ <product>
+    <key>NBased</key>
+    <itemName>NBased</itemName>
+    <sel>[ind]</sel>
+ </product>
+ <product>
+    <key>refInd</key>
+    <itemName>refInd</itemName>
+    <sel>[ind]</sel>
+ </product>
+ <product>
+    <key>sum</key>
+    <itemName>Sum</itemName>
+    <sel>[sum]</sel>
+ </product>
+
+
+
+
+
+<table>
+  <name>Manure, mean</name>
+  <theme>Old tables</theme>
+  <defpivot>RI0P</defpivot>
+  <isActivity>NO</isActivity>
+  <productSel>Quant</productSel>
+  <regionSel>FromDataCube</regionSel>
+  <dim5Sel>red[0-9]+_regex</dim5Sel>
+  <yearSel>mean_regex</yearSel>
+  <item>
+    <itemName>Manure quantity</itemName>
+    <key>manure</key>
+    <unit>m3</unit>
+  </item>
+  <item>
+    <itemName>Subfloor storage capacity</itemName>
+    <key>SubManStorCap</key>
+    <unit>m3</unit>
+  </item>
+  <item>
+    <itemName>Silo storage capacity</itemName>
+    <key>SiloManStorCap</key>
+    <unit>m3</unit>
+  </item>
+  <item>
+    <itemName>Total storage capacity</itemName>
+    <key>TotalManStorCap</key>
+    <unit>m3</unit>
+  </item>
+  <item>
+    <itemName>N losses during storage</itemName>
+    <key>nLossesStorage</key>
+    <unit>kg N</unit>
+  </item>
+  <item>
+    <itemName>Broad spread</itemName>
+    <key>NapplSpread</key>
+    <unit>N kg</unit>
+  </item>
+  <item>
+    <itemName>drag hose</itemName>
+    <key>NapplTailh</key>
+    <unit>N kg</unit>
+  </item>
+  <item>
+    <itemName>Injected</itemName>
+    <key>NapplInjec</key>
+    <unit>N kg</unit>
+  </item>
+</table>
+
+<table>
+  <name>Manure, time series</name>
+  <theme>Old tables</theme>
+  <clone>Manure, mean</clone>
+  <defpivot>RI0Y</defpivot>
+  <yearSel>^[0-9]*$_regex</yearSel>
+</table>
+
+<table>
+  <name>Storages, per month, mean</name>
+  <theme>Old tables</theme>
+  <defpivot>RI0P</defpivot>
+  <isActivity>NO</isActivity>
+  <productSel>months</productSel>
+  <regionSel>FromDataCube</regionSel>
+  <dim5Sel>red[0-9]+_regex</dim5Sel>
+  <item>
+    <itemName>Volume in overall Storage</itemName>
+    <key>InStorage</key>
+    <unit>m3</unit>
+  </item>
+  <item>
+    <itemName>Subfloor</itemName>
+    <key>storsub</key>
+    <unit>m3</unit>
+  </item>
+  <item>
+    <itemName>Silo no Cover</itemName>
+    <key>stornocov</key>
+    <unit>m3</unit>
+  </item>
+  <item>
+    <itemName>Silo with straw</itemName>
+    <key>storstraw</key>
+    <unit>m3</unit>
+  </item>
+  <item>
+    <itemName>Silo with foil</itemName>
+    <key>storfoil</key>
+    <unit>m3</unit>
+  </item>
+</table>
+
+<table>
+  <clone>Storages, per month, mean</clone>
+  <theme>Old tables</theme>
+  <name>Storages, total, mean</name>
+  <productSel>Quant</productSel>
+</table>
+
+<table>
+  <theme>Old tables</theme>
+  <name>Herd summary, numbers, Env Acc</name>
+  <defpivot>RDPI</defpivot>
+  <isActivity>No</isActivity>
+  <productSel>Quant</productSel>
+  <regionSel>FromDataCube</regionSel>
+  <dim5Sel>red[0-9]+_regex</dim5Sel>
+  <item>
+    <itemName>Cows</itemName>
+    <key>sumHerdCows</key>
+    <unit>n</unit>
+  </item>
+  <item>
+    <itemName>Heifers</itemName>
+    <key>sumHerdHeifs</key>
+    <unit>n</unit>
+  </item>
+  <item>
+    <itemName>Female calves raised</itemName>
+    <key>sumHerdfcalvsRais</key>
+    <unit>n</unit>
+  </item>
+  <item>
+    <itemName>Female calves sold</itemName>
+    <key>sumHerdfcalvsSold</key>
+    <unit>n</unit>
+  </item>
+  <item>
+    <itemName>Male calves sold</itemName>
+    <key>sumHerdmcalvsSold</key>
+    <unit>n</unit>
+  </item>
+  <item>
+    <itemName>LU total</itemName>
+    <key>LUtot</key>
+    <unit>LU</unit>
+  </item>
+  <item>
+    <itemName>LU young stock</itemName>
+    <key>LUrepl</key>
+    <unit>LU per ha and a</unit>
+  </item>
+  <item>
+    <itemName>LU total per ha</itemName>
+    <key>LUperha</key>
+    <unit>LU per ha and a</unit>
+  </item>
+</table>
+
+<table>
+  <theme>Old tables</theme>
+  <name>Herd summary, Env Acc</name>
+  <defpivot>RI0P</defpivot>
+  <isActivity>YES</isActivity>
+  <activitySel>herds</activitySel>
+  <regionSel>FromDataCube</regionSel>
+  <dim5Sel>red[0-9]+_regex</dim5Sel>
+  <item>
+    <itemName>Herd size</itemName>
+    <key>levl</key>
+    <unit>Heads</unit>
+  </item>
+  <item>
+    <itemName>Milk yield</itemName>
+    <key>milk</key>
+    <unit>liter/head and year</unit>
+  </item>
+
+  <item>
+    <itemName>Number of lactations</itemName>
+    <key>nLac</key>
+    <unit>liter/head and year</unit>
+  </item>
+</table>
+
+<table>
+  <theme>Old tables</theme>
+  <name>Crops summary, Env Acc</name>
+  <defpivot>RI0P</defpivot>
+  <isActivity>YES</isActivity>
+  <activitySel>crops</activitySel>
+  <regionSel>FromDataCube</regionSel>
+  <dim5Sel>red[0-9]+_regex</dim5Sel>
+  <item>
+    <itemName>Hectares</itemName>
+    <key>levl</key>
+    <unit>ha</unit>
+  </item>
+  <item>
+    <itemName>Yield</itemName>
+    <key>yield</key>
+    <unit>t DM/ha</unit>
+  </item>
+  <item>
+    <itemName>Mineral fertilizer application</itemName>
+    <key>NMin</key>
+    <unit>kg N/ha</unit>
+  </item>
+  <item>
+    <itemName>Manure application</itemName>
+    <key>NmanAplHa</key>
+    <unit>kg N/ha</unit>
+  </item>
+  <item>
+    <itemName>From grazing</itemName>
+    <key>NGrazHa</key>
+    <unit>kg N/ha</unit>
+  </item>
+  <item>
+    <itemName>Broad spread</itemName>
+    <key>NapplSpread</key>
+    <unit>kg N</unit>
+  </item>
+  <item>
+    <itemName>drag hose</itemName>
+    <key>NapplTailh</key>
+    <unit>kg N</unit>
+  </item>
+  <item>
+    <itemName>Injected</itemName>
+    <key>NapplInjec</key>
+    <unit>kg N</unit>
+  </item>
+</table>
+
+<table>
+  <theme>Old tables</theme>
+  <name>Feeding summary, Env Acc</name>
+  <defpivot>RDPI</defpivot>
+  <isActivity>No</isActivity>
+  <productSel>Quant</productSel>
+  <regionSel>FromDataCube</regionSel>
+  <dim5Sel>red[0-9]+_regex</dim5Sel>
+  <item>
+    <itemName>Cows</itemName>
+    <key>sumHerdCows</key>
+    <unit>n</unit>
+  </item>
+</table>
+
+<table>
+  <theme>Old tables</theme>
+  <name>Emissions per a and cow, type</name>
+  <defpivot>RDPI</defpivot>
+  <isActivity>No</isActivity>
+  <productSel>Quant</productSel>
+  <regionSel>FromDataCube</regionSel>
+  <dim5Sel>red[0-9]+_regex</dim5Sel>
+  <item>
+    <itemName>N SoilSurBal</itemName>
+    <key>NSurplusLeachCow</key>
+    <unit>kg/a/cow</unit>
+  </item>
+  <item>
+    <itemName>P SoilSurBal</itemName>
+    <key>PSurplusLeachCow</key>
+    <unit>kg/a/cow</unit>
+  </item>
+  <item>
+    <itemName>NH3</itemName>
+    <key>NH3aggrCow</key>
+    <unit>kg/a/cow</unit>
+  </item>
+  <item>
+    <itemName>N2O</itemName>
+    <key>N2OaggrCow</key>
+    <unit>kg/a/cow</unit>
+  </item>
+  <item>
+    <itemName>NOx</itemName>
+    <key>NOxaggrCow</key>
+    <unit>kg/a/cow</unit>
+  </item>
+  <item>
+    <itemName>N2</itemName>
+    <key>N2aggrCow</key>
+    <unit>kg/a/cow</unit>
+  </item>
+</table>
+
+ <table>
+  <theme>Old tables</theme>
+  <name>NH3 application, month</name>
+  <defpivot>RDPI</defpivot>
+  <isActivity>No</isActivity>
+  <productSel>months</productSel>
+  <regionSel>FromDataCube</regionSel>
+  <dim5Sel>red[0-9]+_regex</dim5Sel>
+  <item>
+    <itemName>NH3 application</itemName>
+    <key>applManNH3Mon</key>
+    <unit>kg/m</unit>
+  </item>
+  <item>
+    <itemName>NTAN in storage</itemName>
+    <key>NTANstorage</key>
+    <unit>kg/m</unit>
+  </item>
+  <item>
+    <itemName>NOrg in storage</itemName>
+    <key>NOrgStorage</key>
+    <unit>kg/m</unit>
+  </item>
+  <item>
+    <itemName>P in storage</itemName>
+    <key>PStorage</key>
+    <unit>kg/m</unit>
+  </item>
+</table>
+
+
+
+<!-- SustainBeef -->
+<!-- Overview -->
+<table>
+<clone>Feeding by herds, mean</clone>
+ <theme>SustainBeef</theme>
+ <subTheme>Overview</subTheme>
+<name>Feeding</name>
+</table>
+
+<table>
+<theme>SustainBeef</theme>
+<subTheme>Overview</subTheme>
+<name>Arable production</name>
+<defpivot>RI0P</defpivot>
+<isActivity>YES</isActivity>
+<activitySel>crops</activitySel>
+<regionSel>FromDataCube</regionSel>
+<dim5Sel>red[0-9]+_regex</dim5Sel>
+<item>
+  <itemName>Hectares</itemName>
+  <key>levl</key>
+  <unit>ha</unit>
+</item>
+<item>
+  <itemName>Yield</itemName>
+  <key>yield</key>
+  <unit>t FM/ha</unit>
+</item>
+</table>
+
+<table>
+  <theme>SustainBeef</theme>
+  <subTheme>Overview</subTheme>
+  <name>Livestockunits</name>
+  <defpivot>RDPI</defpivot>
+  <isActivity>No</isActivity>
+  <productSel>Quant</productSel>
+  <regionSel>FromDataCube</regionSel>
+  <dim5Sel>red[0-9]+_regex</dim5Sel>
+  <item>
+    <itemName>LU total</itemName>
+    <key>LUtot</key>
+    <unit>LU</unit>
+  </item>
+  <item>
+    <itemName>LU total per ha</itemName>
+    <key>LUperha</key>
+    <unit>LU per ha and a</unit>
+  </item>
+  <item>
+    <itemName>LU total per ha grazing</itemName>
+    <key>LUperhaGraz</key>
+    <unit>LU per ha and a</unit>
+  </item>
+</table>
+
+  <table>
+    <theme>SustainBeef</theme>
+    <subTheme>Overview</subTheme>
+    <name>Fertilization_N</name>
+      <defpivot>RI0P</defpivot>
+      <isActivity>YES</isActivity>
+      <activitySel>crops</activitySel>
+      <regionSel>FromDataCube</regionSel>
+      <dim5Sel>red[0-9]+_regex</dim5Sel>
+      <item>
+        <itemName>Total Need</itemName>
+        <key>NNeed</key>
+        <unit>kg P2O5</unit>
+      </item>
+      <item>
+        <itemName>Mineral fertilizer application</itemName>
+        <key>NMin</key>
+        <unit>kg N/ha</unit>
+      </item>
+      <item>
+        <itemName>Manure application</itemName>
+        <key>NmanAplHa</key>
+        <unit>kg N/ha</unit>
+      </item>
+      <item>
+        <itemName>From grazing</itemName>
+        <key>NGrazHa</key>
+        <unit>kg N/ha</unit>
+      </item>
+</table>
+
+<table>
+  <theme>SustainBeef</theme>
+  <subTheme>Overview</subTheme>
+  <name>Fertilization_P</name>
+  <defpivot>RI0P</defpivot>
+  <isActivity>YES</isActivity>
+  <activitySel>crops</activitySel>
+  <regionSel>FromDataCube</regionSel>
+  <dim5Sel>red[0-9]+_regex</dim5Sel>
+  <dim6Sel>_regex</dim6Sel>
+  <item>
+    <itemName>Total Need</itemName>
+    <key>PNeed</key>
+    <unit>kg P</unit>
+  </item>
+  <item>
+    <itemName>Mineral</itemName>
+    <key>PMIN</key>
+    <unit>kg P</unit>
+  </item>
+  <item>
+    <itemName>Manure application</itemName>
+    <key>PmanAplHa</key>
+    <unit>kg P/ha</unit>
+  </item>
+  <item>
+    <itemName>Grazing</itemName>
+    <key>PGraz</key>
+    <unit>kg P</unit>
+  </item>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Environmental -->
+<table>
+ <theme>SustainBeef</theme>
+ <subTheme>Environmental</subTheme>
+  <name>Overview EnvAcc</name>
+  <defpivot>RDPI</defpivot>
+  <isActivity>No</isActivity>
+  <productSel>Quant</productSel>
+  <regionSel>FromDataCube</regionSel>
+  <dim5Sel>red[0-9]+_regex</dim5Sel>
+  <item>
+    <itemName>Total global warming potential</itemName>
+    <key>totGWP</key>
+    <unit>kg CO2eq/a</unit>
+  </item>
+  <item>
+    <itemName>Total Particulate Matter Formation</itemName>
+    <key>totPMFP</key>
+    <unit>kg PM2.5eq/a</unit>
+  </item>
+  <item>
+    <itemName>Total Terrestrial Acidification Potential</itemName>
+    <key>totTAP</key>
+    <unit>kg SO2eq/a</unit>
+  </item>
+  <item>
+    <itemName>Total Freshwater Eutrophication Potential</itemName>
+    <key>totFEP</key>
+    <unit>kg P-eq/a</unit>
+  </item>
+  <item>
+    <itemName>Total Marinewater Eutrophication Potential</itemName>
+    <key>totMEP</key>
+    <unit>kg N-eq/a</unit>
+  </item>
+  <item>
+    <itemName>Total Carbon Balance</itemName>
+    <key>CarbBal</key>
+    <unit>kg C</unit>
+  </item>
+  <item>
+    <itemName>Total Carbon Balance ha</itemName>
+    <key>CarbBalHa</key>
+    <unit>kg C/ha</unit>
+  </item>
+</table>
+
+<table>
+ <theme>SustainBeef</theme>
+ <subTheme>Environmental</subTheme>
+  <name>GlobalWarmingPotential</name>
+  <defpivot>RDPI</defpivot>
+  <isActivity>No</isActivity>
+  <productSel>Quant</productSel>
+  <regionSel>FromDataCube</regionSel>
+  <dim5Sel>red[0-9]+_regex</dim5Sel>
+  <item>
+    <itemName>Total global warming potential</itemName>
+    <key>totGWP</key>
+    <unit>kg CO2eq/a</unit>
+  </item>
+  <item>
+    <itemName>Global warming potential enteric fermentation</itemName>
+    <key>entFermGWP</key>
+    <unit>kg CO2eq/a</unit>
+  </item>
+  <item>
+    <itemName>Global warming potential pastures</itemName>
+    <key>pastGWP</key>
+    <unit>kg CO2eq/a</unit>
+  </item>
+  <item>
+    <itemName>Global warming potential stable and storage</itemName>
+    <key>stastoGWP</key>
+    <unit>kg CO2eq/a</unit>
+  </item>
+  <item>
+    <itemName>Global warming potential manure application</itemName>
+    <key>manapplGWP</key>
+    <unit>kg CO2eq/a</unit>
+  </item>
+  <item>
+    <itemName>Global warming potential mineral fertilizer</itemName>
+    <key>minapplGWP</key>
+    <unit>kg CO2eq/a</unit>
+  </item>
+  <item>
+    <itemName>Global warming potential input</itemName>
+    <key>inputGWP</key>
+    <unit>kg CO2eq/a</unit>
+  </item>
+  <item>
+    <itemName>Global warming potential indirect field</itemName>
+    <key>fieldGWP</key>
+    <unit>kg CO2eq/a</unit>
+  </item>
+</table>
+<table>
+ <theme>SustainBeef</theme>
+ <subTheme>Environmental</subTheme>
+  <name>ParticulateMatterFormation</name>
+  <defpivot>RDPI</defpivot>
+  <isActivity>No</isActivity>
+  <productSel>Quant</productSel>
+  <regionSel>FromDataCube</regionSel>
+  <dim5Sel>red[0-9]+_regex</dim5Sel>
+  <item>
+    <itemName>Total Particulate Matter Formation</itemName>
+    <key>totPMFP</key>
+    <unit>kg PM2.5eq/a</unit>
+  </item>
+  <item>
+    <itemName>Particulate Matter Formation enteric fermentation</itemName>
+    <key>entFermPMFP</key>
+    <unit>kg PM2.5eq/a</unit>
+  </item>
+  <item>
+    <itemName>Particulate Matter Formation pastures</itemName>
+    <key>pastPMFP</key>
+    <unit>kg PM2.5eq/a</unit>
+  </item>
+  <item>
+    <itemName>Particulate Matter Formation stable and storage</itemName>
+    <key>stastoPMFP</key>
+    <unit>kg PM2.5eq/a</unit>
+  </item>
+  <item>
+    <itemName>Particulate Matter Formation manure application</itemName>
+    <key>manapplPMFP</key>
+    <unit>kg PM2.5eq/a</unit>
+  </item>
+  <item>
+    <itemName>Particulate Matter Formation mineral fertilizer</itemName>
+    <key>minapplPMFP</key>
+    <unit>kg PM2.5eq/a</unit>
+  </item>
+  <item>
+    <itemName>Particulate Matter Formation input</itemName>
+    <key>inputPMFP</key>
+    <unit>kg PM2.5eq/a</unit>
+  </item>
+  <item>
+    <itemName>Particulate Matter Formation indirect field</itemName>
+    <key>fieldPMFP</key>
+    <unit>kg PM2.5eq/a</unit>
+  </item>
+</table>
+<table>
+ <theme>SustainBeef</theme>
+ <subTheme>Environmental</subTheme>
+  <name>TerrestrialAcidificationPotential</name>
+  <defpivot>RDPI</defpivot>
+  <isActivity>No</isActivity>
+  <productSel>Quant</productSel>
+  <regionSel>FromDataCube</regionSel>
+  <dim5Sel>red[0-9]+_regex</dim5Sel>
+  <item>
+    <itemName>Total Terrestrial Acidification Potential</itemName>
+    <key>totTAP</key>
+    <unit>kg SO2eq/a</unit>
+  </item>
+  <item>
+    <itemName>Terrestrial Acidification Potential enteric fermentation</itemName>
+    <key>entFermTAP</key>
+    <unit>kg SO2eq/a</unit>
+  </item>
+  <item>
+    <itemName>Terrestrial Acidification Potential pastures</itemName>
+    <key>pastTAP</key>
+    <unit>kg SO2eq/a</unit>
+  </item>
+  <item>
+    <itemName>Terrestrial Acidification Potential stable and storage</itemName>
+    <key>stastoTAP</key>
+    <unit>kg SO2eq/a</unit>
+  </item>
+  <item>
+    <itemName>Terrestrial Acidification Potential manure application</itemName>
+    <key>manapplTAP</key>
+    <unit>kg SO2eq/a</unit>
+  </item>
+  <item>
+    <itemName>Terrestrial Acidification Potential mineral fertilizer</itemName>
+    <key>minapplTAP</key>
+    <unit>kg SO2eq/a</unit>
+  </item>
+  <item>
+    <itemName>Terrestrial Acidification Potential input</itemName>
+    <key>inputTAP</key>
+    <unit>kg SO2eq/a</unit>
+  </item>
+  <item>
+    <itemName>Terrestrial Acidification Potential indirect field</itemName>
+    <key>fieldTAP</key>
+    <unit>kg SO2eq/a</unit>
+  </item>
+</table>
+<table>
+ <theme>SustainBeef</theme>
+ <subTheme>Environmental</subTheme>
+  <name>FreshwaterEutrophicationPotential</name>
+  <defpivot>RDPI</defpivot>
+  <isActivity>No</isActivity>
+  <productSel>Quant</productSel>
+  <regionSel>FromDataCube</regionSel>
+  <dim5Sel>red[0-9]+_regex</dim5Sel>
+  <item>
+    <itemName>Total Freshwater Eutrophication Potential</itemName>
+    <key>totFEP</key>
+    <unit>kg P-eq/a</unit>
+  </item>
+  <item>
+    <itemName>Freshwater Eutrophication Potential enteric fermentation</itemName>
+    <key>entFermFEP</key>
+    <unit>kg P-eq/a</unit>
+  </item>
+  <item>
+    <itemName>Freshwater Eutrophication Potential pastures</itemName>
+    <key>pastFEP</key>
+    <unit>kg P-eq/a</unit>
+  </item>
+  <item>
+    <itemName>Freshwater Eutrophication Potential stable and storage</itemName>
+    <key>stastoFEP</key>
+    <unit>kg P-eq/a</unit>
+  </item>
+  <item>
+    <itemName>Freshwater Eutrophication Potential manure application</itemName>
+    <key>manapplFEP</key>
+    <unit>kg P-eq/a</unit>
+  </item>
+  <item>
+    <itemName>Freshwater Eutrophication Potential mineral fertilizer</itemName>
+    <key>minapplFEP</key>
+    <unit>kg P-eq/a</unit>
+  </item>
+  <item>
+    <itemName>Freshwater Eutrophication Potential input</itemName>
+    <key>inputFEP</key>
+    <unit>kg P-eq/a</unit>
+  </item>
+  <item>
+    <itemName>Freshwater Eutrophication Potential indirect field</itemName>
+    <key>fieldFEP</key>
+    <unit>kg P-eq/a</unit>
+  </item>
+</table>
+
+<table>
+ <theme>SustainBeef</theme>
+ <subTheme>Environmental</subTheme>
+  <name>MarinewaterEutrophicationPotential</name>
+  <defpivot>RDPI</defpivot>
+  <isActivity>No</isActivity>
+  <productSel>Quant</productSel>
+  <regionSel>FromDataCube</regionSel>
+  <dim5Sel>red[0-9]+_regex</dim5Sel>
+  <item>
+    <itemName>Total Marinewater Eutrophication Potential</itemName>
+    <key>totMEP</key>
+    <unit>kg N-eq/a</unit>
+  </item>
+  <item>
+    <itemName>Marinewater Eutrophication Potential enteric fermentation</itemName>
+    <key>entFermMEP</key>
+    <unit>kg N-eq/a</unit>
+  </item>
+  <item>
+    <itemName>Marinewater Eutrophication Potential pastures</itemName>
+    <key>pastMEP</key>
+    <unit>kg N-eq/a</unit>
+  </item>
+  <item>
+    <itemName>Marinewater Eutrophication Potential stable and storage</itemName>
+    <key>stastoMEP</key>
+    <unit>kg N-eq/a</unit>
+  </item>
+  <item>
+    <itemName>Marinewater Eutrophication Potential manure application</itemName>
+    <key>manapplMEP</key>
+    <unit>kg N-eq/a</unit>
+  </item>
+  <item>
+    <itemName>Marinewater Eutrophication Potential mineral fertilizer</itemName>
+    <key>minapplMEP</key>
+    <unit>kg N-eq/a</unit>
+  </item>
+  <item>
+    <itemName>Marinewater Eutrophication Potential input</itemName>
+    <key>inputMEP</key>
+    <unit>kg N-eq/a</unit>
+  </item>
+  <item>
+    <itemName>Marinewater Eutrophication Potential indirect field</itemName>
+    <key>fieldMEP</key>
+    <unit>kg N-eq/a</unit>
+  </item>
+</table>
+
+
+
+<table>
+ <theme>SustainBeef</theme>
+ <subTheme>Environmental</subTheme>
+  <name>All Emissions</name>
+  <defpivot>RDPI</defpivot>
+  <isActivity>No</isActivity>
+  <productSel>Quant</productSel>
+  <regionSel>FromDataCube</regionSel>
+  <dim5Sel>red[0-9]+_regex</dim5Sel>
+  <item>
+    <itemName>CH4 emissions from enteric fermentation and respiration</itemName>
+    <key>entFermCH4</key>
+    <unit>kg Ch4/a</unit>
+  </item>
+  <item>
+    <itemName>CH4 emissions from manure storage</itemName>
+    <key>staStoCH4</key>
+    <unit>kg CH4/a</unit>
+  </item>
+  <item>
+    <itemName>NH3 from stable and storage</itemName>
+    <key>staStoNH3</key>
+    <unit>kg NH3-N/a</unit>
+  </item>
+  <item>
+    <itemName>N2O from stable and storage</itemName>
+    <key>staStoN2O</key>
+    <unit>kg N2O-N/a</unit>
+  </item>
+  <item>
+    <itemName>N2Oind from stable and storage</itemName>
+    <key>staStoN2Oind</key>
+    <unit>kg N2Oind-N/a</unit>
+  </item>
+  <item>
+    <itemName>NOx from stable and storage</itemName>
+    <key>staStoNOx</key>
+    <unit>kg NOx-N/a</unit>
+  </item>
+  <item>
+    <itemName>N2 from stable and storage</itemName>
+    <key>staStoN2</key>
+    <unit>kg N2-N/a</unit>
+  </item>
+  <item>
+    <itemName>CH4 emissions from pastures</itemName>
+    <key>manPasCH4</key>
+    <unit>kg CH4/a</unit>
+  </item>
+  <item>
+    <itemName>NH3 from pastures</itemName>
+    <key>manPasNH3</key>
+    <unit>kg NH3-N/a</unit>
+  </item>
+  <item>
+    <itemName>N2O from pastures</itemName>
+    <key>manPasN2O</key>
+    <unit>kg N2O-N/a</unit>
+  </item>
+  <item>
+    <itemName>N2Oind from pastures</itemName>
+    <key>manPasN2Oind</key>
+    <unit>kg N2Oind-N/a</unit>
+  </item>
+  <item>
+    <itemName>NOx from pastures</itemName>
+    <key>manPasNOx</key>
+    <unit>kg NOx-N/a</unit>
+  </item>
+  <item>
+    <itemName>N2 from pastures</itemName>
+    <key>manPasN2</key>
+    <unit>kg N2-N/a</unit>
+  </item>
+  <item>
+    <itemName>NH3 from manure application</itemName>
+    <key>applManNH3</key>
+    <unit>kg NH3-N/a</unit>
+  </item>
+  <item>
+    <itemName>N2O from manure application</itemName>
+    <key>applManN2O</key>
+    <unit>kg N2O-N/a</unit>
+  </item>
+  <item>
+    <itemName>N2Oind from manure application</itemName>
+    <key>applManN2Oind</key>
+    <unit>kg N2Oind-N/a</unit>
+  </item>
+  <item>
+    <itemName>NOx from manure application</itemName>
+    <key>applManNOx</key>
+    <unit>kg NOx-N/a</unit>
+  </item>
+  <item>
+    <itemName>N2 from manure application</itemName>
+    <key>applManN2</key>
+    <unit>kg N2-N/a</unit>
+  </item>
+  <item>
+    <itemName>NH3 from mineral fertilizer application</itemName>
+    <key>applMinNH3</key>
+    <unit>kg NH3-N/a</unit>
+  </item>
+  <item>
+    <itemName>N2O from mineral fertilizer application</itemName>
+    <key>applMinN2O</key>
+    <unit>kg N2O-N/a</unit>
+  </item>
+  <item>
+    <itemName>N2Oind from mineral fertilizer application</itemName>
+    <key>applMinN2Oind</key>
+    <unit>kg N2Oind-N/a</unit>
+  </item>
+  <item>
+    <itemName>NOx from mineral fertilizer application</itemName>
+    <key>applMinNOx</key>
+    <unit>kg NOx-N/a</unit>
+  </item>
+  <item>
+    <itemName>N2 from mineral fertilizer application</itemName>
+    <key>applMinN2</key>
+    <unit>kg N2-N/a</unit>
+  </item>
+  <item>
+    <itemName>N2Oind from leached N</itemName>
+    <key>leachN2Oind</key>
+    <unit>kg N2O-N/a</unit>
+  </item>
+  <item>
+    <itemName>CO2 from bought inputs</itemName>
+    <key>InputCO2</key>
+    <unit>kg CO2/a</unit>
+  </item>
+  <item>
+    <itemName>N leaching losses</itemName>
+    <key>leachN</key>
+    <unit>kg N/a</unit>
+  </item>
+  <item>
+    <itemName>PO3 losses</itemName>
+    <key>lossP</key>
+    <unit>kg PO3/a</unit>
+  </item>
+  <item>
+    <itemName>Humus C balance</itemName>
+    <key>humBal</key>
+    <unit>kg C/a</unit>
+  </item>
+</table>
+
+<!-- Social -->
+<table>
+  <theme>SustainBeef</theme>
+  <subTheme>Social</subTheme>
+  <name>Overview work, mean</name>
+  <defpivot>RI0P</defpivot>
+  <isActivity>YES</isActivity>
+  <activitySel>worksummary</activitySel>
+  <regionSel>FromDataCube</regionSel>
+  <dim5Sel>red[0-9]+_regex</dim5Sel>
+  <yearSel>mean_regex</yearSel>
+  <dim6Sel>_regex</dim6Sel>
+  <item>
+    <itemName>Hours</itemName>
+    <key>hours</key>
+    <unit>per year</unit>
+  </item>
+</table>
+<table>
+  <theme>SustainBeef</theme>
+  <subTheme>Social</subTheme>
+  <name>Overview work, mean, pie chart</name>
+  <clone>Overview work, mean</clone>
+  <activitySel>worksum</activitySel>
+  <defView>Pie chart</defView>
+</table>
+
+<table>
+ <theme>SustainBeef</theme>
+ <subTheme>Social</subTheme>
+  <name>Calories</name>
+  <defpivot>RDPI</defpivot>
+  <isActivity>No</isActivity>
+  <productSel>Quant</productSel>
+  <regionSel>FromDataCube</regionSel>
+  <dim5Sel>red[0-9]+_regex</dim5Sel>
+  <item>
+    <itemName>Total calories prod</itemName>
+    <key>CalProd</key>
+    <unit>kg prod/a</unit>
+  </item>
+  <item>
+    <itemName>Total calories prod animal</itemName>
+    <key>CalProdAni</key>
+    <unit>kg prod/a</unit>
+  </item>
+  <item>
+    <itemName>Total calories prod ha</itemName>
+    <key>CalHa</key>
+    <unit>kg/ha</unit>
+  </item>
+  <item>
+    <itemName>Total calories fed to animal</itemName>
+    <key>CalFeed</key>
+    <unit>kg</unit>
+  </item>
+  <item>
+    <itemName>Total calories from vegie</itemName>
+    <key>CalVeg</key>
+    <unit>kg</unit>
+  </item>
+  <item>
+    <itemName>Calorie efficiency</itemName>
+    <key>CalEffi</key>
+    <unit>kg/kg</unit>
+  </item>
+</table>
+
+<table>
+ <theme>SustainBeef</theme>
+ <subTheme>Social</subTheme>
+  <name>Protein</name>
+  <defpivot>RDPI</defpivot>
+  <isActivity>No</isActivity>
+  <productSel>Quant</productSel>
+  <regionSel>FromDataCube</regionSel>
+  <dim5Sel>red[0-9]+_regex</dim5Sel>
+  <item>
+    <itemName>Total protein prod</itemName>
+    <key>ProtProd</key>
+    <unit>kg</unit>
+  </item>
+  <item>
+    <itemName>Total protein prod animal</itemName>
+    <key>ProtProdAni</key>
+    <unit>kg</unit>
+  </item>
+  <item>
+    <itemName>Total protein prod ha</itemName>
+    <key>ProtHa</key>
+    <unit>kg/ha</unit>
+  </item>
+  <item>
+    <itemName>Total protein fed to animal</itemName>
+    <key>ProtFeed</key>
+    <unit>kg</unit>
+  </item>
+  <item>
+    <itemName>Total protein from vegie</itemName>
+    <key>ProtVeg</key>
+    <unit>kg</unit>
+  </item>
+  <item>
+    <itemName>Protein efficiency</itemName>
+    <key>ProtEffi</key>
+    <unit>kg/kg</unit>
+  </item>
+</table>
+
+
+
+
+
+
+<!-- Economics -->
+<table>
+ <theme>SustainBeef</theme>
+ <subTheme>Economics</subTheme>
+ <name>Contribution Margin animals, mean</name>
+  <defpivot>RI0P</defpivot>
+  <isActivity>YES</isActivity>
+  <activitySel>herds</activitySel>
+  <regionSel>FromDataCube</regionSel>
+  <dim5Sel>red[0-9]+_regex</dim5Sel>
+  <yearSel>mean_regex</yearSel>
+  <dim6Text>Breeds</dim6Text>
+  <dim6Sel>(?i)(^$|SI|HF)_regex</dim6Sel>
+  <item>
+    <itemName>Herd size</itemName>
+    <key>levl</key>
+    <unit>Heads</unit>
+  </item>
+  <item>
+    <itemName>Revenues</itemName>
+    <key>reve</key>
+    <unit>Euro/head</unit>
+  </item>
+  <item>
+    <itemName>Variable costs</itemName>
+    <key>vCost</key>
+    <unit>Euro/head</unit>
+  </item>
+  <item>
+    <itemName>Variable costs not specified</itemName>
+    <key>vCostO</key>
+    <unit>Euro/head</unit>
+  </item>
+  <item>
+    <itemName>Remonte</itemName>
+    <key>remonte</key>
+    <unit>Euro/head</unit>
+  </item>
+  <item>
+    <itemName>Costs of concentrates</itemName>
+    <key>fCost</key>
+    <unit>Euro/head</unit>
+  </item>
+  <item>
+    <itemName>Costs for own produced feed</itemName>
+    <key>fnmCost</key>
+    <unit>Euro/head</unit>
+  </item>
+  <item>
+    <itemName>Gross margin</itemName>
+    <key>gm</key>
+    <unit>Euro/head</unit>
+  </item>
+  <item>
+    <itemName>Labour</itemName>
+    <key>labHour</key>
+    <unit>hours/head</unit>
+  </item>
+  <item>
+    <itemName>Milk yield</itemName>
+    <key>milk</key>
+    <unit>liter/head and year</unit>
+  </item>
+  <item>
+    <itemName>Number of lactations</itemName>
+    <key>nLac</key>
+    <unit></unit>
+  </item>
+  <item>
+    <itemName>Length</itemName>
+    <key>prodLength</key>
+    <unit>Month</unit>
+  </item>
+</table>
+
+<table>
+ <theme>SustainBeef</theme>
+ <subTheme>Economics</subTheme>
+   <name>Gross margin crops, mean</name>
+   <defpivot>RI0P</defpivot>
+   <isActivity>YES</isActivity>
+   <activitySel>crops</activitySel>
+   <regionSel>FromDataCube</regionSel>
+   <yearSel>mean_regex</yearSel>
+   <dim5Sel>red[0-9]+_regex</dim5Sel>
+   <dim6Sel>|plough|minTill|noTill|eco|normal|fert80p|fert60p|fert40p|fert20p_regex</dim6Sel>
+   <item>
+     <itemName>Hectares</itemName>
+     <key>levl</key>
+     <unit>Heads</unit>
+   </item>
+   <item>
+     <itemName>Yield</itemName>
+     <key>yield</key>
+     <unit>t/ha</unit>
+   </item>
+   <item>
+     <itemName>Revenues</itemName>
+     <key>reve</key>
+     <unit>Euro/ha</unit>
+   </item>
+   <item>
+     <itemName>Price</itemName>
+     <key>price</key>
+     <unit>Euro/t</unit>
+   </item>
+   <item>
+     <itemName>Variable costs</itemName>
+     <key>vCost</key>
+     <unit>Euro/ha</unit>
+   </item>
+   <item>
+     <itemName>Gross margin</itemName>
+     <key>gm</key>
+     <unit>Euro/ha</unit>
+   </item>
+   <item>
+     <itemName>Labour</itemName>
+     <key>labHour</key>
+     <unit>hours/ha</unit>
+   </item>
+ </table>
+ </tables>

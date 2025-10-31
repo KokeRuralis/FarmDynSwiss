@@ -1,0 +1,10 @@
+baralg=0
+bardisplay=2
+mipdisplay=4
+mipstart=2
+names=no
+relaxfixedinfeas=1
+simdisplay=1
+solvefinal=1
+lpmethod=0
+threads=-1

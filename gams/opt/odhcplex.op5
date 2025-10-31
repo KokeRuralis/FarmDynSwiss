@@ -1,0 +1,21 @@
+*
+* --- ODHCPLEX options
+*
+ deterministic  0
+ integeronly 0
+ extracplexlog  1
+ dynamicsearch=1
+ strategy=2
+ SUB_CPX_THREADS=2
+*
+* --- CPLEX options
+*
+* Note: mipstart might be set to 6
+*       (not check if binary heuristics could set all binaries)
+*
+ mipstart=5
+ mipdisplay=4
+ solvefinal=1
+ parallelmode=-1
+ nodefileind=3
+ relaxFixedInfeas=1

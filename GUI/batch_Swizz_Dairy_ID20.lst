@@ -1,0 +1,294 @@
+GAMS 39.1.0  5f04cd76 May 3, 2022           WEX-WEI x86 64bit/MS Windows - 06/29/23 21:17:29 Page 1
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+C o m p i l a t i o n
+
+
+   1   
+   2  * ---------------------------------
+   3  *
+   4  * General settings for batch file mode
+   5  *
+   6  * ---------------------------------
+   7   
+   8   
+   9  * Enter here the output directory for the HTML page with the report from the batch mode
+  10   
+  11  output dir = C:/temp/qmTemp
+****       $140$36,409
+****  36  '=' or '..' or ':=' or '$=' operator expected
+****      rest of statement ignored
+**** 140  Unknown symbol
+**** 409  Unrecognizable item - skip to find a new statement
+****        looking for a ';' or a key word to get started again
+  12   
+  13  work dir = ..\gams
+  14   
+  15  Res dir = ..\results
+  16   
+  17  Restart dir = T:\britz\dairydyn\restart
+  18   
+  19  Dat dir = ..\dat
+  20   
+  21  * ---------------------------------
+  22  *
+  23  * Task specific settings for batch file mode
+  24  *
+  25  * ---------------------------------
+  26   
+  27   
+  28  task = Single farm run
+  29  *  Scenario description = enterName
+  30  *  Farm branches = Dairy,Arable
+  31  *  Definition of herd size = Number
+  32    cropsFile = crops_ch
+  33    cropsGmsFile = crops_ch
+  34    CropOpFile = cropop_ch
+  35    Machinery = mach_ch
+  36    Feeds = feeds_ch
+  37    Stables = stables_ch
+  38  *  Silos = silos_de
+  39  *  Buildings = buildings_de
+  40    Cattle = cattle_ch
+  41  *  Stochastic programming = false
+  42  *  Post-Model stochastics = false
+  43  *  Allow for off farm work = false
+  44    Allow hiring full-time farm workers = true
+  45  *  Allow buying or selling land = false
+  46  *  Max land bought per plot [ha] = 10.0
+  47  *  Allow leasing land = false
+  48  *  Land rent [Euro/ha] = 310
+  49  *  Calibrate = false
+  50  *  File with calibration results = farm_empty
+  51  *  Dynamics\n in model = Comparative-static
+  52  *  First Year = 2010
+  53  *  Threshold for non-continous investment (Euro /ha or hour) = 3.0
+  54  *  Treat initial assets as sunk cost = false
+  55    Disable investment in new stable = true
+  56  *  Determination of land endowment = Total arab and grass land
+  57    Arable land = 30
+  58    Grassland = 12
+  59    Pasture land = 8
+  60    Allow grassland (not pasture) on arable land = true
+  61  *  Max stocking rate = 6.0
+  62    AWU = 2.0
+  63    Actual working hours annually\n for first AK = 2800
+****                                            $7,140,36
+****   7  '(' expected
+****  36  '=' or '..' or ':=' or '$=' operator expected
+****      rest of statement ignored
+**** 140  Unknown symbol
+  64  *  Actual working hours annually\n for second AK = 2400
+  65  *  Actual working hours annually\n for further AK = 2400
+  66  *  Value of leisure [Euro/hour] = 0.1
+  67  *  Max monthly time load deviation[%] = 20.0
+  68  *  Max monthly management labour deviation[%] = 0.0
+  69  *  Household consumption for first family member = 10000
+  70  *  Income tax = None
+  71  *  Taxes = 10000.0,10000.0,20000.0,30000.0,40000.0,50000.0,60000.0,70000.0,100000.0,200000.0,20000.0,1.0,12.0,7.0,4.0,3.0,2.0,2.0,4.0,5.0,
+  72  *  TaxesCouple = 10000.0,10000.0,20000.0,30000.0,40000.0,50000.0,60000.0,70000.0,100000.0,200000.0,20000.0,3.0,17.0,6.0,1.0,2.0,5.0,2.0,6.0,2.0,
+  73  *  Cow breed = Holstein
+  74  *  Type cows = HF
+  75    Milk yield (in 100 kg/hd) = 70
+****       $441  $140$120$149,8,442,10,8,409
+****   8  ')' expected
+****  10  ',' expected
+**** 120  Unknown identifier entered as set
+**** 140  Unknown symbol
+**** 149  Uncontrolled set entered as constant
+**** 409  Unrecognizable item - skip to find a new statement
+****        looking for a ';' or a key word to get started again
+**** 441  Expected TO or DOWNTO. The general syntax of a FOR statement is
+****        FOR ( i = start TO/DOWNTO end [BY increment] , statements )
+**** 442  Expected a ',' or BY. The general syntax of a FOR statement is
+****        FOR ( i = start TO/DOWNTO end [BY increment] , statements )
+  76    Number of cows = 80
+  77  *  Cow coupled premium (Eur/head/yr) = 0.0
+  78  *  Cows per ha = 1.5
+  79  *  Max yearly growth rate of cow herd (%) = 4.0
+  80  *  Cow stable inventory = Slatted_floor
+  81  *  Number of mother cows = 100
+  82  *  Mother cows coupled premium (Eur/head/yr) = 0.0
+  83  *  Mothercow breed = Angus
+  84  *  Type mothercows = MC
+  85  *  Mother cows stable inventory = Slatted_floor
+  86  *  Cross breeding = false
+  87  *  Cross breed = myCrossBreed
+  88  *  Use male sexing = false
+  89  *  Cost of male sexing = 50
+  90  *  Use female sexing = false
+  91  *  Cost of female sexing = 50
+  92  *  Sexed semen accuracy = 90
+  93  *  Additional inseminations = 0.34
+  94  *  Allow selling cows before last lactation = true
+  95  *  Group calvings = false
+  96  *  Calving Months = JAN,FEB
+  97  *  Grazing Cows =
+  98  *  Partial grazing cows = MAR,APR,MAY,JUN,JUL,AUG,SEP
+  99  *  No grazing cows = JAN,FEB,MAR,APR,MAY,JUN,JUL,AUG,SEP,OCT,NOV,DEC
+ 100  *  CalvAttributes = 2.7,2.7,4.5,10.0,4.5,0.98,0.98,0.98,10.0,1.04,1.06,1.02,0.98,0.05,0.04,0.05,0.98,417.0,395.0,365.0,
+ 101  *  CowAttributes = 580.0,580.0,650.0,650.0,650.0,55.0,56.0,57.0,650.0,2.9,3.2,3.8,
+ 102  *  Number of calves = 0
+ 103  *  Calves coupled premium (Eur/head/yr) = 0.0
+ 104  *  Calves, other cost per year = 80
+ 105  *  Calves stable inventory = Slatted_floor
+ 106  *  Allow buying of calves = false
+ 107  *  Grazing calves = APR,MAY,JUN,JUL,AUG,SEP
+ 108  *  Partial grazing calves = MAR,APR,MAY,JUN,JUL,AUG,SEP,OCT
+ 109  *  No grazing calves = JAN,FEB,MAR,APR,MAY,JUN,JUL,AUG,SEP,OCT,NOV,DEC
+ 110  *  CalvesAttributesBase = 50.0,50.0,50.0,50.0,180.0,180.0,180.0,210.0,240.0,180.0,100.0,100.0,210.0,2.2,1.65,
+ 111  *  Number of heifers = 0
+ 112    Heifers, other cost per year = 160
+ 113  *  Heifers coupled premium (Eur/head/yr) = 0.0
+ 114  *  Heifers stable inventory = Slatted_floor
+ 115  *  Allow selling of heifers = false
+ 116  *  Allow buying of heifers = false
+ 117  *  Grazing heifers = APR,MAY,JUN,JUL,AUG,SEP
+ 118  *  Partial grazing heifers = MAR,APR,MAY,JUN,JUL,AUG,SEP,OCT
+ 119  *  No grazing heifers = JAN,FEB,MAR,APR,MAY,JUN,JUL,AUG,SEP,OCT,NOV,DEC
+ 120  *  HeifersAttributesBase = 180.0,180.0,280.0,280.0,280.0,280.0,0.0,280.0,280.0,580.0,580.0,580.0,580.0,0.0,280.0,100.0,300.0,365.0,300.0,365.0,0.0,280.0,5
+      5.0,55.0,55.0,55.0,55.0,0.0,280.0,3.8,3.0,3.0,0.0,0.0,0.0,
+ 121  *  Nutrient content gras = 150.0,150.0,180.0,200.0,350.0,350.0,350.0,860.0,180.0,170.0,240.0,275.0,192.0,190.0,258.0,315.0,200.0,380.0,490.0,550.0,410.0,4
+      10.0,510.0,606.0,350.0,215.0,172.0,150.0,190.0,188.0,160.0,98.0,350.0,152.0,137.0,130.0,149.0,141.0,129.0,118.0,350.0,10.0,6.0,3.0,7.0,7.0,5.0,-3.0,860.0,
+      7.06,6.02,5.78,6.65,6.2,5.66,5.27,170.0,11.52,11.11,9.78,10.95,10.29,9.6,9.05,240.0,100.0,100.0,100.0,40.0,20.0,15.0,105.0,275.0,38.0,35.0,32.0,40.0,42.0,
+      37.0,23.0,
+ 122  *  Grasland management = 8.5,8.5,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,10.0,0.0,0.0,0.0,0.0,0.0,
+      0.0,0.0,15.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,20.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,20.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,15.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,10.0,0
+      .0,0.0,0.0,0.0,0.0,0.0,0.0,10.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,10.0,0
+      .0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,10.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,15.0,0.0,0.0,0.0,0.0,0.0,0
+      .0,0.0,0.0,20.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,20.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,15.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,10.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,10.
+      0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,8.5,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,
+      0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,30.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0
+      .0,0.0,0.0,0.0,0.0,0.0,40.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,30.0,0.0,0.0,0.0,0.0,0.0,0.0,0
+      .0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,12.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.
+      0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,25.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,30.0,0.0,0.0,0.
+      0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,25.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,20.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.
+      0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,
+      0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.
+      0,0.0,0.0,0.0,0.0,0.0,100.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.
+      0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,
+      0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.
+      0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,
+      0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.
+      0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,
+      0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.
+      0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,
+      0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.
+      0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,
+      0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.
+      0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,
+      0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.
+      0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,
+      0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,
+ 123    Use different crop intensities = Heyn_Olfs
+ 124  *  Organic farming = off
+ 125  *  Additional technology = tech_empty
+ 126  *  Plough based tillage = true
+ 127  *  Minimum tillage = false
+ 128  *  No tillage with direct sowing = false
+ 129  *  Use crop rotations = false
+ 130  *  Allow feed use of catch crops = false
+ 131  *  Fertilization = Default
+ 132  *  Manure Emission Rights = 0
+ 133  *  Allow manure export = false
+ 134  *  Allow manure import = false
+ 135  *  Cooperation with external biogas plant = false
+ 136  *  N input dependent on output = false
+ 137  *  Additional N input quantity restricted = false
+ 138  *  Number of plots = 1
+ 139  *  Average plot size (ha) = 2
+ 140  *  Average farm-field distance (km) = 2
+ 141  *  Mechanisation = 67kW
+ 142  *  Climate zones = cz12
+ 143  *  Soil = 1.0,1.0,0.0,0.0,
+ 144    Milk (cent/liter) = 53
+ 145    Price male calf base breed (Euro/head) = 190
+ 146    Price male calf cross-breed (Euro/head) = 190
+ 147    Price female calf base breed (Euro/head) = 190
+ 148    Price female calf cross-breed (Euro/head) = 190
+ 149  *  Cereal straw (Euro/ton) = 115
+ 150  *  Allow selling of silage maize = false
+ 151  *  Allow selling of gras silage = false
+ 152    Allow purchases of silage maize = true
+ 153    Allow purchases of gras silage = true
+ 154    Machine price threshold value = 200000.0
+ 155  *  Manure application = Contract work
+ 156  *  Variation from standard application costs = 0.0
+ 157  *  Machines handled via contract work = Combine,ThreeWayTippingTrailer,fertSpreaderLarge,potatoLifter,beetHarvester
+ 158    Max workers hired = 4
+ 159  *  Yearly effective work hours hired labour = 1972
+ 160  *  Gross wage (incl. social security) = 12.0
+ 161  *  Max flexible monthly time load [%] = 20.0
+ 162    EU country = false
+ 163  *  CAP implementation module = policy_CAP_de
+ 164  *  CAP implementation data = policy_CAP_data_de
+ 165    Greening = false
+ 166  *  Single farm premium = 300.0
+ 167    Non-EU country = true
+ 168    Policy and payment scheme = policy_country_module_CH
+ 169  *  Payment scheme data = policy_country_data_ch
+ 170  *  Restriction from German Fertilizer directive = true
+ 171  *  Fertilizer Ordinance module = fertord_module_DE
+ 172  *  Fertilizer Ordinance data = fertord_duev2020
+ 173  *  Farmgate balance = false
+ 174  *  Share of arable land in nitrate polluted zones = 0.0
+ 175  *  Share of grassland in nitrate polluted zones = 0.0
+ 176  *  Share of pasture in nitrate polluted zones = 0.0
+ 177  *  Share of P enriched soil, no surplus allowed = 0.0
+ 178  *  Months manure storage available = 6.0
+ 179  *  Agri-environmental schemes = false
+ 180  *  Agri-environmental schemes module = aes_module_DE
+ 181  *  Agri-environmental schemes data = aes_de_nrw_2020
+ 182  *  Share of land in WFD area = 0.0
+ 183  *  Share of land qualified for erosion protection = 0.0
+ 184  *  Land in meters neighbouring surface waters = 0
+ 185  *  Include carbon price = false
+ 186  *  Carbon price (per ton CO2eq) = 0.0
+ 187  *  Emission abatement runs = false
+ 188  *  GHG emission reduction steps = 20.0
+ 189  *  Reduction per step (%) = 2.0
+ 190  *  Enforced mitigation measures = false
+ 191  *  Mitigation measure options = vegOil
+ 192    Endogenous mitigation measures = true
+ 193    Include environmental accounting = true
+ 194    emissionsModule = env_acc_module_ch
+ 195    emissionsCoef = env_acc_ch
+ 196  *  emissionsFile = emissions_de
+ 197    Include upstream emissions = true
+ 198    Upstream emission factors = upstreamEF_ch
+ 199  *  Include biodiversity indicators = false
+ 200  *  Include social accounting = false
+ 201  *  Solver = CPLEX
+ 202  *  Max. Solution Time (sec) = 60*60
+ 203  *  Max. number of iterations = 1.E7
+ 204  *  Relative optimality tolerance (%) = 0.0
+ 205  *  Absolute optimality tolerance = 0
+ 206  *  Stop point = None
+ 207  *  Use QCP = false
+ 208  *  Use RMIP = false
+ 209  *  Use heuristics to reduce number of binaries = true
+ 210  *  Use partial MIP presolve = false
+ 211  *  Use heuristic fixing of binaries = 6
+ 212  *  Priorities = false
+ 213  *  Tuning = false
+ 214  *  Results from previous tuning = false
+ 215  *  Use SOS2 variables for investments in stables and silos = false
+ 216  *  Print gams code to listing = offListing
+ 217  *  Symbol list = offSymList
+ 218  *  Symbol list with cross references = offSymxRef
+ 219  *  Profile = 0
+ 220  *  ProfileTol = 0.1
+ 221    Solution printing = Full output
+ 222  *  Supress solution during heuristics = true
+ 223  *  Supress solution during RMIP = true
+ 224    Limrow = 100
+ 225    Limcol = 100
+ 226  *  p_res to listing = false
+ 227  *  Various parameters/sets to listing = false
+ 228  *  Gross margins to listing = false
+ 229  *  Feed detail to listing = true
+ 230  *  Fertilization to listing = false
+ 231  *  Emissions to listing = false
+ 232  *  FOC report = false
+ 233  *  Sensitvity analysis with land endowment for derive marginals = false
+ 234  *  Additional reporting = false
+ 235  *  A

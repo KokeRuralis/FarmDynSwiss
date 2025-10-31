@@ -1,0 +1,16 @@
+* -------------------------------------------------
+*   General Option file for CONOPT3
+* -------------------------------------------------
+* Maximum and minimum jacobian element
+
+Lim_Variable = 1.00e+30
+*Flg_Prep = 0
+
+* iteration log frequency
+lfilos =  1
+lfilog =  1
+rtpiva = 1.E-15
+rtnwmi = 1.E-7
+rtnwma = 5.E-7
+maxmem = t
+num_rounds = 1

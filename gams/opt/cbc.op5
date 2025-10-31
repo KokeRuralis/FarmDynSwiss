@@ -1,0 +1,6 @@
+parallelmode opportunistic
+extraVariables 100
+passPreSolve 100
+substitution 4
+startalg primal
+loglevel 3

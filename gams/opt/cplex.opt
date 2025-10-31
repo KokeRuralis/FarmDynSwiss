@@ -1,0 +1,10 @@
+ bardisplay=1
+ mipdisplay=4
+ mipstart=6
+*mipemphasis=3
+ relaxfixedinfeas=1
+ simdisplay=1
+ solvefinal=1
+*threads=-1
+*parallelmode=-1
+*bendersstrategy=3

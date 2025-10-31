@@ -1,0 +1,9 @@
+    threads  -1
+    solvefixed 0
+    usebasis 0
+    mipstart 1
+    presos1bigm 0
+    varhint     1
+    mipfocus    3
+
+

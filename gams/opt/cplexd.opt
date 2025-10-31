@@ -1,0 +1,11 @@
+
+
+    mipstart         2
+    relaxfixedinfeas 1
+    bardisplay   0
+    solvefinal   0
+    simdisplay   0
+    names        0
+    tuning cplexd.op3
+    tuningrepeat 3
+    tuningdisplay 2

@@ -1,0 +1,11 @@
+bardisplay=1
+mipdisplay=4
+mipstart=2
+names=yes
+relaxfixedinfeas=1
+simdisplay=1
+solvefinal=1
+threads=-1
+parallelmode=-1
+feasopt=1
+writeord cplex.ord

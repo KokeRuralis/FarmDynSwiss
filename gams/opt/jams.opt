@@ -1,0 +1,4 @@
+  subsolveropt 1
+  subsolver    nlpec
+* subsolvepar license=gamslice_test.txt
+* ZipDebug WB_BILEVEL.zip
