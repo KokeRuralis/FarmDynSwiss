@@ -1,0 +1,36 @@
+# Ignore everything in the root directory
+/*
+/dat/ktbl
+# Only track changes from these folders
+!/GUI/
+!/gams/
+!/dat/
+!/doc/
+!/r/
+
+# Ignore all file types
+
+# Except the following
+!.gitignore
+!*.gms
+!*.bat
+!*.opt
+!*.txt
+!*.command
+!*.xml
+!*.R
+!*.md
+GUI/dairydyn.ini
+gams/exp_starter.bak
+gams/exp_starter.lst
+gams/incgen/runInc.gms
+gams/Single farm run.exp
+gams/Single farm run.ref
+gams/exp_starter_Test.lst
+gams/coeffgen/coeffgen.bak
+gams/Experiments arable.exp
+gams/Experiments arable.ref
+gams/incgen/expInc.gms
+gams/incgen/UserInc.gms
+gams/rbridge/incFile.r
+gams/scen_gen.lst
