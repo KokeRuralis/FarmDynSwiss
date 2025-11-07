@@ -1,0 +1,53 @@
+GAMS 39.1.0  5f04cd76 May 3, 2022           WEX-WEI x86 64bit/MS Windows - 08/23/23 09:53:30 Page 1
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+C o m p i l a t i o n
+
+
+   1  ********************************************************************************
+       
+         FARMDyn project
+       
+         GAMS file : Build_data.GMS
+       
+         @purpose  : Convert Ktbl Regression results, machine data, direct cost etc.
+                     into format required by FarmDyn
+         @author   : J. Heinrichs, C. Pahmeyer, W.Britz
+         @date     : 11.12.20
+         @since    :
+         @refDoc   :
+         @seeAlso  :
+         @calledBy :
+       
+  18  ********************************************************************************
+  19   
+GAMS 39.1.0  5f04cd76 May 3, 2022           WEX-WEI x86 64bit/MS Windows - 08/23/23 09:53:30 Page 2
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Include File Summary
+
+
+   SEQ   GLOBAL TYPE      PARENT   LOCAL  FILENAME
+
+     1        1 INPUT          0       0  N:\em\work1\FarmDyn\FarmDyn_Schaefer\Swizz_FarmDyn_vMarta2.0\gams\build_data_user.gms
+     2       26 INCLUDE        1      26  .N:\em\work1\FarmDyn\FarmDyn_Schaefer\Swizz_FarmDyn_vMarta2.0\gams\incgen\UserInc.gms
+     3      234 BATINCLUDE     1      32  .N:\em\work1\FarmDyn\FarmDyn_Schaefer\Swizz_FarmDyn_vMarta2.0\dat\User\cropsData_CH.gms
+
+
+COMPILATION TIME     =        0.438 SECONDS      3 MB  39.1.0 5f04cd76 WEX-WEI
+GAMS 39.1.0  5f04cd76 May 3, 2022           WEX-WEI x86 64bit/MS Windows - 08/23/23 09:53:30 Page 3
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+E x e c u t i o n
+
+
+EXECUTION TIME       =        0.687 SECONDS      4 MB  39.1.0 5f04cd76 WEX-WEI
+
+
+USER: Large MUD - 20 User License                    S220923|0002AJ-WIN
+      University of Bonn, Institute for Agricultural Policy       DC894
+      License for teaching and research at degree granting institutions
+
+
+**** FILE SUMMARY
+
+Input      N:\em\work1\FarmDyn\FarmDyn_Schaefer\Swizz_FarmDyn_vMarta2.0\gams\build_data_user.gms
+Output     N:\em\work1\FarmDyn\FarmDyn_Schaefer\Swizz_FarmDyn_vMarta2.0\gams\build_data_user.lst
+Expand     N:\em\work1\FarmDyn\FarmDyn_Schaefer\Swizz_FarmDyn_vMarta2.0\gams\Build data from user input.exp
