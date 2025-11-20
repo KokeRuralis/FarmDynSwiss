@@ -611,14 +611,14 @@ $endif.cattle
    cropsGDX(crops), cere(crops), rootCrops(crops), leg(crops), maize(crops), rapeseed(crops)
    maizSilage(crops), GPS(crops), hay(crops), vegetables(crops), grain_maize(crops), maizCCM(crops),
    grain_wheat(crops),grain_barley(crops),grain_oat(crops),grain_rye(crops),OtherGrains(crops), grainleg(crops)
-   wintercere(crops),summercere(crops),other(crops),potatoes(crops),sugarbeet(crops),wintercrops(crops)
+   wintercere(crops),summercere(crops),other(crops),potatoes(crops),sugarbeet(crops)
 ;
 
    $$gdxin "%datDir%/%cropsFile%.gdx"
      $$load cropsGDX=crops
      $$load cere rootCrops leg maize rapeseed maizSilage GPS vegetables maizCCM
      $$load grain_maize grain_Wheat grain_Barley grain_Oat grain_rye OtherGrains grainleg hay
-     $$load wintercere summercere other potatoes sugarbeet wintercrops
+     $$load wintercere summercere other potatoes sugarbeet 
    $$gdxin
 
  
@@ -654,8 +654,8 @@ $ifthen.gras defined grasTypes
   set past(crops);
   set mixPast(crops)    / set.grasTypes /;
 
-  set pastOutputs(grasOutputs) / earlyGraz,middleGraz,lateGraz /;
-  set noPastOutputs(grasOutputs) / earlyGrasSil,middleGrasSil,lateGrasSil,hay, hayM, grasM /;
+  set pastOutputs(grasOutputs) / earlyGraz,middleGraz,lateGraz  /;
+  set noPastOutputs(grasOutputs) / GrasSil,GrasSilM,hay,hayM,hayExt,gras,grasM /;
 
   set grasCrops_outputs(crops,grasOutputs);
       grasCrops_outputs(grassCrops,grasOutputs)$(sum(m,p_grasattr(grassCrops,grasoutputs,m))) = YES;
@@ -2239,7 +2239,7 @@ $endif.pig
 *
 *    --- general output and input
 *
-     set.set_crop_prods,grasPast
+     set.set_crop_prods
 
      other,fixedMach,manCost,buildCost
      $$ifi "%allowHiring%"=="true" hiredLabour
@@ -2341,7 +2341,7 @@ $endif.pig
  set P_fertilizer(syntFertilizer) /PK_18_10, dolophos/;
 
 
- set set_prodsMonthly / grasPast,earlyGraz,middleGraz,lateGraz/;
+ set set_prodsMonthly / earlyGraz,middleGraz,lateGraz,gras,grasM/;
 
  set meatTypes / "Type1" ,"Type2" ,"Type3" ,"Type4" ,"Type5" ,"Type6" /;
 
@@ -2386,9 +2386,8 @@ $endif.cattle
 *   --- outputs relating to crops
 *
      set.set_crop_prods
-     earlyGrasSil,middleGrasSil,lateGrasSil,hay,hayM,grasM,milkFed 
+     grasSil,grasSilM,hay,hayM,hayExt,milkFed 
   /;
-
 
  set prods "All outputs in model"    / set.set_prodsYearly,set.set_prodsMonthly /;
 
@@ -2458,9 +2457,8 @@ $endif.heif
    $$endif.cow
  $$endif.cross
 
-
  set grasOutput(prods)      /
-  $$if.a defined grasOutputs set.grasOutputs
+  $$if defined grasOutputs set.grasOutputs
   /;
  set pastOutput(prods)      /
   $$if defined pastoutputs set.pastOutputs
@@ -2470,7 +2468,7 @@ $endif.heif
  alias(prodsyearly,prodsyearly1);
  set prodsResidues(prodsYearly) / set.cropsResidues_prods/;
 
- set grasSil(prodsYearly) / earlyGrasSil,middleGrasSil,lateGrasSil,hay, hayM, grasM/;
+ set grasSil(prodsYearly) / grasSil, grasSilM, hay, hayM, hayExt/;
 
  set prodsMonthly(prods) "products with a monthly resolution" / set.set_prodsMonthly /;
 

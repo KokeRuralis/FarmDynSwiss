@@ -35,9 +35,8 @@ $ifi %herd%==true       curBuildings(bunkerSilos)  = YES;
 
 $iftheni.cattle "%cattle%"=="true"
 
-   p_buildingNeed("earlyGrasSil","bunkerSilo","capac_m3")  = 1/0.65;
-   p_buildingNeed("middleGrasSil","bunkerSilo","capac_m3") = 1/0.65;
-   p_buildingNeed("lateGrasSil","bunkerSilo","capac_m3")   = 1/0.65;
+   p_buildingNeed("grasSil","bunkerSilo","capac_m3")  = 1/0.65;
+   p_buildingNeed("grasSilM","bunkerSilo","capac_m3") = 1/0.65;
 $endif.cattle
 
 $if set invPrice  p_priceBuild(buildings,t) = p_priceBuild(buildings,t) * %invPrice%;

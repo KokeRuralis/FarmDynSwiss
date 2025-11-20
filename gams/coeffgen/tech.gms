@@ -155,9 +155,14 @@ $endif.data
 $ifthen.gras defined noPastOutputs
 
 
-  set toSilage(noPastOutputs) / earlyGrasSil,middleGrasSil,lateGrasSil /;
+  set toSilage(noPastOutputs) / grasSil,grasSilM /;
+  set toSilageM(noPastOutputs) / grasSilM /;
   set toHay(noPastOutputs) / hay /;
-  set toPast(grasOutputs) /earlyGraz,middleGraz,lateGraz /;
+  set toHayM(noPastOutputs) / hayM /;
+  set toHayExt(noPastOutputs) / hayExt /;
+  set toPast(grasOutputs) /earlyGraz,middleGraz,lateGraz/;
+  set toGras(noPastOutputs) /gras/;
+  set toGrasM(noPastOutputs) /grasM/;
 
   set grasToOutput(crops,grasOutputs);
   grasToOutput(crops,grasOutputs) $ sum((m) $(p_grasAttr(crops,grasOutputs,m)), 1) = YES;
@@ -218,7 +223,7 @@ $ifthen.gras defined noPastOutputs
   p_crop_op_per_till(curCrops(grassCrops),operation,labPeriod,grassTill,"silo")
      $ sum(toSilage, (p_cutPeriod(grassCrops,labPeriod) $ p_opPerCut(operation,toSilage,"silo") $ grasToOutput(grassCrops,toSilage)))
     =   sum( (labPeriod_to_month(labPeriod,m),toSilage) $ p_grasAttr(grassCrops,toSilage,m),
-          p_opPerCut(operation,"middleGrasSil","silo")/2
+          p_opPerCut(operation,"grasSil","silo")/2
 *
 *            --- change machinery needs (or not) depending on harvested dry matter
 *
@@ -232,7 +237,7 @@ $ifthen.gras defined noPastOutputs
   p_crop_op_per_till(curCrops(grassCrops),operation,labPeriod,grassTill,"bales")
      $ sum(toSilage,(p_cutPeriod(grassCrops,labPeriod) $ p_opPerCut(operation,toSilage,"bales") $ grasToOutput(grassCrops,toSilage)))
     =   sum( (labPeriod_to_month(labPeriod,m),toSilage) $ p_grasAttr(grassCrops,toSilage,m),
-          p_opPerCut(operation,"middleGrasSil","bales")/2
+          p_opPerCut(operation,"grasSil","bales")/2
 *
 *            --- change machinery needs (or not) depending on harvested dry matter
 *

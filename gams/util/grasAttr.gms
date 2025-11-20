@@ -19,12 +19,11 @@ $offtext
 
 set grasTypes  / system.empty /;
 set gras_grasN(grasTypes,p_grasAttrGui_dim3);
-
-set grasOutputs  / earlyGraz,middleGraz,lateGraz,earlyGrasSil,middleGrasSil,lateGrasSil,hay,hayM,grasM /;
+set grasOutputs  / earlyGraz,middleGraz,lateGraz,grasSil,grasSilM,hay,hayM,hayExt,gras,grasM /;
 set grazOutputs(grasOutputs) / earlyGraz,middleGraz,lateGraz/;
 set grasAttr     / yield,set.grasOutputs,nCuts/;
 set m "months in each year" /JAN,FEB,MAR,APR,MAY,JUN,JUL,AUG,SEP,OCT,NOV,DEC /;
-
+display grasOutputs;
 $onEmbeddedCode Python:
     newDim0  = []
 #   --- dim0 are the row groups with the attributes
@@ -46,9 +45,11 @@ $onEmbeddedCode Python:
 #       dry matter yield and # of cuts for each type
     graz    = []
     grasSil = []
+    grasSilM= []
     hay     = []
     hayM    = []
-    grasM   = []
+    hayExt  = []
+    gras    = []
     grasM   = []
     yld     = []
     nCut    = []
@@ -61,9 +62,12 @@ $onEmbeddedCode Python:
           dim1.append(x[1])
           graz.append(0)
           grasSil.append(0)
+          grasSilM.append(0)
           yld.append(0)
           hay.append(0)
           hayM.append(0)
+          hayExt.append(0)
+          gras.append(0)
           grasM.append(0)
           nCut.append(0)
 
@@ -99,14 +103,25 @@ $onEmbeddedCode Python:
             hayM[grazType] += l[i]
             nCut[grazType]    += 1
 
+        if x[0] == "hayExt":
+            hayM[grazType] += l[i]
+            nCut[grazType]    += 1
+
+        if x[0] == "gras":
+            grasM[grazType] += l[i]
+            nCut[grazType]    += 1
+
         if x[0] == "grasM":
             grasM[grazType] += l[i]
             nCut[grazType]    += 1
 
-        if x[0].endswith("GrasSil"):
+        if x[0].endswith("grasSil"):
             grasSil[grazType] += l[i]
             nCut[grazType]    += 1
 
+        if x[0].endswith("grasSilM"):
+            grasSil[grazType] += l[i]
+            nCut[grazType]    += 1
         i+=1
 #
 #   --- construct the name
@@ -134,10 +149,16 @@ $onEmbeddedCode Python:
             name += "_"+str(nCut[i])+"cuts"
          if grasSil[i] > 0:
             name += "_sil"+str(grasSil[i]).replace(".0","")
+         if grasSilM[i] > 0:
+            name += "_sil"+str(grasSilM[i]).replace(".0","")
          if hay[i] > 0:
             name += "_hay"+str(hay[i]).replace(".0","")
          if hayM[i] > 0:
             name += "_hayM"+str(hayM[i]).replace(".0","")
+         if hayExt[i] > 0:
+            name += "_hayExt"+str(hayM[i]).replace(".0","")
+         if gras[i] > 0:
+            name += "_gras"+str(grasM[i]).replace(".0","")
          if grasM[i] > 0:
             name += "_grasM"+str(grasM[i]).replace(".0","")
          newDim0.append(name)
