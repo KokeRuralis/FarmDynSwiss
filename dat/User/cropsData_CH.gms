@@ -387,15 +387,19 @@ parameter p_storageLoss(*);
    p_storageLoss(crops) = 1;
    p_storageLoss("wheatGPS")     =  0.88 ;
    p_storageLoss("maizSil")      =  0.88 ;
-   p_storageLoss("earlyGrasSil") =  0.9  ;
-   p_storageLoss("middleGrasSil")=  0.9  ;
-   p_storageLoss("lateGrasSil")  =  0.9  ;
+   p_storageLoss("GrasSil") =  0.9  ;
+   p_storageLoss("GrasSilM")=  0.9  ;
    p_storageLoss("earlyGraz")    =  1    ;
    p_storageLoss("middleGraz")   =  1    ;
    p_storageLoss("lateGraz")     =  1    ;
    p_storageLoss("hay")          =  0.7  ;
-   p_storageLoss("hayM")          =  0.7  ;
-   p_storageLoss("grasM")          =  0.7  ;
+   p_storageLoss("hayM")         =  0.7  ;
+   p_storageLoss("hayExt")       =  0.7  ;
+   p_storageLoss("gras")         =  0.7  ;
+   p_storageLoss("grasM")        = 0.7  ;
+
+
+
 
 * --- p_nutContent has to be given as an output file [TODO]
 
@@ -1485,7 +1489,7 @@ $onempty
       nov1,nov2
    /;
 
-  set till/ plough, minTill, noTill, org, silo, bales, hay, hayM, grasM, graz/;
+
 
 
   set lower(intens) //;
@@ -1568,7 +1572,7 @@ $onempty
 *
 
  table p_crop_op_per_tilla(crops,operation,labPeriod,till)
-                                                              plough     minTill   noTill          org  silo  bales  hay      graz
+                                                              plough     minTill   noTill          org  
 
  potatoes     .    soilSample          .  AUG1                   0.2         0.2                   0.2
  potatoes     .    basFert             .  AUG1                   1.0         1.0                   1.0
@@ -2074,8 +2078,7 @@ parameter p_changeOpIntens(crops,operation,labPeriod,intens);
 *
 **********************************************************************************
 
-
-Execute_unload "%datdir%/crops_ch.gdx"
+Execute_unload "C:/Users/LennartKokemohr/Documents/FarmDyn/GreeNetSwiss/FarmDynSwiss/dat/crops_ch.gdx"
 * Sets
                              m, crops,arableCrops,biogas_feed, cashCrops,ccCrops,cere,cereFeedsPigGDX,leg,maize,maizSilage,no_CashCrops,rootCrops,Wintercere,summercere,potatoes,
                              sugarbeet, rapeseed,summerHarvest, GPS, grain_Wheat, grain_barley, grain_rye, grain_maize, maizccm, grain_Oat OtherGrains, grainleg, monthGrowthCrops,

@@ -566,7 +566,10 @@ $endif.cattle
    set curCrops(crops) "Crops currently in model";
    set curArabCrops(crops) "Crops currently in model";
 
-  set till        / plough,minTill,noTill,org,bales,silo,hay,hayM,graz,grasM /;
+
+  set till/ plough, minTill, noTill, org, grasSil, grasSilM, hay, hayM, hayExt,gras, grasM, graz/;
+
+
   alias(till,till1);
 
   set sys     / conv,org /;

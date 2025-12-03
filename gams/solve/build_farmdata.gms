@@ -65,8 +65,6 @@ $onembeddedCode Python:
                else:
                   f.write("$setglobal "+str(var[0][2])+" "+str(var[1][0])+"\n")
 
-
-
        f.closed
 
     return 0

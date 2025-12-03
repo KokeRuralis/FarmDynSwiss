@@ -1,6 +1,13 @@
 # Ignore everything in the root directory
 /*
 /dat/ktbl
+/results/samples
+/results/expFarms
+
+*.log
+*.lst
+*.lxi
+*.gsp
 # Only track changes from these folders
 !/GUI/
 !/gams/

@@ -33,16 +33,20 @@ $iftheni.mode "%1" == "decl"
 
 
 *                          oilsForFeed    "oils for feeding"
-                          earlyGraz
-                          middleGraz
-                          LateGraz
+                          GrasSil
+                          GrasSilM
 
-                          earlyGrasSil
-                          middleGrasSil
-                          LateGrasSil
-                          grasM
-                          hayM
-                          Hay
+                          earlyGraz   
+                          middleGraz  
+                          lateGraz   
+
+                          hay         
+                          hayM        
+                          hayExt  
+
+                          gras        
+                          grasM   
+                              
                           Straw
                           soyBeanMeal    "Soy cake for feeding"
                           milkPowder     "Milk powder"

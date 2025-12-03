@@ -156,31 +156,42 @@ $ifthen.gras defined noPastOutputs
 
 
   set toSilage(noPastOutputs) / grasSil,grasSilM /;
-  set toSilageM(noPastOutputs) / grasSilM /;
-  set toHay(noPastOutputs) / hay /;
-  set toHayM(noPastOutputs) / hayM /;
-  set toHayExt(noPastOutputs) / hayExt /;
+  set toCutTrac(noPastOutputs) /grasSil,hay,gras/;
+  set toCutMount(noPastOutputs) /grasSilM,hayM,grasM/;
+  set toTedRakTrac(noPastOutputs) /grasSil,hay/;
+  set toTedRakMount(noPastOutputs) /grasSilM,hayM/;
+  set toHayMtrans(noPastOutputs) / hayM,hayExt /;
   set toPast(grasOutputs) /earlyGraz,middleGraz,lateGraz/;
-  set toGras(noPastOutputs) /gras/;
-  set toGrasM(noPastOutputs) /grasM/;
 
   set grasToOutput(crops,grasOutputs);
   grasToOutput(crops,grasOutputs) $ sum((m) $(p_grasAttr(crops,grasOutputs,m)), 1) = YES;
 
+
+
+
+
   table p_opPerCut(operation,noPastOutputs,till) "Field operations for one gras cut per cutting process (either silo or bales)"
-                                     silo     bales  hay
-     mowing.set.noPastOutputs        1.00      1.00  1.0
-     tedding.set.noPastOutputs       1.00      1.00  1.0
-     raking.set.noPastOutputs        1.00      1.00  1.0
-*
-*   --- these operations are changed by harvested biomas
-*
-    closeSilo.set.toSilage          1.00
-    silageTrailer.set.toSilage      1.00
-    balePressWrap.set.toSilage               1.00
-    balePressHay.hay                               1.00
-    baleTransportSil.set.toSilage            1.00
-    baleTransportHay.hay                           1.00
+                                           grasSil   grasSilM    hay     hayM    hayExt   gras  grasM  
+    mowing.set.toCutTrac                   1.00                  1.0                      1.0
+    tedding.set.toTedRakTrac               1.00                  1.0       
+    raking.set.toTedRakTrac                1.00                  1.0       
+    loadinghaytractor."hay"                                      1.0       
+    mowingtwoaxle.set.toCutMount                     1.0                 1.0                    1.0
+    teddingtwoaxle.set.toTedRakMount                 1.0                 1.0                    
+    rakingtwoaxle.set.toTedRakMount                  1.0                 1.0        
+    mowingmotormower."hayExt"                                                    1.0  
+    teddingmotormower."hayExt"                                                   1.0 
+    rakingleafblower."hayExt"                                                    1.0 
+    loadinghaytransporter.set.toHayMtrans                                1.0     1.0 
+    loadinggrastransporter."grasM"                                                              1.0
+    loadingrastractor."gras"                                                              1.0
+    closeSilo.set.toSilage                1.00      1.0
+    silageTrailer.set.toSilage            1.00      1.0
+
+*    balePressWrap.set.toSilage                      1.00
+*    balePressHay.hay                                         1.00
+*    baleTransportSil.set.toSilage                   1.00
+*    baleTransportHay.hay                                     1.00
   ;
 
   parameter p_bioMassOpsFac(operation) "Factor in order to correct dry matter content to witted silage content (35% DM) or hay (86% DM)"
@@ -204,7 +215,7 @@ $ifthen.gras defined noPastOutputs
 *
 * --- silo cut for silage
 *
-
+$ontext
   p_crop_op_per_till(curCrops(grassCrops),operation,labPeriod,"org","graz")
     = p_crop_op_per_till(grassCrops,operation,labPeriod,"noTill","graz");
 
@@ -217,24 +228,26 @@ $ifthen.gras defined noPastOutputs
 
   p_crop_op_per_till(curCrops(grassCrops),operation,labPeriod,"org","hay")
     = p_crop_op_per_till(grassCrops,operation,labPeriod,"noTill","hay");
+$offtext
+  set grassTill(till) / grasSil,grasSilM,hay,hayM,hayExt,gras,grasM,graz /;
 
-  set grassTill(till) / noTill,org /;
-
-  p_crop_op_per_till(curCrops(grassCrops),operation,labPeriod,grassTill,"silo")
-     $ sum(toSilage, (p_cutPeriod(grassCrops,labPeriod) $ p_opPerCut(operation,toSilage,"silo") $ grasToOutput(grassCrops,toSilage)))
-    =   sum( (labPeriod_to_month(labPeriod,m),toSilage) $ p_grasAttr(grassCrops,toSilage,m),
-          p_opPerCut(operation,"grasSil","silo")/2
+  p_crop_op_per_till(curCrops(grassCrops),operation,labPeriod,grassTill,intens)
+     $ sum(noPastOutputs, (p_cutPeriod(grassCrops,labPeriod) $ p_opPerCut(operation,noPastOutputs,grassTill) $ grasToOutput(grassCrops,noPastOutputs)))
+    =   sum( (labPeriod_to_month(labPeriod,m),noPastOutputs) $ p_grasAttr(grassCrops,noPastOutputs,m),
+          p_opPerCut(operation,noPastOutputs,grassTill)/2
 *
 *            --- change machinery needs (or not) depending on harvested dry matter
 *
                  * (    1 $ (not p_bioMassOpsFac(operation))
-                     +  (p_grasAttr(grassCrops,toSilage,m) * ( 1 $ sameas(grassTill,"noTill") + p_organicYieldMult(grassCrops) $ sameas(grassTill,"org"))
-                            /p_bioMassOpsFac(operation)/op_attr(operation,"67kw","2","amount")) $ p_bioMassOpsFac(operation))
+                     +  (p_grasAttr(grassCrops,noPastOutputs,m) 
+                          *  1 /p_bioMassOpsFac(operation)/op_attr(operation,"67kw","2","amount")) $ p_bioMassOpsFac(operation))
           )/ p_cutPeriod(grassCrops,labPeriod);
+*abort p_crop_op_per_till;
+$ontext
 *
 * --- bale pressing for silage
 *
-  p_crop_op_per_till(curCrops(grassCrops),operation,labPeriod,grassTill,"bales")
+  p_crop_op_per_till(curCrops(grassCrops),operation,labPeriod,grassTill,intens)
      $ sum(toSilage,(p_cutPeriod(grassCrops,labPeriod) $ p_opPerCut(operation,toSilage,"bales") $ grasToOutput(grassCrops,toSilage)))
     =   sum( (labPeriod_to_month(labPeriod,m),toSilage) $ p_grasAttr(grassCrops,toSilage,m),
           p_opPerCut(operation,"grasSil","bales")/2
@@ -242,13 +255,13 @@ $ifthen.gras defined noPastOutputs
 *            --- change machinery needs (or not) depending on harvested dry matter
 *
                  * (    1 $ (not p_bioMassOpsFac(operation))
-                     +  (p_grasAttr(grassCrops,toSilage,m) * ( 1 $ sameas(grassTill,"noTill") + p_organicYieldMult(grassCrops) $ sameas(grassTill,"org"))
+                     +  (p_grasAttr(grassCrops,toSilage,m) * ( 1 $ sameas(grassTill,"noTill") )
                            /p_bioMassOpsFac(operation)/op_attr(operation,"67kw","2","amount")) $ p_bioMassOpsFac(operation))
           )/ p_cutPeriod(grassCrops,labPeriod);
 *
 * --- bale pressing for hay
 *
-  p_crop_op_per_till(curCrops(grassCrops),operation,labPeriod,grassTill,"hay")
+  p_crop_op_per_till(curCrops(grassCrops),operation,labPeriod,grassTill,intens)
      $ (p_cutPeriod(grassCrops,labPeriod) $ p_opPerCut(operation,"hay","hay") $ grasToOutput(grassCrops,"hay"))
     =   sum( (labPeriod_to_month(labPeriod,m),toHay) $ p_grasAttr(grassCrops,toHay,m),
           p_opPerCut(operation,"hay","hay")/2
@@ -256,14 +269,10 @@ $ifthen.gras defined noPastOutputs
 *            --- change machinery needs (or not) depending on harvested dry matter
 *
                  * (    1 $ (not p_bioMassOpsFac(operation))
-                     +  (p_grasAttr(grassCrops,toHay,m) * ( 1 $ sameas(grassTill,"minTill") + p_organicYieldMult(grassCrops) $ sameas(grassTill,"org"))
+                     +  (p_grasAttr(grassCrops,toHay,m) * ( 1 $ sameas(grassTill,"minTill") )
                            /p_bioMassOpsFac(operation)/op_attr(operation,"67kw","2","amount")) $ p_bioMassOpsFac(operation))
           )/ p_cutPeriod(grassCrops,labPeriod);
-*
-* --- remove unwanted tillage options
-*
-  p_crop_op_per_till(gras,operation,labPeriod,till,intens)$ (not (sameas(till, "noTill") or sameas(till,"org"))) = 0;
-
+$offtext
 $endif.gras
 
 * --- WB: 11.07.14: that is still not fully satisfactory, as phospate might be switched off
@@ -288,20 +297,15 @@ $ifthen.gras defined noPastOutputs
 
 * --- delete unwanted grassland options from c_p_t_i
 
-  set grasTointens(crops,intens);
-  grasTointens(curCrops(grassCrops),"silo")    $ sum(grasToOutput(grasscrops,toSilage),1) = yes;
-  grasTointens(curCrops(grassCrops),"bales")   $ sum(grasToOutput(grasscrops,toSilage),1) = yes;
-  grasTointens(curCrops(grassCrops),"hay")     $ sum(grasToOutput(grasscrops,"hay"),1)    = yes;
-  grasTointens(curCrops(grassCrops),"graz")    $ sum(grasToOutput(grasscrops,toPast),1)   = yes;
 
-  c_p_t_i(curCrops(grasscrops),plot,till,intens) $( not grasTointens(grasscrops,intens)) =no;
+  c_p_t_i(curCrops(grasscrops),plot,till,intens) $( not grassTill(till)) = no;
 
   c_p_t_i("idleGras",plot,till,intens)  = no;
   c_p_t_i("idleGras",plot,till,intens)  $ (sum(plot_lt_soil(plot,"Gras",soil),1) $ (sameas(till,"noTill") or sameas(till,"org")) $ sameas(intens,"normal")) = yes;
   c_p_t_i("idleGras",plot,till,intens)  $ (sum(plot_lt_soil(plot,"past",soil),1) $ (sameas(till,"noTill") or sameas(till,"org")) $ sameas(intens,"normal")) = yes;
 
   $$ifi "%orgTill%"=="off" c_p_t_i("idleGras",plot,"org",intens) = no;
-
+$ontext
   p_crop_op_per_till(curCrops(mixpast),operation,labPeriod,till,"graz")
    $ (sum(grasTointens(mixpast,intens),2) $ grasTointens(mixpast,"hay")) = p_crop_op_per_till(mixpast,operation,labPeriod,till,"hay") ;
 
@@ -310,7 +314,7 @@ $ifthen.gras defined noPastOutputs
 
   p_crop_op_per_till(curCrops(mixpast),operation,labPeriod,till,"graz")
    $ (sum(grasTointens(mixpast,intens),2) $ grasTointens(mixpast,"bales")) = p_crop_op_per_till(mixpast,operation,labPeriod,till,"bales") ;
-
+$offtext
 $endif.gras
 
 
@@ -488,55 +492,7 @@ $ifi not "%additionalTechFile%"=="empty" $batinclude '%datDir%/%additionalTechFi
                   *  p_crop_op_per_till(curCrops,operation,labPeriod,till,intens))
                  ;
 
-*
-* --- list of oprations for which no tractor is needed
-*
-  op_machType(operation,"tractor") $ (not ( sameas(operation,"combineCere")
-                                         or sameas(operation,"CombineRape")
-                                         or sameas(operation,"CombineMaiz")
-                                         or sameas(operation,"forkLiftTruck")
-                                         or sameas(operation,"chopper")
-                                         or sameas(operation,"potatoStoring")
-                                         or sameas(operation,"silageTrailer")
-                                         or sameas(operation,"grinding")
-                                    $$iftheni.data "%database%" == "KTBL_database"
-                                         or (sum(operationID $(operationID_operation(operationID,operation)),1))
-                                    $$endif.data
-                                         ))       = Yes;
-*
-* ---- operations where light tractor is neeeded
-*
-  op_machType(operation,"tractorSmall") $ op_machType(operation,"fertSpreaderSmall")       = YES;
-  op_machType(operation,"tractorSmall") $ op_machType(operation,"threeWayTippingTrailer")  = YES;
-  op_machType(operation,"tractorSmall") $ op_machType(operation,"sprayer")                 = YES;
 
-  op_machType("rotaryHarrow","tractorSmall")         = YES;
-  op_machType("roller","tractorSmall")               = YES;
-  op_machType("sowMachine","tractorSmall")           = YES;
-  op_machType("singleSeeder","tractorSmall")         = YES;
-  op_machType("weederLight","tractorSmall")          = YES;
-  op_machType("mulcher","tractorSmall")              = YES;
-  op_machType("knockOffHaulm","tractorSmall")        = YES;
-  op_machType("tedding","tractorSmall")              = YES;
-  op_machType("mowing","tractorSmall")               = YES;
-  op_machType("raking","tractorSmall")               = YES;
-  op_machType("earthingUp","tractorSmall")           = YES;
-  op_machType("manDist","tractorSmall")              = YES;
-
-  op_machType(operation,"tractor") $ op_machType(operation,"tractorSmall") = No;
-*
-* ---- operations where no tractor is needed
-*
-  op_machType("soilSample",   "tractor")      = NO;
-  op_machType("weedValuation","tractor")      = NO;
-  op_machType("coveringSilo","tractor")       = NO;
-  op_machType("closeSilo","tractor")          = NO;
-  op_machType("plantValuation","tractor")     = NO;
-  op_machType("weedValuation","tractor")      = NO;
-  op_machType("store_n_dry_4","tractor")      = NO;
-  op_machType("store_n_dry_beans","tractor")  = NO;
-  op_machType("store_n_dry_8","tractor")      = NO;
-  op_machType("store_n_dry_rape","tractor")   = NO;
 *
 * --- default is that one person is needed
 *
@@ -951,7 +907,7 @@ $endif.data
                             ;
 
 $ifthen.gras defined grasTypes
-
+$ontext
  p_fieldWorkHourNeed(curCrops(grassCrops),till,"bales",labPeriod,labReqLevl) $ (sameas(till,"minTill") or sameas(till,"org"))
    = p_fieldWorkHourNeed(grassCrops,"bales","normal",labPeriod,labReqLevl);
 
@@ -966,7 +922,6 @@ $ifthen.gras defined grasTypes
  p_machNeed(curCrops(grassCrops),"hay","normal",machType,machLifeUnit)    = 0;
  p_machNeed(curCrops(past),"graz","normal",machType,machLifeUnit)         = 0;
  p_machNeed(curCrops(arablecrops),till,"hay",machType,machLifeUnit)       = 0;
-
 *
 *  --- If different grasland output overwrite machinery requirement for grazing
 *
@@ -985,6 +940,7 @@ $ifthen.gras defined grasTypes
  p_fieldWorkHourNeed(curCrops(grassCrops),"noTill","normal",labPeriod,labReqLevl)   = 0;
  p_fieldWorkHourNeed(curCrops(grassCrops),"org","normal",labPeriod,labReqLevl)      = 0;
  p_fieldWorkHourNeed(curCrops(grassCrops),"hay","normal",labPeriod,labReqLevl)      = 0;
+$offtext
 
 $endif.gras
 

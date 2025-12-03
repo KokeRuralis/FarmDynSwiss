@@ -86,8 +86,10 @@ $ifthen.grasOutput defined grasOutputs
     p_oCoeffc(c_ss_t_i(curCrops(grassCrops),soil,till,intens),grasOutput,t)
          = sum( (sameas(grasOutput,grasOutputs),m),p_grasAttr(grassCrops,grasOutputs,m)
                                               / (p_nutGras(grasOutput,"DM") / 1000) )
-               * p_storageLoss(grasOutput);
-
+               * p_storageLoss(grasOutput)
+               ;
+display c_ss_t_i, curCrops, grasOutput;
+abort p_oCoeffC;
 *   --- monthly outputs for grazing in t fresh matter (from GUI attribute table)
 *
     p_oCoeffM(c_ss_t_i(curCrops(grassCrops),soil,till,intens),grasOutput,m,t)
@@ -363,7 +365,7 @@ $ifi "%debugOutput%"=="true"  display p_vCostC,p_fCostc;
 *
    p_fCostC(curCrops,till,intens,t) $ p_checkCost(curCrops,till,intens,t)
      =  p_fCostC(curCrops,till,intens,"%firstYear%") * [1+%outputPriceGrowthRate%/100]**t.pos;
-
+$ontext
 $ifthen.gras defined grasTypes
 
 
@@ -384,7 +386,7 @@ $ifthen.gras defined grasTypes
   p_fCostC(curCrops,"noTill",intens,"%firstYear%") $ (sameas(intens,"grasM"))
       = p_fCostC(curCrops,"grasM","grasM","%firstYear%");
 $endif.gras
-
+$offtext
 $if setglobal cropInputsPrice  p_vCostC(curCrops,till,intens,t) $ p_checkCost(curCrops,till,intens,t) =  p_vCostC(curCrops,till,intens,t)*%cropInputsPrice%;
 $if setglobal cropInputsPrice  p_fCostC(curCrops,till,intens,t) $ p_checkCost(curCrops,till,intens,t) =  p_fCostC(curCrops,till,intens,t)*%cropInputsPrice%;
 

@@ -18,44 +18,49 @@ $offtext
 
    set grastypes / gra1*gra10/;
    set mm "months in each year" /DM,JAN,FEB,MAR,APR,MAY,JUN,JUL,AUG,SEP,OCT,NOV,DEC /;
-   set grasOutputs  / yield,earlyGraz,middleGraz,lateGraz,earlyGrasSil,middleGrasSil,lateGrasSil,hay,hayM,grasM /;
+   set grasOutputs  / earlyGraz,middleGraz,lateGraz,grasSil,grasSilM,hay,hayM,hayExt,gras,grasM /;
 
-   table p_grasAttr1(GrasTypes,grasOutputs,mm)
+   set grasAttr     / yield,set.grasOutputs,nCuts/;
+
+
+   table p_grasAttr1(GrasTypes,grasAttr,mm)
                              DM      JAN    FEB    MAR    APR    MAY    JUN    JUL    AUG    SEP    OCT    NOV    DEC
-   gra1.yield                10
-   gra1.earlyGraz                    eps    eps     10     15    eps    eps    eps    eps
-   gra1.middleGraz                                                20     20
-   gra1.lateGraz                                                               15     10      10    eps    eps    eps
+   gra1.yield                12.2
+   gra1.gras                                               35           30            20            15                   
 
-   gra2.yield                12
-   gra2.earlyGraz                    eps    eps     10     15    eps    eps    eps    eps
-   gra2.middleGraz                                                20     20
-   gra2.lateGraz                                                               15     10      10    eps    eps    eps
+   gra2.yield                 9.1
+   gra2.grasM                                                    45            35            20                      
 
-   gra3.yield                10
-   gra3.earlyGrasSil                                       30
-   gra3.middleGrasSil                                                    40
-   gra3.lateGrasSil                                                                           30
+   gra3.yield                12.2
+   gra3.hay                                                35           30            20            15                   
 
-   gra4.yield                14
-   gra4.earlyGrasSil                                       25
-   gra4.middleGrasSil                                                    30          25
-   gra4.lateGrasSil                                                                                  20
+   gra4.yield                 9.1
+   gra4.hayM                                                     45            35            20                      
 
-   gra5.yield                eps
-   gra5.hay                                                                           100
+   gra5.yield                 2.7
+   gra5.hayExt                                                                 80                   20               
 
-   gra6.lateGrasSil          eps
-   gra7.lateGrasSil          eps
-   gra8.lateGrasSil          eps
-   gra9.lateGrasSil          eps
-   gra10.lateGrasSil         eps
+   gra6.yield                12.2
+   gra6.grasSil                                            35           30            20            15                   
+
+   gra7.yield                 9.1
+   gra7.grasSilM                                                 45            35            20                      
+
+   gra8.yield                11.6
+   gra8.earlyGraz                                          35           30            20            15                   
+
+   gra9.yield                 8.6
+   gra9.middleGraz                                               45            35            20                      
+
+   gra10.yield                5.6
+   gra10.lateGraz                                                       70                   30                      
    ;
 
-  parameter p_grasAttrGui(grasOutputs,mm,grasTypes);
-  p_grasAttrGui(grasOutputs,mm,grasTypes) = p_grasAttr1(GrasTypes,grasOutputs,mm);
+
+  parameter p_grasAttrGui(grasAttr,mm,grasTypes);
+  p_grasAttrGui(grasAttr,mm,grasTypes) = p_grasAttr1(GrasTypes,grasAttr,mm);
 
 
-   execute_unload "..\gui\grasAttr.gdx" p_grasattrGui;
+   execute_unload "C:\Users\LennartKokemohr\Documents\FarmDyn\GreeNetSwiss\FarmDynSwiss\GUI\grasAttr.gdx" p_grasattrGui;
 
 
