@@ -156,8 +156,8 @@ $ifthen.gras defined noPastOutputs
 
 
   set toSilage(noPastOutputs) / grasSil,grasSilM /;
-  set toCutTrac(noPastOutputs) /grasSil,hay,gras/;
-  set toCutMount(noPastOutputs) /grasSilM,hayM,grasM/;
+  set toCutTrac(noPastOutputs) /grasSil,hay,grasS/;
+  set toCutMount(noPastOutputs) /grasSilM,hayM,grasSM/;
   set toTedRakTrac(noPastOutputs) /grasSil,hay/;
   set toTedRakMount(noPastOutputs) /grasSilM,hayM/;
   set toHayMtrans(noPastOutputs) / hayM,hayExt /;
@@ -171,7 +171,7 @@ $ifthen.gras defined noPastOutputs
 
 
   table p_opPerCut(operation,noPastOutputs,till) "Field operations for one gras cut per cutting process (either silo or bales)"
-                                           grasSil   grasSilM    hay     hayM    hayExt   gras  grasM  
+                                           grasSil   grasSilM    hay     hayM    hayExt   grasS  grasSM  
     mowing.set.toCutTrac                   1.00                  1.0                      1.0
     tedding.set.toTedRakTrac               1.00                  1.0       
     raking.set.toTedRakTrac                1.00                  1.0       
@@ -183,8 +183,8 @@ $ifthen.gras defined noPastOutputs
     teddingmotormower."hayExt"                                                   1.0 
     rakingleafblower."hayExt"                                                    1.0 
     loadinghaytransporter.set.toHayMtrans                                1.0     1.0 
-    loadinggrastransporter."grasM"                                                              1.0
-    loadingrastractor."gras"                                                              1.0
+    loadinggrastransporter."grasSM"                                                              1.0
+    loadingrastractor."grasS"                                                              1.0
     closeSilo.set.toSilage                1.00      1.0
     silageTrailer.set.toSilage            1.00      1.0
 
@@ -229,7 +229,7 @@ $ontext
   p_crop_op_per_till(curCrops(grassCrops),operation,labPeriod,"org","hay")
     = p_crop_op_per_till(grassCrops,operation,labPeriod,"noTill","hay");
 $offtext
-  set grassTill(till) / grasSil,grasSilM,hay,hayM,hayExt,gras,grasM,graz /;
+  set grassTill(till) / grasSil,grasSilM,hay,hayM,hayExt,grasS,grasSM,graz /;
 
   p_crop_op_per_till(curCrops(grassCrops),operation,labPeriod,grassTill,intens)
      $ sum(noPastOutputs, (p_cutPeriod(grassCrops,labPeriod) $ p_opPerCut(operation,noPastOutputs,grassTill) $ grasToOutput(grassCrops,noPastOutputs)))

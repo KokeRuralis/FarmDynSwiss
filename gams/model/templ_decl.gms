@@ -567,7 +567,7 @@ $endif.cattle
    set curArabCrops(crops) "Crops currently in model";
 
 
-  set till/ plough, minTill, noTill, org, grasSil, grasSilM, hay, hayM, hayExt,gras, grasM, graz/;
+  set till/ plough, minTill, noTill, org, grasSil, grasSilM, hay, hayM, hayExt,grasS, grasSM, graz/;
 
 
   alias(till,till1);
@@ -593,7 +593,7 @@ $endif.cattle
                     silo
                     Graz
                     hayM
-                    grasM
+                    grasSM
      $$endif.gras
                     /;
   set intens      / set.oriIntens /;
@@ -658,7 +658,7 @@ $ifthen.gras defined grasTypes
   set mixPast(crops)    / set.grasTypes /;
 
   set pastOutputs(grasOutputs) / earlyGraz,middleGraz,lateGraz  /;
-  set noPastOutputs(grasOutputs) / GrasSil,GrasSilM,hay,hayM,hayExt,gras,grasM /;
+  set noPastOutputs(grasOutputs) / GrasSil,GrasSilM,hay,hayM,hayExt,grasS,grasSM /;
 
   set grasCrops_outputs(crops,grasOutputs);
       grasCrops_outputs(grassCrops,grasOutputs)$(sum(m,p_grasattr(grassCrops,grasoutputs,m))) = YES;
@@ -2344,7 +2344,7 @@ $endif.pig
  set P_fertilizer(syntFertilizer) /PK_18_10, dolophos/;
 
 
- set set_prodsMonthly / earlyGraz,middleGraz,lateGraz,gras,grasM/;
+ set set_prodsMonthly / earlyGraz,middleGraz,lateGraz,grasS,grasSM/;
 
  set meatTypes / "Type1" ,"Type2" ,"Type3" ,"Type4" ,"Type5" ,"Type6" /;
 
@@ -2609,7 +2609,7 @@ $iftheni.cattle "%cattle%"=="true"
       set grasfeed(feeds)/ set.pastOutput /;
 
       set roughages(feeds) /
-          set.grasOutput
+*          set.grasOutputs
           set.roughagesGDX
 *          Straw
        $$iftheni.feedCatchCrop "%feedCatchCrop%"=="true"

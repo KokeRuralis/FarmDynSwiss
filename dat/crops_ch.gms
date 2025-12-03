@@ -339,8 +339,8 @@ $iftheni.cat %cattle% == true
    p_storageLoss("hayM")         =  0.7  ;
    p_storageLoss("hayExt")       =  0.7  ;
 
-   p_storageLoss("gras")         =  0.7  ;
-   p_storageLoss("grasM")        = 0.7  ;
+   p_storageLoss("grasS")         =  0.7  ;
+   p_storageLoss("grasSM")        = 0.7  ;
 
 $endif.cat
 

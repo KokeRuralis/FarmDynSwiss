@@ -2820,7 +2820,7 @@
                          nXP"Usable raw protein",RNB"N-Ratio in Rumen",NEL"Net energy lactation",
                          ME"Metabolisable energy",XS+XZ"Sugar + starch",XL"Crude fat"
                 </columns>
-                <rows>earlyGraz,middleGraz,lateGraz,GrasSil,GrasSilM,hay,hayM,hayExt,gras,grasM    </rows>
+                <rows>earlyGraz,middleGraz,lateGraz,grasSil,grasSilM,hay,hayM,hayExt,grasS,grasSM    </rows>
 
                <value>
                  0,   170,      170,      170,       350,      350,     860,    860,    860,    170,    170,
@@ -2852,7 +2852,7 @@
                  <type>TableSimple</type>
                  <title>Grasland management</title>
                  <columns>DM,JAN,FEB,MAR,APR,MAY,JUN,JUL,AUG,SEP,OCT,NOV,DEC</columns>
-                 <rows>yield,earlyGraz,middleGraz,lateGraz,GrasSil,GrasSilM,hay,hayM,hayExt,gras,grasM </rows>
+                 <rows>yield,earlyGraz,middleGraz,lateGraz,grasSil,grasSilM,hay,hayM,hayExt,grasS,grasSM </rows>
                  <dim3s>gra1,gra2,gra3,gra4,gra5,gra6,gra7,gra8,gra9,gra10</dim3s>
                  <value>
                        0,11.6,    0,    0,    0,   0,   0,   0,   0,   0,   0, 0

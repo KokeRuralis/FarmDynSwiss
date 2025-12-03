@@ -44,8 +44,8 @@ $iftheni.mode "%1" == "decl"
                           hayM        
                           hayExt  
 
-                          gras        
-                          grasM   
+                          grasS        
+                          grasSM   
                               
                           Straw
                           soyBeanMeal    "Soy cake for feeding"

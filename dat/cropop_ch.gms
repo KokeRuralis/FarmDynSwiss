@@ -318,7 +318,7 @@ $endif.data
    parameter p_crop_op_per_tilla(crops,operation,labperiod,till);
 
 
-set grasTill(till) /noTill, grasSil, grasSilM, hay, hayM, hayExt,gras, grasM, graz/;
+set grasTill(till) /noTill, grasSil, grasSilM, hay, hayM, hayExt,grasS, grasSM, graz/;
 
 * --- Read in operations as defined by User
 

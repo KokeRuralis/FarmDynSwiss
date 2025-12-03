@@ -19,7 +19,7 @@ $offtext
 
 set grasTypes  / system.empty /;
 set gras_grasN(grasTypes,p_grasAttrGui_dim3);
-set grasOutputs  / earlyGraz,middleGraz,lateGraz,grasSil,grasSilM,hay,hayM,hayExt,gras,grasM /;
+set grasOutputs  / earlyGraz,middleGraz,lateGraz,grasSil,grasSilM,hay,hayM,hayExt,grasS,grasSM /;
 set grazOutputs(grasOutputs) / earlyGraz,middleGraz,lateGraz/;
 set grasAttr     / yield,set.grasOutputs,nCuts/;
 set m "months in each year" /JAN,FEB,MAR,APR,MAY,JUN,JUL,AUG,SEP,OCT,NOV,DEC /;
@@ -49,8 +49,8 @@ $onEmbeddedCode Python:
     hay     = []
     hayM    = []
     hayExt  = []
-    gras    = []
-    grasM   = []
+    grasS   = []
+    grasSM  = []
     yld     = []
     nCut    = []
 #
@@ -67,8 +67,8 @@ $onEmbeddedCode Python:
           hay.append(0)
           hayM.append(0)
           hayExt.append(0)
-          gras.append(0)
-          grasM.append(0)
+          grasS.append(0)
+          grasSM.append(0)
           nCut.append(0)
 
     lenDim1 = len(dim1)
@@ -104,15 +104,15 @@ $onEmbeddedCode Python:
             nCut[grazType]    += 1
 
         if x[0] == "hayExt":
-            hayM[grazType] += l[i]
+            hayExt[grazType] += l[i]
             nCut[grazType]    += 1
 
-        if x[0] == "gras":
-            grasM[grazType] += l[i]
+        if x[0] == "grasS":
+            grasS[grazType] += l[i]
             nCut[grazType]    += 1
 
-        if x[0] == "grasM":
-            grasM[grazType] += l[i]
+        if x[0] == "grasSM":
+            grasSM[grazType] += l[i]
             nCut[grazType]    += 1
 
         if x[0].endswith("grasSil"):
@@ -120,7 +120,7 @@ $onEmbeddedCode Python:
             nCut[grazType]    += 1
 
         if x[0].endswith("grasSilM"):
-            grasSil[grazType] += l[i]
+            grasSilM[grazType] += l[i]
             nCut[grazType]    += 1
         i+=1
 #
@@ -150,17 +150,17 @@ $onEmbeddedCode Python:
          if grasSil[i] > 0:
             name += "_sil"+str(grasSil[i]).replace(".0","")
          if grasSilM[i] > 0:
-            name += "_sil"+str(grasSilM[i]).replace(".0","")
+            name += "_silM"+str(grasSilM[i]).replace(".0","")
          if hay[i] > 0:
             name += "_hay"+str(hay[i]).replace(".0","")
          if hayM[i] > 0:
             name += "_hayM"+str(hayM[i]).replace(".0","")
          if hayExt[i] > 0:
-            name += "_hayExt"+str(hayM[i]).replace(".0","")
-         if gras[i] > 0:
-            name += "_gras"+str(grasM[i]).replace(".0","")
-         if grasM[i] > 0:
-            name += "_grasM"+str(grasM[i]).replace(".0","")
+            name += "_hayExt"+str(hayExt[i]).replace(".0","")
+         if grasS[i] > 0:
+            name += "_grasS"+str(grasS[i]).replace(".0","")
+         if grasSM[i] > 0:
+            name += "_grasSM"+str(grasSM[i]).replace(".0","")
          newDim0.append(name)
          gras_grasN.append((name,x))
 

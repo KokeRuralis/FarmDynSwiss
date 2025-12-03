@@ -18,7 +18,7 @@ $offtext
 
    set grastypes / gra1*gra10/;
    set mm "months in each year" /DM,JAN,FEB,MAR,APR,MAY,JUN,JUL,AUG,SEP,OCT,NOV,DEC /;
-   set grasOutputs  / earlyGraz,middleGraz,lateGraz,grasSil,grasSilM,hay,hayM,hayExt,gras,grasM /;
+   set grasOutputs  / earlyGraz,middleGraz,lateGraz,grasSil,grasSilM,hay,hayM,hayExt,grasS,grasSM /;
 
    set grasAttr     / yield,set.grasOutputs,nCuts/;
 
@@ -26,10 +26,10 @@ $offtext
    table p_grasAttr1(GrasTypes,grasAttr,mm)
                              DM      JAN    FEB    MAR    APR    MAY    JUN    JUL    AUG    SEP    OCT    NOV    DEC
    gra1.yield                12.2
-   gra1.gras                                               35           30            20            15                   
+   gra1.grasS                                               35           30            20            15                   
 
    gra2.yield                 9.1
-   gra2.grasM                                                    45            35            20                      
+   gra2.grasSM                                                    45            35            20                      
 
    gra3.yield                12.2
    gra3.hay                                                35           30            20            15                   
