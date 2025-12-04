@@ -185,8 +185,8 @@ $ifthen.gras defined noPastOutputs
     loadinghaytransporter.set.toHayMtrans                                1.0     1.0 
     loadinggrastransporter."grasSM"                                                              1.0
     loadingrastractor."grasS"                                                              1.0
-    closeSilo.set.toSilage                1.00      1.0
-    silageTrailer.set.toSilage            1.00      1.0
+    closeSilo.set.toSilage                1.00       1.0
+    silageTrailer.set.toSilage            1.00       1.0
 
 *    balePressWrap.set.toSilage                      1.00
 *    balePressHay.hay                                         1.00
@@ -242,6 +242,7 @@ $offtext
                      +  (p_grasAttr(grassCrops,noPastOutputs,m) 
                           *  1 /p_bioMassOpsFac(operation)/op_attr(operation,"67kw","2","amount")) $ p_bioMassOpsFac(operation))
           )/ p_cutPeriod(grassCrops,labPeriod);
+
 $ontext
 *
 * --- bale pressing for silage
@@ -296,11 +297,8 @@ $ifthen.gras defined noPastOutputs
 
 * --- delete unwanted grassland options from c_p_t_i
 *
-display c_p_t_i, curcrops, grassCrops, plot, till, intens, grassTill;
 
-
-*  c_p_t_i(curCrops(grasscrops),plot,till,intens) $( not grassTill(till)) = no;
-*abort c_p_t_i;
+  c_p_t_i(curCrops(grasscrops),plot,till,intens) $( not grassTill(till)) = no;
 
   c_p_t_i("idleGras",plot,till,intens)  = no;
   c_p_t_i("idleGras",plot,till,intens)  $ (sum(plot_lt_soil(plot,"Gras",soil),1) $ (sameas(till,"noTill") or sameas(till,"org")) $ sameas(intens,"normal")) = yes;
@@ -362,14 +360,7 @@ $offtext
   p_changeOpIntens(curCrops(crops),operation,labPeriod,intens)
      $ sum(till, p_crop_op_per_till(crops,operation,labPeriod,till,intens)) = 1.;
 
-$ifthen.gras defined grasTypes
 
-  p_changeOpIntens(curCrops(arabCrops),operation,labPeriod,"bales") = 0;
-  p_changeOpIntens(curCrops(arabCrops),operation,labPeriod,"silo")  = 0;
-  p_changeOpIntens(curCrops(arabCrops),operation,labPeriod,"graz")  = 0;
-  p_changeOpIntens(curCrops(arabCrops),operation,labPeriod,"hay")   = 0;
-
-$endif.gras
 *
 * --- Plot size effects are now covered by regression analysis - only for crops not included in KTBL database
 *
