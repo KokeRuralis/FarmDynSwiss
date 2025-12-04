@@ -586,16 +586,8 @@ $endif.cattle
 
      $$ifi "%intensoptions%"=="Default"   set.set_default_intens
      $$ifi "%intensoptions%"=="Heyn_Olfs" set.set_HeynOlfs_intens
-
-     $$ifthen.gras defined grasTypes
-                    bales
-                    hay
-                    silo
-                    Graz
-                    hayM
-                    grasSM
-     $$endif.gras
                     /;
+                    
   set intens      / set.oriIntens /;
   set lower(intens)/  /;
   set veryLow(intens)/  /;
