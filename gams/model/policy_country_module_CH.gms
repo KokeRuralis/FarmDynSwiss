@@ -40,7 +40,7 @@ parameters
     p_DivRotMin
 
     p_areaBFF
-*    p_premBFF
+    p_premBFF
     ;
 
 Binary variables
@@ -88,8 +88,8 @@ $iftheni.arab "%farmbranchArable%" == "on"
     triggerDivRotMinConstr_(crops,t,n)                 "crops planted on farm have to exceed 10 of the arable land"
     triggerDivRotMinNum_(t,n)                          "a certain number of crops have to be planted on the farm"
 $endif.arab
-*    bioDivProArea_(sys,t,n)                          "Biodiversity promotion area has to be at least 7% of total area"
-*    premBFF_(t,n)
+    bioDivProArea_(sys,t,n)                          "Biodiversity promotion area has to be at least 7% of total area"
+    premBFF_(t,n)
 
 ;
 
@@ -110,7 +110,7 @@ $ifi "%farmbranchArable%" == "on"                      + v_premArab(tCur,nCur)
 $iftheni.cattle "%cattle%"=="true"
                                                        + v_premGMF(tCur,nCur)
                                                        + v_premAnimal(tCur,nCur)
-*                                                       + v_premBFF(tCur,nCur)
+                                                       + v_premBFF(tCur,nCur)
 $endif.cattle
 ;
 
@@ -261,19 +261,19 @@ $iftheni.arab "%farmbranchArable%" == "on"
                                                                                                          =G= v_hasFarm(tCur,nCur) * p_DivRotCropNum;
 
 $endif.arab
-$ontext
 * ------------------------------------------------------------------------------------------------
 *
 *     Set aside - biodiversity promotion areas (BFF) 7% of farmland must be managed as BFF
 *
 * ------------------------------------------------------------------------------------------------
 
+*** This should be hayext
 
     bioDivProArea_(curSys(sys),t_n(tCur,nCur)) $ (v_hasFarm.up(tCur,nCur) ne 0)..
 
           sum(plot, v_croppedPlotLand(plot,sys,tCur,nCur)) * p_areaBFF =L=
-                                          sum(c_p_t_i(crops,plot,till,intens) $ (sameas(intens,"hay"))
-                                                                 , v_cropHa("Swizz_BFF_hay",plot,till,intens,tCur,nCur));
+                                          sum(c_p_t_i(curcrops(crops),plot,"hayExt",intens) 
+                                                                 , v_cropHa(crops,plot,"hayExt",intens,tCur,nCur));
 
 * ------------------------------------------------------------------------------------------------
 *
@@ -285,9 +285,8 @@ $ontext
 
          premBFF_(t_n(tCur,nCur)) ..
 
-                       v_premBFF(tCur,nCur) =L= p_premBFF *  sum(c_p_t_i(crops,plot,till,intens) $ (sameas(intens,"hay"))
-                                                                    , v_cropHa("Swizz_BFF_hay",plot,till,intens,tCur,nCur));
-$offtext
+                       v_premBFF(tCur,nCur) =L= p_premBFF *  sum(c_p_t_i(curcrops(crops),plot,"hayExt",intens) 
+                                                                    , v_cropHa(crops,plot,"hayExt",intens,tCur,nCur));
 * ------------------------------------------------------------------------------------------------
 *
 *                               Model
@@ -307,8 +306,8 @@ $iftheni.cattle "%cattle%"=="true"
       triggerGMF_
 $endif.cattle
 
-*       bioDivProArea_
-*       premBFF_
+       bioDivProArea_
+       premBFF_
 
 $iftheni.arab "%farmBranchArable%" == "on"
       premArab_

@@ -65,13 +65,11 @@ $offtext
          p_DivRotMax = 0.6;
          p_DivRotMin = 0.1 ;
 
-$ontext
 
 
 parameter p_areaBFF;
 
 parameter p_feedAdditiveEmiRed;
-parameter p_diffPay;
 
 * --- Biodiversity promotion area
     p_areaBFF = 0.07;
@@ -79,9 +77,8 @@ parameter p_diffPay;
 * --- (IV) Payments for biodiversity area;
       p_premBFF = 1500;
 
-* --- (VI) Difference in payment
-      p_diffPay = %diffPay%;
 
 
-
-$offtext
+*parameter p_diffPay;
+** --- (VI) Difference in payment
+*      p_diffPay = %diffPay%;
