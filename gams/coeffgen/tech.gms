@@ -234,7 +234,7 @@ $offtext
   p_crop_op_per_till(curCrops(grassCrops),operation,labPeriod,grassTill,intens)
      $ sum(noPastOutputs, (p_cutPeriod(grassCrops,labPeriod) $ p_opPerCut(operation,noPastOutputs,grassTill) $ grasToOutput(grassCrops,noPastOutputs)))
     =   sum( (labPeriod_to_month(labPeriod,m),noPastOutputs) $ p_grasAttr(grassCrops,noPastOutputs,m),
-          p_opPerCut(operation,noPastOutputs,grassTill)/2
+          p_opPerCut(operation,noPastOutputs,grassTill)
 *
 *            --- change machinery needs (or not) depending on harvested dry matter
 *
@@ -242,7 +242,6 @@ $offtext
                      +  (p_grasAttr(grassCrops,noPastOutputs,m) 
                           *  1 /p_bioMassOpsFac(operation)/op_attr(operation,"67kw","2","amount")) $ p_bioMassOpsFac(operation))
           )/ p_cutPeriod(grassCrops,labPeriod);
-*abort p_crop_op_per_till;
 $ontext
 *
 * --- bale pressing for silage

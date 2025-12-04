@@ -215,11 +215,8 @@ $endif.intes
   c_p_t_i(gras,plot,till,intens)       = NO;
   c_p_t_i(past,plot,till,intens)       = NO;
   c_p_t_i(mixPast,plot,till,intens)    = NO;
-
   c_p_t_i(arabCrops,plot,till,intens) $sum(grassTill(till),1) = NO;
-  c_p_t_i(gras,plot,till,intens)       $ ( (sum(grassTill(till),1) )  and sameas(intens,"normal")  ) = YES;
-  c_p_t_i(past,plot,till,intens)       $ ( sameas(till,"graz")  and sameas(intens,"normal"))   = YES;
-  c_p_t_i(mixPast,plot,till,intens)    $ ( (sum(grassTill(till),1) ) and  sameas(intens,"normal") ) = YES;
+  c_p_t_i(grassCrops,plot,till,intens) $(sum(grasCrops_outputs(grassCrops,grasOutputs)$(sameas(grasOutputs,till)$sum(grassTill(till),1)),1)and sameas(intens,"normal")) = Yes;
 
 
 
