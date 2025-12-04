@@ -395,7 +395,7 @@ $ifi "%scenType%"=="Fertilizer Directive" $include 'solve/sensFD.gms'
 * --- report core results to listing
 *
 
-  display plot_landType, p_plotSize, c_p_t_i, p_fieldWorkingDays, plot_soil;
+*  display curprods, p_fCostC, p_fieldWorkHourNeed, p_crop_op_per_till, p_OCoeffc,c_p_t_i;
 *
 * --- store results to GDX
 *
@@ -403,12 +403,7 @@ $ifi "%scenType%"=="Fertilizer Directive" $include 'solve/sensFD.gms'
 $ifi defined s_meta  s_meta,
                                  p_sumRes
 $ifi "%postModelStoch%"=="true"  p_stochRes
-                                 p_sumResT2B
-                                 p_sumLAMASUS
-*                                p_sumRes2GLOBIOM
-*                                feedBasket
-*                                cropPatternCrops
-*                                otherItems
+
 $ifi set addIndicators           %addIndicators%
 $ifi defined p_checkU            p_checkU
   ;
