@@ -267,9 +267,8 @@ $endif.arab
 *
 * ------------------------------------------------------------------------------------------------
 
-*** This should be hayext
 
-    bioDivProArea_(curSys(sys),t_n(tCur,nCur)) $ (v_hasFarm.up(tCur,nCur) ne 0)..
+    bioDivProArea_(curSys(sys),t_n(tCur,nCur)) $(sum(c_p_t_i(curcrops(crops),plot,"hayExt",intens),1)  $(v_hasFarm.up(tCur,nCur) ne 0))..
 
           sum(plot, v_croppedPlotLand(plot,sys,tCur,nCur)) * p_areaBFF =L=
                                           sum(c_p_t_i(curcrops(crops),plot,"hayExt",intens) 

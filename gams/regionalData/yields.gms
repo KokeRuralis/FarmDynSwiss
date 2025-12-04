@@ -43,27 +43,6 @@ $iftheni.Schweiz "%region%" == "Schweiz"
 
    $$ifthenI.dairyHerd %cattle% == true
 
-*  --- grass lands, used for silage (after losses); (34 = KTBL page 489, 2012/13 ca. 25 t)
-
-*   p_OCoeffC("gras20",soil,till,intens,"grasSil",t) $ sum(soil_plot(soil,plot),c_p_t_i("gras20",plot,till,intens)) = 16.6 * (1.00 + p_cropYieldInt("gras20","GrowthRateY")/100) **t.pos ;
-*   p_OCoeffC("gras29",soil,till,intens,"grasSil",t) $ sum(soil_plot(soil,plot),c_p_t_i("gras29",plot,till,intens)) = 24.5 * (1.00 + p_cropYieldInt("gras29","GrowthRateY")/100) **t.pos ;
-*   p_OCoeffC("gras34",soil,till,intens,"grasSil",t) $ sum(soil_plot(soil,plot),c_p_t_i("gras34",plot,till,intens)) = 32.8 * (1.00 + p_cropYieldInt("gras34","GrowthRateY")/100) **t.pos ;
-
-*  ---  intensive pasture
-
-*   p_OCoeffM("past33",soil,till,intens,"grasPast","APR",t) $ sum(soil_plot(soil,plot),c_p_t_i("past33",plot,till,intens))    = 16.6* 0.02 * (1.00 + p_cropYieldInt("past33","GrowthRateY")/100) **t.pos ;
-*   p_OCoeffM("past33",soil,till,intens,"grasPast","MAY",t) $ sum(soil_plot(soil,plot),c_p_t_i("past33",plot,till,intens))    =  16.6* 0.29 * (1.00 + p_cropYieldInt("past33","GrowthRateY")/100) **t.pos ;
-*   p_OCoeffM("past33",soil,till,intens,"grasPast","JUN",t) $ sum(soil_plot(soil,plot),c_p_t_i("past33",plot,till,intens))    =  16.6* 0.22 * (1.00 + p_cropYieldInt("past33","GrowthRateY")/100) **t.pos ;
-*   p_OCoeffM("past33",soil,till,intens,"grasPast","JUL",t) $ sum(soil_plot(soil,plot),c_p_t_i("past33",plot,till,intens))    =  16.6* 0.17 * (1.00 + p_cropYieldInt("past33","GrowthRateY")/100) **t.pos ;
-*   p_OCoeffM("past33",soil,till,intens,"grasPast","AUG",t) $ sum(soil_plot(soil,plot),c_p_t_i("past33",plot,till,intens))    =  16.6* 0.13 * (1.00 + p_cropYieldInt("past33","GrowthRateY")/100) **t.pos ;
-*   p_OCoeffM("past33",soil,till,intens,"grasPast","SEP",t) $ sum(soil_plot(soil,plot),c_p_t_i("past33",plot,till,intens))    =  16.6* 0.10 * (1.00 + p_cropYieldInt("past33","GrowthRateY")/100) **t.pos ;
-*   p_OCoeffM("past33",soil,till,intens,"grasPast","OCT",t) $ sum(soil_plot(soil,plot),c_p_t_i("past33",plot,till,intens))    =  16.6* 0.07 * (1.00 + p_cropYieldInt("past33","GrowthRateY")/100) **t.pos ;
-*
-*   p_OCoeffM("past33",soil,till,"fert60p","grasPast",m,t)  $ sum(soil_plot(soil,plot),c_p_t_i("past33",plot,till,"fert60p")) = p_OCoeffM("past33",soil,till,"normal","grasPast",m,t) * 0.9;
-*   p_OCoeffM("past33",soil,till,"fert20p","grasPast",m,t)  $ sum(soil_plot(soil,plot),c_p_t_i("past33",plot,till,"fert20p")) = p_OCoeffM("past33",soil,till,"normal","grasPast",m,t) * 0.8;
-*
-*   p_OCoeffC("past33",soil,till,intens,"grasPast",t) $  sum(soil_plot(soil,plot),c_p_t_i("past33",plot,till,intens)) = sum(m, p_OCoeffM("past33",soil,till,intens,"grasPast",m,t));
-
 *   ---  wheat GPS and silage maize
 
    p_OCoeffC("wheatGPS",soil,till,intens,"wheatGPS",t) $ sum(soil_plot(soil,plot), c_p_t_i("wheatGPS",plot,till,intens)) = 40 * (1.00 + p_cropYieldInt("wheatGPS","GrowthRateY")/100) **t.pos;

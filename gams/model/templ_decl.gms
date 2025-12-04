@@ -650,6 +650,7 @@ $ifthen.gras defined grasTypes
   set mixPast(crops)    / set.grasTypes /;
 
   set pastOutputs(grasOutputs) / earlyGraz,middleGraz,lateGraz  /;
+  set grafOutputs(grasOutputs) /grasS,grasSM/;
   set noPastOutputs(grasOutputs) / GrasSil,GrasSilM,hay,hayM,hayExt,grasS,grasSM /;
 
   set grasCrops_outputs(crops,grasOutputs);

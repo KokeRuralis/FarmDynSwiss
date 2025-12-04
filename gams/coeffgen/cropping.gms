@@ -88,12 +88,11 @@ $ifthen.grasOutput defined grasOutputs
                                               / (p_nutGras(grasOutput,"DM") / 1000) )
                * p_storageLoss(grasOutput)
                ;
-*display c_ss_t_i, curCrops, grasOutput;
-*abort p_oCoeffC;
-*   --- monthly outputs for grazing in t fresh matter (from GUI attribute table)
+*   --- monthly outputs for grassland in t fresh matter (from GUI attribute table)
 *
-    p_oCoeffM(c_ss_t_i(curCrops(grassCrops),soil,till,intens),grasOutput,m,t)
-         = sum( sameas(grasOutput,pastOutputs),p_grasAttr(grassCrops,pastOutputs,m)/ (p_nutGras(grasOutput,"DM") / 1000) );
+    p_oCoeffM(c_ss_t_i(curCrops(grassCrops),soil,till,intens),grasOutput,m,t)$( sum( sameas(grasOutput,pastOutputs),1)  or sum(sameas(grasOutput,grafOutputs),1))
+
+         = sum( sameas(grasOutput,grasOutputs),p_grasAttr(grassCrops,grasOutputs,m)/ (p_nutGras(grasOutput,"DM") / 1000) );
 
 * --- yields in organic farming
 

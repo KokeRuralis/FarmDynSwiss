@@ -41,3 +41,7 @@ gams/incgen/expInc.gms
 gams/incgen/UserInc.gms
 gams/rbridge/incFile.r
 gams/scen_gen.lst
+gams/grasTable1.log~1
+dat/User/cropsData_CH.log~1
+dat/User/cropsData_CH.log~2
+gams/Farm sample run.ref
