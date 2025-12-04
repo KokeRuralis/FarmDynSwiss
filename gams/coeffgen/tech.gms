@@ -229,7 +229,7 @@ $ontext
   p_crop_op_per_till(curCrops(grassCrops),operation,labPeriod,"org","hay")
     = p_crop_op_per_till(grassCrops,operation,labPeriod,"noTill","hay");
 $offtext
-  set grassTill(till) / grasSil,grasSilM,hay,hayM,hayExt,grasS,grasSM,graz /;
+*  set grassTill(till) / grasSil,grasSilM,hay,hayM,hayExt,grasS,grasSM,graz /;
 
   p_crop_op_per_till(curCrops(grassCrops),operation,labPeriod,grassTill,intens)
      $ sum(noPastOutputs, (p_cutPeriod(grassCrops,labPeriod) $ p_opPerCut(operation,noPastOutputs,grassTill) $ grasToOutput(grassCrops,noPastOutputs)))
@@ -296,9 +296,12 @@ $endif.data
 $ifthen.gras defined noPastOutputs
 
 * --- delete unwanted grassland options from c_p_t_i
+*
+display c_p_t_i, curcrops, grassCrops, plot, till, intens, grassTill;
 
 
-  c_p_t_i(curCrops(grasscrops),plot,till,intens) $( not grassTill(till)) = no;
+*  c_p_t_i(curCrops(grasscrops),plot,till,intens) $( not grassTill(till)) = no;
+*abort c_p_t_i;
 
   c_p_t_i("idleGras",plot,till,intens)  = no;
   c_p_t_i("idleGras",plot,till,intens)  $ (sum(plot_lt_soil(plot,"Gras",soil),1) $ (sameas(till,"noTill") or sameas(till,"org")) $ sameas(intens,"normal")) = yes;
@@ -326,7 +329,7 @@ $endif.data
 
   set c_t_i(crops,till,intens);
   c_t_i(curCrops,till,intens) $ sum(c_p_t_i(curCrops,plot,till,intens),1) = YES;
-*
+
 * --- abort if crops (exemption idle, idleGras, or gras which has only pasture) have no field operations at all
 *
 $ontext

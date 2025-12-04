@@ -209,15 +209,20 @@ $endif.intes
 *
 * --- grass lands are always handled as noTill and default intensity
 *
+  set grassTill(till) / grasSil,grasSilM,hay,hayM,hayExt,grasS,grasSM,graz /;
+
   c_p_t_i("idleGras",plot,till,intens) = NO;
   c_p_t_i(gras,plot,till,intens)       = NO;
   c_p_t_i(past,plot,till,intens)       = NO;
   c_p_t_i(mixPast,plot,till,intens)    = NO;
 
-  c_p_t_i(arabCrops,plot,till,intens)  $ ( sameas(intens,"graz") or sameas(intens,"bales") or sameas(intens,"silo") or sameas(intens,"hay") or sameas(intens,"hayM") or sameas(intens,"grasSM")) = NO;
-  c_p_t_i(gras,plot,till,intens)       $ ( sameas(till,"noTill")  and (sameas(intens,"bales") or sameas(intens,"silo") or sameas(intens,"hay")or sameas(intens,"hayM") or sameas(intens,"grasSM")) ) = YES;
-  c_p_t_i(past,plot,till,intens)       $ ( sameas(till,"noTill")  and sameas(intens,"graz"))   = YES;
-  c_p_t_i(mixPast,plot,till,intens)    $ ( sameas(till,"noTill")  and  (sameas(intens,"bales") or sameas(intens,"silo") or sameas(intens,"graz") or sameas(intens,"hay") or sameas(intens,"hayM") or sameas(intens,"grasSM")) ) = YES;
+  c_p_t_i(arabCrops,plot,till,intens) $sum(grassTill(till),1) = NO;
+  c_p_t_i(gras,plot,till,intens)       $ ( (sum(grassTill(till),1) )  and sameas(intens,"normal")  ) = YES;
+  c_p_t_i(past,plot,till,intens)       $ ( sameas(till,"graz")  and sameas(intens,"normal"))   = YES;
+  c_p_t_i(mixPast,plot,till,intens)    $ ( (sum(grassTill(till),1) ) and  sameas(intens,"normal") ) = YES;
+
+
+
   c_p_t_i("idleGras",plot,till,intens) $ ( sameas(till,"noTill")  and sameas(intens,"normal")) = YES;
 *
 * --- idle land as "noTill" and default intensity

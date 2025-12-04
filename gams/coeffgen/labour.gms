@@ -157,15 +157,8 @@ $ifthen.gras defined grassTill
 *  --- assume 1 hours a month if 0.5 tons of dry matter are grazed = 12 hours at a usable dry matter yield of 6 tons
 *
     = p_cropLab(past,grassTill,intens,m)
-       + 1.0 * sum(pastOutPuts,  p_grasAttr(past,pastOutputs,m)*( 1                       $ sameas(grassTill,"noTill")
-                                                                  +  p_organicYieldMult(past) $ sameas(grassTill,"org")))/0.5;
-*
-*  --- assume extra time for fast rotationalGraz
-*
-   p_cropLab(rotationalGraz,grassTill,intens,m) $ sum(plot,c_p_t_i(rotationalGraz,plot,grassTill,intens))
-      = p_cropLab(rotationalGraz,grassTill,intens,m)
-         + 1.2 * sum(pastOutPuts,  p_grasAttr(rotationalGraz,pastOutputs,m)
-              *(1 $ sameas(grassTill,"noTill") + p_organicYieldMult(rotationalGraz) $ sameas(grassTill,"org") ) /0.5);
+       + 1.0 * sum(pastOutPuts,  p_grasAttr(past,pastOutputs,m)*( 1                       $ sameas(grassTill,"graz")
+                                                                  +  p_organicYieldMult(past) $ sameas(grassTill,"graz")))/0.5;
 
 $endif.gras
 
