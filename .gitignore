@@ -1,8 +1,8 @@
 # Ignore everything in the root directory
 /*
 /dat/ktbl
-/results/samples/
-/results/expFarms/
+!/results/samples/*.gdx
+!/results/expFarms/*.gdx
 
 *.log
 *.lst
