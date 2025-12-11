@@ -206,6 +206,7 @@ $endif.intes
    c_p_t_i(catchcrops(curCrops),plot,till,intens)  $ (( not sameas (till,"plough") ) and (not sameas(till,"org")))   = NO ;
 
 
+$$ifthen.gras defined grasTypes
 *
 * --- grass lands are always handled as noTill and default intensity
 *
@@ -244,7 +245,7 @@ $endif.intes
 $iftheni.grasOnArab not "%grasOnArab%"=="true"
    c_p_t_i(gras,plot,till,intens)        $ sum(plot_lt_soil(plot,"arab",soil),1) = NO;
 $$endif.grasOnArab
-
+$$endif.gras
 
   c_p_t_i("idleGras",plot,till,intens)  = no;
   c_p_t_i("idleGras",plot,till,intens)  $ (sum(plot_lt_soil(plot,"Gras",soil),1) $ sameas(till,"noTill") $ sameas(intens,"normal")) = yes;

@@ -193,9 +193,34 @@ $iftheni.cattle "%cattle%"=="true"
                                 + v_sumherd("bulls",curBreeds,tCur,nCur)     * p_premAnm("bulls")        $ herds_breeds("bulls",curBreeds)
          $$endif.bulls
                                  );
+
+* ------------------------------------------------------------------------------------------------
+*
+*     Set aside - biodiversity promotion areas (BFF) 7% of farmland must be managed as BFF
+*
+* ------------------------------------------------------------------------------------------------
+
+
+    bioDivProArea_(curSys(sys),t_n(tCur,nCur)) $(sum(c_p_t_i(curcrops(crops),plot,"hayExt",intens),1)  $(v_hasFarm.up(tCur,nCur) ne 0))..
+
+          sum(plot, v_croppedPlotLand(plot,sys,tCur,nCur)) * p_areaBFF =L=
+                                          sum(c_p_t_i(curcrops(crops),plot,"hayExt",intens) 
+                                                                 , v_cropHa(crops,plot,"hayExt",intens,tCur,nCur));
+
+* ------------------------------------------------------------------------------------------------
+*
+*                               Premium for set aside bio diversity grasland
+*
+* ------------------------------------------------------------------------------------------------
+
+* --- (IV) BFF premium
+
+         premBFF_(t_n(tCur,nCur)) ..
+
+                       v_premBFF(tCur,nCur) =L= p_premBFF *  sum(c_p_t_i(curcrops(crops),plot,"hayExt",intens) 
+                                                                    , v_cropHa(crops,plot,"hayExt",intens,tCur,nCur));
+                                                                    
 $endif.cattle
-
-
 * ---------------------------------------------------------------------------------------------------
 *
 *                     All equations related to Swiss crop rotation requirements (SCR)
@@ -261,31 +286,7 @@ $iftheni.arab "%farmbranchArable%" == "on"
                                                                                                          =G= v_hasFarm(tCur,nCur) * p_DivRotCropNum;
 
 $endif.arab
-* ------------------------------------------------------------------------------------------------
-*
-*     Set aside - biodiversity promotion areas (BFF) 7% of farmland must be managed as BFF
-*
-* ------------------------------------------------------------------------------------------------
 
-
-    bioDivProArea_(curSys(sys),t_n(tCur,nCur)) $(sum(c_p_t_i(curcrops(crops),plot,"hayExt",intens),1)  $(v_hasFarm.up(tCur,nCur) ne 0))..
-
-          sum(plot, v_croppedPlotLand(plot,sys,tCur,nCur)) * p_areaBFF =L=
-                                          sum(c_p_t_i(curcrops(crops),plot,"hayExt",intens) 
-                                                                 , v_cropHa(crops,plot,"hayExt",intens,tCur,nCur));
-
-* ------------------------------------------------------------------------------------------------
-*
-*                               Premium for set aside bio diversity grasland
-*
-* ------------------------------------------------------------------------------------------------
-
-* --- (IV) BFF premium
-
-         premBFF_(t_n(tCur,nCur)) ..
-
-                       v_premBFF(tCur,nCur) =L= p_premBFF *  sum(c_p_t_i(curcrops(crops),plot,"hayExt",intens) 
-                                                                    , v_cropHa(crops,plot,"hayExt",intens,tCur,nCur));
 * ------------------------------------------------------------------------------------------------
 *
 *                               Model
@@ -303,10 +304,10 @@ $iftheni.cattle "%cattle%"=="true"
       concResGMF_
       maizeResGMF_
       triggerGMF_
-$endif.cattle
 
        bioDivProArea_
        premBFF_
+$endif.cattle
 
 $iftheni.arab "%farmBranchArable%" == "on"
       premArab_
