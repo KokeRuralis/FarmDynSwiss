@@ -3,6 +3,8 @@
 /dat/ktbl
 /results/samples/*.gdx
 /results/expFarms/*.gdx
+!/results/samples/.gitkeep
+!/results/expFarms/.gitkeep
 
 *.log
 *.lst
