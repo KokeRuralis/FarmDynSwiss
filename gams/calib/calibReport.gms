@@ -34,7 +34,7 @@ $ifi defined v_finCashFlow  p_calibReport("obje","finCashFlow","","%1")  = sum(t
 
   p_calibReport("crops",curCrops,"yield","%1")      $ p_calibReport("crops",curCrops,"ha","%1")
        = sum( (t_n(tCur,nCur),prodsYearly)
-            $ sum((c_p_t_i(curCrops,plot,till,intens),plot_soil(plot,soil)),p_OCoeffC(curCrops,soil,till,intens,prodsYearly,tCur)),
+            $ sum((c_p_t_i(curCrops,plot,till,intens),plot_soil(plot,soil)),p_OCoeffC(curCrops,plot,soil,till,intens,prodsYearly,tCur)),
                 v_prods(prodsYearly,tCur,nCur))
                 /p_calibReport("crops",curCrops,"ha","%1");
 

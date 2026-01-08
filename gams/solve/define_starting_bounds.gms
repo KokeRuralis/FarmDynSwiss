@@ -390,7 +390,7 @@ $iftheni.cattle %cattle% == true
     v_feedUseM.up(feedsM,m,t_n(tCur,nCur)) $ ( (not sum( c_p_t_i(curCrops(crops),plot,till,intens)
                                                        $ (v_cropHa.up(crops,plot,till,intens,tCur,nCur) ne 0),
                                                              sum((plot_soil(plot,soil),sameas(prodsMonthly,feedsM)),
-                                                                p_OCoeffC(crops,soil,till,intens,prodsMonthly,tCur)))))
+                                                                p_OCoeffC(crops,plot,soil,till,intens,prodsMonthly,tCur)))))
       = 0;
 
     v_feeding.up(actHerdsF(herds,breeds,feedRegime,reqsphase,m),feedsM,t,nCur)
@@ -428,7 +428,7 @@ $endif.cattle
 
 option kill=v_saleQuant.up;
 $ifi not %sellGrasSil%==true    v_saleQuant.up(grasSil,sys,t_n(t,nCur))   = 0;
-$ifi not %sellMaizSil%==true    v_saleQuant.up(prodsYearly,sys,t_n(t,nCur))   $ sum((maizSilage,soil,till,intens), p_OCoeffC(maizSilage,soil,till,intens,prodsYearly,t))= 0;
+$ifi not %sellMaizSil%==true    v_saleQuant.up(prodsYearly,sys,t_n(t,nCur))   $ sum((maizSilage,plot,soil,till,intens), p_OCoeffC(maizSilage,plot,soil,till,intens,prodsYearly,t))= 0;
 *$ifi not %sellAlfalfa%==true    v_saleQuant.up("alfalfa",sys,t_n(t,nCur)) = 0;
 
 $iftheni.organic "%orgTill%"=="enforced"

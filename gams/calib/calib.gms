@@ -32,17 +32,17 @@ $iftheni.mode "%1"=="fixPars"
 *
     p_vCostC.fx(crops,till,intens,t) $ sum(c_p_t_i(curCrops(crops),plot,till,intens),1) = p_vCostC.l(crops,till,intens,t);
 
-    p_OCoeffC.fx(curCrops,soil,till,intens,curProds,t) $ sum(c_p_t_i(curCrops,plot,till,intens),p_OCoeffC.l(curCrops,soil,till,intens,curProds,t))
-     = p_OCoeffC.l(curCrops,soil,till,intens,curProds,t);
+    p_OCoeffC.fx(curCrops,plot,soil,till,intens,curProds,t) $ sum(c_p_t_i(curCrops,plot,till,intens),p_OCoeffC.l(curCrops,plot,soil,till,intens,curProds,t))
+     = p_OCoeffC.l(curCrops,plot,soil,till,intens,curProds,t);
 
-    p_OCoeffC.scale(curCrops,soil,till,intens,curProds,t) $ sum(c_p_t_i(curCrops,plot,till,intens),p_OCoeffC.l(curCrops,soil,till,intens,curProds,t))
-     = p_OCoeffC.l(curCrops,soil,till,intens,curProds,t);
+    p_OCoeffC.scale(curCrops,plot,soil,till,intens,curProds,t) $ sum(c_p_t_i(curCrops,plot,till,intens),p_OCoeffC.l(curCrops,plot,soil,till,intens,curProds,t))
+     = p_OCoeffC.l(curCrops,plot,soil,till,intens,curProds,t);
 
 
     $$iftheni.gras defined p_oCoeffM
 
-       p_OCoeffM.fx(grassCrops(curCrops),soil,till,intens,curProds,m,t) $ sum(c_p_t_i(curCrops,plot,till,intens),p_OCoeffM.l(curCrops,soil,till,intens,curProds,m,t))
-         = p_OCoeffM.l(curCrops,soil,till,intens,curProds,m,t);
+       p_OCoeffM.fx(grassCrops(curCrops),plot,soil,till,intens,curProds,m,t) $ sum(c_p_t_i(curCrops,plot,till,intens),p_OCoeffM.l(curCrops,plot,soil,till,intens,curProds,m,t))
+         = p_OCoeffM.l(curCrops,plot,soil,till,intens,curProds,m,t);
 
     $$endif.gras
 
@@ -244,21 +244,21 @@ $else.mode
                          /p_inputPrice.scale(curInputs,sys,t)))
 
      + sum( (curCrops(crops),soil,till,intens,curProds,tCur(t)) $  (sum(c_p_t_i(crops,plot,till,intens),1)
-                                                      $ p_OCoeffC.l(curCrops,soil,till,intens,curProds,t)
-                                                         $ (p_OCoeffC.scale(curCrops,soil,till,intens,curProds,t) ne 1)),
+                                                      $ p_OCoeffC.l(curCrops,plot,soil,till,intens,curProds,t)
+                                                         $ (p_OCoeffC.scale(curCrops,plot,soil,till,intens,curProds,t) ne 1)),
 
-                  sqr( ( p_OCoeffC(curCrops,soil,till,intens,curProds,t)
-                        -p_OCoeffC.scale(curCrops,soil,till,intens,curProds,t))
-                      /  p_OCoeffC.scale(curCrops,soil,till,intens,curProds,t)))
+                  sqr( ( p_OCoeffC(curCrops,plot,soil,till,intens,curProds,t)
+                        -p_OCoeffC.scale(curCrops,plot,soil,till,intens,curProds,t))
+                      /  p_OCoeffC.scale(curCrops,plot,soil,till,intens,curProds,t)))
 
      $$iftheni.gras defined p_oCoeffM
-        + sum( (curCrops(crops),soil,till,intens,curProds,m,tCur(t)) $  (sum(c_p_t_i(crops,plot,till,intens),1)
-                                                      $ p_OCoeffM.l(curCrops,soil,till,intens,curProds,m,t)
-                                                         $ (p_OCoeffM.scale(curCrops,soil,till,intens,curProds,m,t) ne 1)),
+        + sum( (curCrops(crops),plot,soil,till,intens,curProds,m,tCur(t)) $  (sum(c_p_t_i(crops,plot,till,intens),1)
+                                                      $ p_OCoeffM.l(curCrops,plot,soil,till,intens,curProds,m,t)
+                                                         $ (p_OCoeffM.scale(curCrops,plot,soil,till,intens,curProds,m,t) ne 1)),
 
-                  sqr( ( p_OCoeffM(curCrops,soil,till,intens,curProds,m,t)
-                        -p_OCoeffM.scale(curCrops,soil,till,intens,curProds,m,t))
-                      /  p_OCoeffM.scale(curCrops,soil,till,intens,curProds,m,t))  )
+                  sqr( ( p_OCoeffM(curCrops,plot,soil,till,intens,curProds,m,t)
+                        -p_OCoeffM.scale(curCrops,plot,soil,till,intens,curProds,m,t))
+                      /  p_OCoeffM.scale(curCrops,plot,soil,till,intens,curProds,m,t))  )
 
      $$endif.gras
 
@@ -516,23 +516,23 @@ $offecho
 
    $$endif.p_feedReqPig
 
-   p_OCoeffC.scale(curCrops,soil,till,intens,prodsYearly,t) $ sum(c_p_t_i(curCrops(crops),plot,till,intens),1)
-      = p_OCoeffC.l(curCrops,soil,till,intens,prodsYearly,t);
-   p_OCoeffC.lo(curCrops,soil,till,intens,prodsYearly,t) $ sum(c_p_t_i(curCrops(crops),plot,till,intens),p_OCoeffC.l(curCrops,soil,till,intens,prodsYearly,t))
-      = p_OCoeffC.l(curCrops,soil,till,intens,prodsYearly,t) * (1 - %yieldCalib%/100);
-   p_OCoeffC.up(curCrops,soil,till,intens,prodsYearly,t) $ sum(c_p_t_i(curCrops(crops),plot,till,intens),p_OCoeffC.l(curCrops,soil,till,intens,prodsYearly,t))
-      = p_OCoeffC.l(curCrops,soil,till,intens,prodsYearly,t) * (1 + %yieldCalib%/100);
+   p_OCoeffC.scale(curCrops,plot,soil,till,intens,prodsYearly,t) $ sum(c_p_t_i(curCrops(crops),plot,till,intens),1)
+      = p_OCoeffC.l(curCrops,plot,soil,till,intens,prodsYearly,t);
+   p_OCoeffC.lo(curCrops,plot,soil,till,intens,prodsYearly,t) $ sum(c_p_t_i(curCrops(crops),plot,till,intens),p_OCoeffC.l(curCrops,plot,soil,till,intens,prodsYearly,t))
+      = p_OCoeffC.l(curCrops,plot,soil,till,intens,prodsYearly,t) * (1 - %yieldCalib%/100);
+   p_OCoeffC.up(curCrops,plot,soil,till,intens,prodsYearly,t) $ sum(c_p_t_i(curCrops(crops),plot,till,intens),p_OCoeffC.l(curCrops,plot,soil,till,intens,prodsYearly,t))
+      = p_OCoeffC.l(curCrops,plot,soil,till,intens,prodsYearly,t) * (1 + %yieldCalib%/100);
 
    $$iftheni.gras defined p_oCoeffM
 
-      p_OCoeffM.scale(grassCrops(curCrops),soil,till,intens,curProds,m,t) $ sum(c_p_t_i(curCrops,plot,till,intens),p_OCoeffM.l(curCrops,soil,till,intens,curProds,m,t))
-         = p_OCoeffM.l(curCrops,soil,till,intens,curProds,m,t);
+      p_OCoeffM.scale(grassCrops(curCrops),plot,soil,till,intens,curProds,m,t) $ sum(c_p_t_i(curCrops,plot,till,intens),p_OCoeffM.l(curCrops,plot,soil,till,intens,curProds,m,t))
+         = p_OCoeffM.l(curCrops,plot,soil,till,intens,curProds,m,t);
 
-      p_OCoeffM.lo(grassCrops(curCrops),soil,till,intens,curProds,m,t) $ sum(c_p_t_i(curCrops,plot,till,intens),p_OCoeffM.l(curCrops,soil,till,intens,curProds,m,t))
-         = p_OCoeffM.l(curCrops,soil,till,intens,curProds,m,t) *(1 - %yieldCalib%/100);
+      p_OCoeffM.lo(grassCrops(curCrops),plot,soil,till,intens,curProds,m,t) $ sum(c_p_t_i(curCrops,plot,till,intens),p_OCoeffM.l(curCrops,plot,soil,till,intens,curProds,m,t))
+         = p_OCoeffM.l(curCrops,plot,soil,till,intens,curProds,m,t) *(1 - %yieldCalib%/100);
 
-      p_OCoeffM.up(grassCrops(curCrops),soil,till,intens,curProds,m,t) $ sum(c_p_t_i(curCrops,plot,till,intens),p_OCoeffM.l(curCrops,soil,till,intens,curProds,m,t))
-         = p_OCoeffM.l(curCrops,soil,till,intens,curProds,m,t) * (1 + %yieldCalib%/100);
+      p_OCoeffM.up(grassCrops(curCrops),plot,soil,till,intens,curProds,m,t) $ sum(c_p_t_i(curCrops,plot,till,intens),p_OCoeffM.l(curCrops,plot,soil,till,intens,curProds,m,t))
+         = p_OCoeffM.l(curCrops,plot,soil,till,intens,curProds,m,t) * (1 + %yieldCalib%/100);
 
    $$endif.gras
 

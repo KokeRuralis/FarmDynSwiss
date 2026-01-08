@@ -169,14 +169,14 @@ $endif.fb
              =e=
 
                 sum( (c_p_t_i(curCrops,plot,till,intens)), v_cropHa(curCrops,plot,till,intens,t,%nCur%)
-                            * sum( (plot_soil(plot,soil),curProds) $  p_OCoeffC%l%(curCrops,soil,till,intens,curProds,t),
-                                                        p_OCoeffC(curCrops,soil,till,intens,curProds,t)/p_storageLoss(curCrops)
+                            * sum( (plot_soil(plot,soil),curProds) $  p_OCoeffC%l%(curCrops,plot,soil,till,intens,curProds,t),
+                                                        p_OCoeffC(curCrops,plot,soil,till,intens,curProds,t)/p_storageLoss(curCrops)
                                      * (  p_nutContent(curCrops,curProds,"conv",nut) $ (not sameas(till,"org"))
                                         + p_nutContent(curCrops,curProds,"org",nut)  $      sameas(till,"org"))
                                      *10 )   )
 
                +   sum( (c_p_t_i(curCrops,plot,till,intens)) $ cropsResidueRemo(curCrops),  v_residuesRemoval(curCrops,plot,till,intens,t,nCur)
-                          *sum( (plot_soil(plot,soil),curProds),  p_OCoeffResidues(curCrops,soil,till,intens,curProds,t)
+                          *sum( (plot_soil(plot,soil),curProds),  p_OCoeffResidues(curCrops,plot,soil,till,intens,curProds,t)
                                      *  (  p_nutContent(curCrops,curProds,"conv",nut)$ (not sameas(till,"org"))
                                          + p_nutContent(curCrops,curProds,"org",nut) $      sameas(till,"org"))
                                           * 10  )  )

@@ -665,13 +665,13 @@ $else.mode
 
 * --- Nutrient provided from atmospheric deposition
 
-   p_basNut(crops,soil,till,"NAtmos","N",t) $ sum(prods, p_OCoeffC(crops,soil,till,"normal",prods,t))  =  18;
+   p_basNut(crops,soil,till,"NAtmos","N",t) $ sum((plot,prods), p_OCoeffC(crops,plot,soil,till,"normal",prods,t))  =  18;
 
   $$endif.fert
 
 * --- Nutrient provided from N mineralization in spring based on LWK NRW [updated 2/2021]
 
-   p_basNut(crops,soil,till,"Nmin","N",t)       $ sum(prods, p_OCoeffC(crops,soil,till,"normal",prods,t))     = p_Nmin(crops);
+   p_basNut(crops,soil,till,"Nmin","N",t)       $ sum((plot,prods), p_OCoeffC(crops,plot,soil,till,"normal",prods,t))     = p_Nmin(crops);
 
 * --- N mineralization in spring is 7 kg N/ha lower under organic production
 *     http://www.tll.de/www/daten/untersuchungswesen/boden_duenger/pdf/nmin0710.pdf
@@ -708,8 +708,8 @@ $else.mode
 
 *parameter p_OCoeffResidues(crops,soil,till,intens,prods,t);
 
-   p_OCoeffResidues(cropsResidueRemo,soil,till,intens,prodsResidues,t)  $ sum(soil_plot(soil,plot), c_p_t_i(cropsResidueRemo,plot,till,intens) )
-            =  p_residue_ratio(prodsResidues) *  sum(prods, p_OCoeffC(cropsResidueRemo,soil,till,intens,prods,t) $sameas(prods,cropsResidueRemo)) $ crop_residues(prodsResidues,cropsResidueRemo) ;
+   p_OCoeffResidues(cropsResidueRemo,plot,soil,till,intens,prodsResidues,t)  $ sum(soil_plot(soil,plot), c_p_t_i(cropsResidueRemo,plot,till,intens) )
+            =  p_residue_ratio(prodsResidues) *  sum(prods, p_OCoeffC(cropsResidueRemo,plot,soil,till,intens,prods,t) $sameas(prods,cropsResidueRemo)) $ crop_residues(prodsResidues,cropsResidueRemo) ;
 
 
 *
@@ -717,7 +717,7 @@ $else.mode
 *     LWK Nds. 2018. Strohpreisrechner, Chamber of Agriculture Lower Saxony (LWK Nds.), https://?www.lwk-niedersachsen.de?/?download.cfm/?file/?30111.html (accessed 07.12.18).
 
     p_vCostStrawRemoval(crops,plot,till,intens,t)   $  c_p_t_i(crops,plot,till,intens)     =
-                              sum((soil_plot(soil,plot),prodsResidues) ,  p_OCoeffResidues(crops,soil,till,intens,prodsResidues,t) $ crop_residues(prodsResidues,crops)) * 75  ;
+                              sum((soil_plot(soil,plot),prodsResidues) ,  p_OCoeffResidues(crops,plot,soil,till,intens,prodsResidues,t) $ crop_residues(prodsResidues,crops)) * 75  ;
 
 
 *

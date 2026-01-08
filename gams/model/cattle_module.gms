@@ -572,14 +572,14 @@ $endif.compStat
 *
     prodsMY_(curProds(prodsMonthly),t_n(tCur(t),nCur),m) $ sum( (c_p_t_i(curCrops(crops),plot,till,intens))
                                                         $ (v_cropHa.up(crops,plot,till,intens,tCur,nCur) ne 0),
-                                                          sum(plot_soil(plot,soil),p_OCoeffM%l%(crops,soil,till,intens,prodsMonthly,m,t))
+                                                          sum(plot_soil(plot,soil),p_OCoeffM%l%(crops,plot,soil,till,intens,prodsMonthly,m,t))
                                                          $ curProds(prodsMonthly)) ..
 
        v_prodsIntr(prodsMonthly,t,nCur,m)
          =e= sum( c_p_t_i(curCrops(crops),plot,till,intens),
                       v_cropHa(crops,plot,till,intens,t,%nCur%)
-                         * sum(plot_soil(plot,soil) $ p_OCoeffM%l%(crops,soil,till,intens,prodsMonthly,m,t),
-                                        p_OCoeffM(crops,soil,till,intens,prodsMonthly,m,t))
+                         * sum(plot_soil(plot,soil) $ p_OCoeffM%l%(crops,plot,soil,till,intens,prodsMonthly,m,t),
+                                        p_OCoeffM(crops,plot,soil,till,intens,prodsMonthly,m,t))
                     $$iftheni.sp "%stochProg%"=="true"
                        $$iftheni.stochYield "%stochYields%"=="true"
                                     * p_randVar("gras",nCur)
@@ -597,7 +597,7 @@ $endif.compStat
 *        --- crop output
            v_prodsIntr(prodsMonthly,t,nCur,m) $ sum( c_p_t_i(curCrops(crops),plot,till,intens)
                 $ (v_cropHa.up(crops,plot,till,intens,t,nCur) ne 0),
-                  sum(plot_soil(plot,soil),p_OCoeffM%l%(crops,soil,till,intens,prodsMonthly,m,t))
+                  sum(plot_soil(plot,soil),p_OCoeffM%l%(crops,plot,soil,till,intens,prodsMonthly,m,t))
                     $$iftheni.sp "%stochProg%"=="true"
                        $$iftheni.stochYield "%stochYields%"=="true"
                                      * p_randVar("gras",nCur)

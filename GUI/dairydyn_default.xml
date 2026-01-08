@@ -1461,7 +1461,7 @@
                 <Type>tableSimple</Type>
                 <Title>Land endowment per plot</Title>
                 <Value>0.15</Value>
-                <columns>sizeHa,maxYield,arab,fert,gras,past,relief,soil,margin</columns>
+                <columns>sizeHa,yieldScale,arab,fert,gras,past,elevation,soil,cropFX</columns>
                 <value>0.0,60.0,40.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,
                        0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,
                        0.0,1.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,
@@ -1489,6 +1489,15 @@
                 <style>vAlignment:Spread,noOutputIfInvisible:true</style>
                 <dependsOn>Determination of land endowment:Land endowment per plot</dependsOn>
                 <tasks>%allTasks%</tasks>
+         </control>
+         <control>
+                <Type>checkBox</Type>
+                <Title>Only one crop per plot</Title>
+                <Value>false</Value>
+                <gamsName>onePlot</gamsName>
+                <tasks>%allTasks%</tasks>
+                <style>vAlignment:Spread,noOutputIfInvisible:true</style>
+                <dependsOn>Determination of land endowment:Land endowment per plot</dependsOn>
          </control>
          <control>
                   <Type>checkBox</Type>

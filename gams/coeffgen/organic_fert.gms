@@ -27,8 +27,8 @@ $iftheni.fert %Fertilization% == "OrganicFarming"
 *
 * --- N from mineralization in spring
 *
-   p_NutFromSoil(crops,soil,till,"N",t) $ sum(prods, p_OCoeffC(crops,soil,till,"normal",prods,t))         = p_Nmin(crops);
-   p_NutFromSoil(crops,soil,till,"P",t) $ sum(prods, p_OCoeffC(crops,soil,till,"normal",prods,t))         = 0;
+   p_NutFromSoil(crops,soil,till,"N",t) $ sum((prods,plot) p_OCoeffC(crops,plot,soil,till,"normal",prods,t))         = p_Nmin(crops);
+   p_NutFromSoil(crops,soil,till,"P",t) $ sum((prods,plot) p_OCoeffC(crops,plot,soil,till,"normal",prods,t))         = 0;
 
 *
 * --- N uptake from crop residues

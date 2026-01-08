@@ -53,11 +53,11 @@ p_CfIntensTill(m,crops) = Min(1,p_CfIntensTill(m,crops))$p_CfIntensTill(m,crops)
 
 parameter p_resiCrop(crops,soil,till,intens,t) ;
 
-p_resiCrop(crops,soil,till,intens,t)=
-      [   sum( Prods, p_OCoeffC(crops,soil,till,intens,Prods,t))
+p_resiCrop(crops,plot,soil,till,intens,t)=
+      [   sum( Prods, p_OCoeffC(crops,plot,soil,till,intens,Prods,t))
                   * p_cropResi(crops,"duration") * p_cropResi(crops,"freqHarv") *  p_cropResi(crops,"aboveRat")
 
-        + sum( Prods, p_OCoeffC(crops,soil,till,intens,Prods,t))
+        + sum( Prods, p_OCoeffC(crops,plot,soil,till,intens,Prods,t))
                   * p_cropResi(crops,"duration") * p_cropResi(crops,"freqHarv") * p_cropResi(crops,"belowRat")
                   * ( p_cropResi(crops,"DMyield")$(not sameas(crops,"potatoes") and not sameas(crops,"sugarBeet"))
                       + p_cropResi(crops,"aboveRat") * p_cropResi(crops,"DMresi"))
@@ -174,25 +174,25 @@ $$iftheni.ecoInvent defined inputsEmissions
      p_EFoperations(crops,plot,till,intens,operation,emissions,t)$sum(transport$sameas(transport,operation),1)
               =
                (sum( (plot_soil(plot,soil),prods)$sum(pastOutput$(not pastOutput(prods)),1),
-                     p_OCoeffC(crops,soil,till,intens,prods,t) )  * operationsemissions(operation,emissions) *2
+                     p_OCoeffC(crops,plot,soil,till,intens,prods,t) )  * operationsemissions(operation,emissions) *2
 
 *            --- in case of bale transport the loading of the bales is included. Ef is per bale (0.7t)
               + ( sum( (plot_soil(plot,soil),prods)$sum(pastOutput$(not pastOutput(prods)),1),
-                      p_OCoeffC(crops,soil,till,intens,prods,t) ) / 0.7   * operationsemissions("loadingbales",emissions)
+                      p_OCoeffC(crops,plot,soil,till,intens,prods,t) ) / 0.7   * operationsemissions("loadingbales",emissions)
                       )$(sameas(operation,"baletransportSil") or sameas(operation,"baleTransportHay")));
 
 *     --- For bale pressing the EF has to be converted from 700 kg bale to per ha via the individual yield
       p_EFoperations(crops,plot,till,intens,operation,emissions,t)$(sameas(operation,"balePressWrap") or sameas(operation,"balePressHay"))
               =
                sum( (plot_soil(plot,soil),prods)$sum(pastOutput$(not pastOutput(prods)),1),
-                    p_OCoeffC(crops,soil,till,intens,prods,t) ) / 0.7
+                    p_OCoeffC(crops,plot,soil,till,intens,prods,t) ) / 0.7
                   * operationsemissions(operation,emissions);
 
 *     --- storage and drying, assumption is that water content is decreased by two percent
        p_EFoperations(c_p_t_i(crops,plot,till,intens),operation,emissions,t) $ sum(drying$sameas(operation,drying),1)
               =
                sum( (plot_soil(plot,soil),prods)$sum(pastOutput$(not pastOutput(prods)),1),
-                    p_OCoeffC(crops,soil,till,intens,prods,t) ) * 1000 * 0.02
+                    p_OCoeffC(crops,plot,soil,till,intens,prods,t) ) * 1000 * 0.02
                   * operationsemissions(operation,emissions);
 
 * in case no responding operation in ecoinvent is present emissions are estimated based on diesel use for operation

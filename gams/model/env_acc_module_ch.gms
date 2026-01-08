@@ -200,12 +200,12 @@ $endif.man
     + [(  sum(c_p_t_i(curcrops,plot,till,intens),
 *     --- arable land residues abvove ground
            + v_cropHa(curCrops,plot,till,intens,t,%nCur%)
-            * sum( (plot_soil(plot,soil),curProds) $ p_OCoeffC%l%(curCrops,soil,till,intens,curProds,t), p_OCoeffC(curCrops,soil,till,intens,curProds,t) * 1000)
+            * sum( (plot_soil(plot,soil),curProds) $ p_OCoeffC%l%(curCrops,plot,soil,till,intens,curProds,t), p_OCoeffC(curCrops,plot,soil,till,intens,curProds,t) * 1000)
              * p_cropResi(curCrops,"duration") * p_cropResi(curCrops,"freqHarv") *  p_cropResi(curCrops,"aboveRat") * p_cropResi(curCrops,"aboveN")
 
 *     --- arable land residues below ground
-           + v_cropHa(curCrops,plot,till,intens,t,%nCur%) *  sum( (plot_soil(plot,soil),curProds) $ p_OCoeffC%l%(curCrops,soil,till,intens,curProds,t) ,
-              p_OCoeffC(curCrops,soil,till,intens,curProds,t) * 1000)
+           + v_cropHa(curCrops,plot,till,intens,t,%nCur%) *  sum( (plot_soil(plot,soil),curProds) $ p_OCoeffC%l%(curCrops,plot,soil,till,intens,curProds,t) ,
+              p_OCoeffC(curCrops,plot,soil,till,intens,curProds,t) * 1000)
               * p_cropResi(curCrops,"duration") * p_cropResi(curCrops,"freqHarv")
               * ( p_cropResi(curCrops,"DMyield")$(not sameas(curCrops,"potatoes") and not sameas(curCrops,"sugarBeet"))
                + p_cropResi(curCrops,"aboveRat") * p_cropResi(curCrops,"DMresi"))
@@ -213,7 +213,7 @@ $endif.man
 
 *      --- deduction for straw removal
             -sum( c_p_t_i(curcrops,plot,till,intens) $ cropsResidueRemo(curCrops),  v_residuesRemoval(curCrops,plot,till,intens,t,nCur)
-                * sum( (plot_soil(plot,soil),prodsResidues), 10 * p_OCoeffResidues(curCrops,soil,till,intens,prodsResidues,t)
+                * sum( (plot_soil(plot,soil),prodsResidues), 10 * p_OCoeffResidues(curCrops,plot,soil,till,intens,prodsResidues,t)
                                                                    * p_nutContent(curCrops,prodsResidues,"conv","N")))
 
       )  * p_EFApplMin("N2O")
@@ -708,7 +708,7 @@ $$endif.ch
 *  ---  Deduction for straw removal
 
                         - sum( (plot,till,intens) $ (cropsResidueRemo(arabCrops)$c_p_t_i(curCrops,plot,till,intens)),  v_residuesRemoval(arabCrops,plot,till,intens,t,nCur)
-                               * sum( (plot_soil(plot,soil),curProds), 10 * p_OCoeffResidues(arabCrops,soil,till,intens,curProds,t)) * p_resiInc(arabCrops))
+                               * sum( (plot_soil(plot,soil),curProds), 10 * p_OCoeffResidues(arabCrops,plot,soil,till,intens,curProds,t)) * p_resiInc(arabCrops))
 
 * --- Addition through organic fertilizer inputs
 

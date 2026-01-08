@@ -49,14 +49,14 @@ $batinclude 'util/title.gms' "'%titlePrefix% Define coefficients relating to cro
      abort "Missing crop yields in file: %system.fn%, line: %system.incline%",curCrops,p_cropYieldInt;
   );
 
-    p_OCoeffC(c_ss_t_i(curCrops(arabCrops),soil,till,intens),prods,t)   $(sameas(arabCrops,prods) $ (not sameas(till,"org")))
+    p_OCoeffC(curCrops(arabCrops),plot,soil,till,intens,prods,t)   $(sameas(arabCrops,prods) $ (not sameas(till,"org")))
        =  p_cropYieldInt(arabCrops,"conv")
             $$iftheni.data "%database%" == "KTBL_database"
             *  ((1.00 + p_cropYieldInt(arabCrops,'Change,conv % p.a.')/100)**t.pos)
             $$endif.data
             ;
 
-   p_OCoeffC(c_ss_t_i(curCrops(arabCrops),soil,"org",intens),prods,t)   $ sameas(arabCrops,prods)
+   p_OCoeffC(curCrops(arabCrops),plot,soil,"org",intens,prods,t)   $ sameas(arabCrops,prods)
       =  p_cropYieldInt(arabCrops,"org")
            $$iftheni.data "%database%" == "KTBL_database"
            *  ((1.00 + p_cropYieldInt(arabCrops,'Change,org % p.a.')/100)**t.pos)
@@ -66,16 +66,16 @@ $batinclude 'util/title.gms' "'%titlePrefix% Define coefficients relating to cro
 *
 * --- consider storage losses
 *
-  p_OCoeffC(c_ss_t_i(curCrops(arabCrops),soil,till,intens),prods,t) $ (sameas(arabCrops,prods) and p_storageLoss(prods))
-    = p_OCoeffC(arabCrops,soil,till,intens,prods,t) * p_storageLoss(prods);
+  p_OCoeffC(curCrops(arabCrops),plot,soil,till,intens,prods,t) $ (sameas(arabCrops,prods) and p_storageLoss(prods))
+    = p_OCoeffC(arabCrops,plot,soil,till,intens,prods,t) * p_storageLoss(prods);
 
 *
 * --- yields in organic farming
 *     (yield differences from dat/crop_xx.gms file)
 *
 *
-  p_OCoeffC(c_ss_t_i(curCrops,soil,"org",intens),prods,t) $ (not p_OCoeffC(curCrops,soil,"org",intens,prods,t))
-             = p_oCoeffC(curCrops,soil,"plough",intens,prods,t) * p_organicYieldMult(curCrops);
+  p_OCoeffC(curCrops,plot,soil,"org",intens,prods,t) $ (not p_OCoeffC(curCrops,plot,soil,"org",intens,prods,t))
+             = p_oCoeffC(curCrops,plot,soil,"plough",intens,prods,t) * p_organicYieldMult(curCrops);
 
 
 $ifthen.grasOutput defined grasOutputs
@@ -83,21 +83,30 @@ $ifthen.grasOutput defined grasOutputs
 *   --- grass lands and grazing in fresh matter (from GUI attribute table)
 *
 
-    p_oCoeffc(c_ss_t_i(curCrops(grassCrops),soil,till,intens),grasOutput,t)
+    p_oCoeffc(curCrops(grassCrops),plot,soil,till,intens,grasOutput,t)$(c_p_t_i(curCrops,plot,till,intens)$plot_soil(plot,soil))
          = sum( (sameas(grasOutput,grasOutputs),m),p_grasAttr(grassCrops,grasOutputs,m)
                                               / (p_nutGras(grasOutput,"DM") / 1000) )
-               * p_storageLoss(grasOutput)
+               * p_storageLoss(grasOutput)  
+
+$ifthen.LANDEND "%landEndo%" == "Land endowment per plot"  
+              * p_plots(plot,"yieldScale")
+$endif.LANDEND
+
                ;
 *   --- monthly outputs for grassland in t fresh matter (from GUI attribute table)
 *
-    p_oCoeffM(c_ss_t_i(curCrops(grassCrops),soil,till,intens),grasOutput,m,t)$( sum( sameas(grasOutput,pastOutputs),1)  or sum(sameas(grasOutput,grafOutputs),1))
+    p_oCoeffM(curCrops(grassCrops),plot,soil,till,intens,grasOutput,m,t)$(c_p_t_i(curCrops,plot,till,intens)$plot_soil(plot,soil) $( sum( sameas(grasOutput,pastOutputs),1)  or sum(sameas(grasOutput,grafOutputs),1)))
 
-         = sum( sameas(grasOutput,grasOutputs),p_grasAttr(grassCrops,grasOutputs,m)/ (p_nutGras(grasOutput,"DM") / 1000) );
+         = sum( sameas(grasOutput,grasOutputs),p_grasAttr(grassCrops,grasOutputs,m)/ (p_nutGras(grasOutput,"DM") / 1000) )
+$ifthen.LANDEND "%landEndo%" == "Land endowment per plot"  
+              * p_plots(plot,"yieldScale")
+$endif.LANDEND
+               ;
 
 * --- yields in organic farming
 
-  p_OCoeffM(c_ss_t_i(curCrops(grassCrops),soil,"org",intens),grasOutput,m,t)
-   = p_OCoeffM(grassCrops,soil,"org",intens,grasOutput,m,t) * p_organicYieldMult(curCrops);
+  p_OCoeffM(curCrops(grassCrops),plot,soil,"org",intens,grasOutput,m,t)
+   = p_OCoeffM(grassCrops,plot,soil,"org",intens,grasOutput,m,t) * p_organicYieldMult(curCrops);
 
 $endif.grasOutput
 
@@ -109,8 +118,8 @@ $iftheni.fert %Fertilization% == "Default"
 
 * --- nutrient need, taking into that output coefficient are measured in t and not dt, therefore * 10.
 
-  p_nutNeed(c_ss_t_i(curCrops(crops),soil,till,intens),nut,t)
-         = sum( prods $ p_OCoeffC(crops,soil,till,intens,prods,t), p_OCoeffC(crops,soil,till,intens,prods,t)/p_storageLoss(prods)
+  p_nutNeed(curCrops(crops),plot,soil,till,intens,nut,t)
+         = sum( prods $ p_OCoeffC(crops,plot,soil,till,intens,prods,t), p_OCoeffC(crops,plot,soil,till,intens,prods,t)/p_storageLoss(prods)
              * (  p_nutContent(crops,prods,"conv",nut) $ (not sameas(till,"org"))
                 + p_nutContent(crops,prods,"org",nut)  $      sameas(till,"org") )*10);
 $endif.fert
@@ -122,12 +131,12 @@ $endif.fert
 *    taking into that output coefficient are measured in t and not dt, therefore * 10.
 *    here, not only arable crops are considered but also catchcrops
 
-  p_nutNeed(c_ss_t_i(curCrops(crops),soil,till,intens),nut,t) $ (not sameas(till,"org"))
+  p_nutNeed(curCrops(crops),soil,till,intens,nut,t) $ (not sameas(till,"org"))
          =   p_cropYieldInt(curCrops,"conv")  * p_storageLoss(curCrops)
               *  ((1.00 + p_cropYieldInt(curCrops,'Change,conv % p.a.')/100)**t.pos)
               *   sum(prods, p_nutContent(curCrops,prods,"conv",nut) * 10 $(sameas(curcrops,prods)))
               ;
-  p_nutNeed(c_ss_t_i(curCrops(crops),soil,"org",intens),nut,t)
+  p_nutNeed(curCrops(crops),soil,"org",intens,nut,t)
          =  p_cropYieldInt(curCrops,"org") * p_storageLoss(curCrops)
              *  ((1.00 + p_cropYieldInt(curCrops,'Change,org % p.a.')/100)**t.pos)
              *    sum(prods, p_nutContent(curCrops,prods,"org",nut) * 10 $(sameas(curCrops,prods)))
@@ -204,15 +213,15 @@ $endif.fert
 * --- pasture nutrient need, taking into that output coefficient are measured in t and not dt, therefore * 10.
 *       construct is important to distribute excreta from grazing to grazed grassland evenly
 
-   p_pastNeed(c_ss_t_i(curCrops(crops),soil,till,intens),nut,t)
-       = sum( pastOutput $ p_OCoeffC(crops,soil,till,intens,pastOutput,t), p_OCoeffC(crops,soil,till,intens,pastOutput,t)/p_storageLoss(pastOutput)
+   p_pastNeed(curCrops(crops),plot,soil,till,intens,nut,t)
+       = sum( pastOutput $ p_OCoeffC(crops,plot,soil,till,intens,pastOutput,t), p_OCoeffC(crops,plot,soil,till,intens,pastOutput,t)/p_storageLoss(pastOutput)
            * (   p_nutContent(crops,pastOutput,"conv",nut) $ (not sameas(till,"org"))
                + p_nutContent(crops,pastOutput,"org",nut)  $      sameas(till,"org")
               )*10);
 
-  p_pastNeedMonthly(c_ss_t_i(curCrops(crops),soil,till,intens),nut,t,m)
+  p_pastNeedMonthly(curCrops(crops),plot,soil,till,intens,nut,t,m)
      $ (sum((m1,pastOutputs),p_grasAttr(curCrops,pastOutputs,m1) * p_nutGras(pastOutputs,"XP")))
-       = p_pastNeed(curCrops,soil,till,intens,nut,t)
+       = p_pastNeed(curCrops,plot,soil,till,intens,nut,t)
          * sum(pastOutputs, p_grasAttr(curCrops,pastOutputs,m)* p_nutGras(pastOutputs,"XP"))
      / sum((m1,pastOutputs),p_grasAttr(curCrops,pastOutputs,m1) * p_nutGras(pastOutputs,"XP"))
            ;
@@ -223,7 +232,7 @@ $endif.fert
 
 $iftheni.fert not %Fertilization% == "FertilizationOrdinance"
   p_nutSurplusMax(c_p_t_i(curCrops(crops),plot,till,intens),nut,t)
-            = min(200,sum(plot_soil(plot,soil),p_nutNeed(crops,soil,till,intens,nut,t) * 0.5));
+            = min(200,sum(plot_soil(plot,soil),p_nutNeed(crops,plot,soil,till,intens,nut,t) * 0.5));
 
 $elseif.fert %Fertilization% == "FertilizationOrdinance"
 

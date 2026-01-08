@@ -29,12 +29,12 @@ $ifi "%biogas%" == "true" option kill = v_volManBioGas.l;
  v_prods.fx (prodsYearly,t_n(t,nCur))
                      $ ( ([sum((c_p_t_i(crops,plot,till,intens),plot_soil(plot,soil))
                                       $ (v_cropHa.up(crops,plot,till,intens,t,nCur) ne 0),
-                                         p_OCoeffC(crops,soil,till,intens,prodsYearly,t))
+                                         p_OCoeffC(crops,plot,soil,till,intens,prodsYearly,t))
 
 
                        +  sum ((c_p_t_i(crops,plot,till,intens),plot_soil(plot,soil))
                                          $ (v_cropHa.up(crops,plot,till,intens,t,nCur) ne 0),
-                                           p_OCoeffResidues(crops,soil,till,intens,prodsyearly,t))
+                                           p_OCoeffResidues(crops,plot,soil,till,intens,prodsyearly,t))
 
                        $$iftheni.herd "%herd%" == "true"
 
@@ -60,15 +60,15 @@ $ifi "%biogas%" == "true" option kill = v_volManBioGas.l;
 
 
  v_prods.up (curProds(prodsYearly),t_n(t,nCur))
-                     = sum(plot $ sum((c_p_t_i(crops,plot,till,intens),plot_soil(plot,soil)),p_OCoeffC(crops,soil,till,intens,prodsYearly,t)),
-                        smax ((c_p_t_i(crops,plot,till,intens),plot_soil(plot,soil)) $ p_OCoeffC(crops,soil,till,intens,prodsYearly,t),
+                     = sum(plot $ sum((c_p_t_i(crops,plot,till,intens),plot_soil(plot,soil)),p_OCoeffC(crops,plot,soil,till,intens,prodsYearly,t)),
+                        smax ((c_p_t_i(crops,plot,till,intens),plot_soil(plot,soil)) $ p_OCoeffC(crops,plot,soil,till,intens,prodsYearly,t),
                                      v_cropHa.up(crops,plot,till,intens,t,nCur)*
-                                         p_OCoeffC(crops,soil,till,intens,prodsYearly,t)))
+                                         p_OCoeffC(crops,plot,soil,till,intens,prodsYearly,t)))
 
-                       + sum(plot $ sum((c_p_t_i(crops,plot,till,intens),plot_soil(plot,soil)),p_OCoeffResidues(crops,soil,till,intens,prodsyearly,t)),
-                          smax((c_p_t_i(crops,plot,till,intens),plot_soil(plot,soil)) $ p_OCoeffResidues(crops,soil,till,intens,prodsyearly,t),
+                       + sum(plot $ sum((c_p_t_i(crops,plot,till,intens),plot_soil(plot,soil)),p_OCoeffResidues(crops,plot,soil,till,intens,prodsyearly,t)),
+                          smax((c_p_t_i(crops,plot,till,intens),plot_soil(plot,soil)) $ p_OCoeffResidues(crops,plot,soil,till,intens,prodsyearly,t),
                                        v_cropHa.up(crops,plot,till,intens,t,nCur)*
-                                           p_OCoeffResidues(crops,soil,till,intens,prodsyearly,t)))
+                                           p_OCoeffResidues(crops,plot,soil,till,intens,prodsyearly,t)))
 
                        $$iftheni.herd "%herd%" == "true"
 
@@ -115,12 +115,12 @@ $iftheni.cattle "%cattle%" == "true"
 
  v_prods.up(prodsMonthly,t_n(t,nCur))
   $  (not sum( (c_p_t_i(crops,plot,till,intens),m), v_cropHa.up(crops,plot,till,intens,t,nCur)
-                     * sum(plot_soil(plot,soil),p_OCoeffM(crops,soil,till,intens,prodsMonthly,m,t)))) = 0;
+                     * sum(plot_soil(plot,soil),p_OCoeffM(crops,plot,soil,till,intens,prodsMonthly,m,t)))) = 0;
 
  v_feedUseM.up(feedsM,m,t_n(tCur,nCur)) $ ((not sum( c_p_t_i(crops,plot,till,intens),
                     v_cropHa.up(crops,plot,till,intens,tCur,nCur)
                      * sum((plot_soil(plot,soil),sameas(feedsM,prodsMonthly)),
-                           p_OCoeffM(crops,soil,till,intens,prodsMonthly,m,tCur)))) ) = 0;
+                           p_OCoeffM(crops,plot,soil,till,intens,prodsMonthly,m,tCur)))) ) = 0;
 
  curProds(prodsMonthly) = YES;
 
@@ -140,8 +140,8 @@ $ifi "%debugOutput%"=="true"  display curProds;
 *   -- fix pasture use in month with no production
 *
  v_feeduseM.fx(feedsM,m,t_n(tCur,nCur))
-     $ (not sum( (crops,soil,till,intens,sameas(feedsM,prodsMonthly)),
-                             p_OCoeffM(crops,soil,till,intens,prodsMonthly,m,tCur))) = 0;
+     $ (not sum( (crops,plot,soil,till,intens,sameas(feedsM,prodsMonthly)),
+                             p_OCoeffM(crops,plot,soil,till,intens,prodsMonthly,m,tCur))) = 0;
 
  v_feedUseM.up(feedsM,m,t_n(tCur,nCur)) $ v_feedUseM.range(feedsM,m,tCur,nCur)
     = sum( (actHerds(herds,breeds,feedRegime,tCur,m),reqsPhase)
@@ -197,7 +197,7 @@ $$iftheni.purchMaiz "%purchMaizSil%"=="true"
  $$iftheni.purchGrasSil not "%purchGrasSil%"=="true"
 
     v_prods.up(grasSil,t_n(t,nCur)) $ (not sum(c_p_t_i(crops,plot,till,intens),
-                                    sum(plot_soil(plot,soil),p_OcoeffC(crops,soil,till,intens,grasSil,t)))) = 0;
+                                    sum(plot_soil(plot,soil),p_OcoeffC(crops,plot,soil,till,intens,grasSil,t)))) = 0;
 
     v_buy.up(inputs,sys,t_n(t,nCur)) $ sum(sameas(inputs,grasSil),1) = 0;
     v_feedUse.up(feeds,t_n(t,nCur))  $ (sum(sameas(feeds,grassil),1) $ (not sum(curProds(grasSil),1))) = 0;

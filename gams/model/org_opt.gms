@@ -50,14 +50,14 @@ Equations
 *       production quantities of the same system
 *
     prodsSys_(prodsYearly,curSys(sys),t_n(tCur,nCur)) $ (sum(sameas(prodsYearly,curProds),1)
-        $ sum( c_p_t_i(curCrops(crops),plot,till,intens), sum(plot_soil(plot,soil), p_OCoeffC%l%(crops,soil,till,intens,prodsYearly,tCur)))) ..
+        $ sum( c_p_t_i(curCrops(crops),plot,till,intens), sum(plot_soil(plot,soil), p_OCoeffC%l%(crops,plot,soil,till,intens,prodsYearly,tCur)))) ..
 
         v_saleQuant(prodsYearly,sys,tCur,nCur) =L=
 
           sum(c_p_t_i(curCrops(crops),plot,till,intens) $ sys_till(sys,till),
               v_cropHa(crops,plot,till,intens,tCur,%nCur%)
-                  * sum(plot_soil(plot,soil) $ p_OCoeffC%l%(crops,soil,till,intens,prodsYearly,tCur),
-                         p_OCoeffC(crops,soil,till,intens,prodsYearly,tCur)))*1.001;
+                  * sum(plot_soil(plot,soil) $ p_OCoeffC%l%(crops,plot,soil,till,intens,prodsYearly,tCur),
+                         p_OCoeffC(crops,plot,soil,till,intens,prodsYearly,tCur)))*1.001;
 *
 *  --- organic farming: crops in organic system require the whole farm in organic system
 *

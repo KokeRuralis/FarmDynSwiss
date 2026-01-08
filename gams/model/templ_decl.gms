@@ -2602,7 +2602,7 @@ $iftheni.cattle "%cattle%"=="true"
       set grasfeed(feeds)/ set.pastOutput /;
 
       set roughages(feeds) /
-*          set.grasOutputs
+          set.grasOutputs
           set.roughagesGDX
 *          Straw
        $$iftheni.feedCatchCrop "%feedCatchCrop%"=="true"
@@ -3199,11 +3199,11 @@ $ifi defined herds  p_vCost(herds,breeds,t)                         "Variable co
 
               p_OCoeff(acts,prods,allBreeds,t)                "Output coefficients, yearly"
 $ifi "%parsAsVars%"=="true" variable
-              p_OCoeffC(crops,soil,till,intens,prods,t)       "Crop output coefficients, yearly"
-              p_OCoeffM(crops,soil,till,intens,prods,m,t)     "Crop output coefficients, monthly and yearly"
+              p_OCoeffC(crops,plot,soil,till,intens,prods,t)       "Crop output coefficients, yearly"
+              p_OCoeffM(crops,plot,soil,till,intens,prods,m,t)     "Crop output coefficients, monthly and yearly"
          parameter
               p_storageLoss(*)                                 "Post harvest losses of roughages"
-              p_OCoeffResidues(crops,soil,till,intens,prods,t) "Crop residue output coefficient"
+              p_OCoeffResidues(crops,plot,soil,till,intens,prods,t) "Crop residue output coefficient"
               p_yieldReducN(crops,intens)                      "Yield reduction for different N-reductions"
 
 
@@ -3226,8 +3226,8 @@ $ifi "%parsAsVars%"=="true" variable
               p_disCountRate                                  "Private discount rate for EMV in %"
               p_interestGain                                  "Interest gained on accumulated liquidity in %"
 
-              p_nutNeed(crops,soil,till,intens,nut,t)           "Nutrient need for each crop,soil, tillage, intensity"
-              p_pastNeed(crops,soil,till,intens,nut,t)          "Nutrient need for grazing for each crop,soil, tillage, intensity"
+              p_nutNeed(crops,plot,soil,till,intens,nut,t)           "Nutrient need for each crop,soil, tillage, intensity"
+              p_pastNeed(crops,plot,soil,till,intens,nut,t)          "Nutrient need for grazing for each crop,soil, tillage, intensity"
 
               p_nutInSynt(syntFertilizer,nut)                   "Nutrient content of different fertilizers"
               p_NfromLegumes(Crops,sys)                         " N fixation from legumes for different crops, enters nutrient balance and fertilizer planning"

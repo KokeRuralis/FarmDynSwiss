@@ -28,23 +28,28 @@ $iftheni.intensOpt "%intensoptions%"=="Default"
 *
 * --- (1) Default - Definition of different crop intensities based on N fertilizer level (100% to 20%)
 *
-    p_OCoeffC(c_ss_t_i(curCrops(arabCrops),soil,till,"fert80p"),prods,t) $ (not sameas(till,"org"))
+    p_OCoeffC(curCrops(arabCrops),plot,soil,till,"fert80p",prods,t) $(c_ss_t_i(curCrops(arabCrops),soil,till,"fert80p") $(not sameas(till,"org")))
      = p_oCoeffC(arabCrops,soil,till,"normal",prods,t) * 0.96;
-    p_OCoeffC(c_ss_t_i(curCrops(arabCrops),soil,till,"fert60p"),prods,t) $ (not sameas(till,"org"))
-     = p_oCoeffC(arabCrops,soil,till,"normal",prods,t) * 0.90;
-    p_OCoeffC(c_ss_t_i(curCrops(arabCrops),soil,till,"fert40p"),prods,t) $ (not sameas(till,"org"))
-     = p_oCoeffC(arabCrops,soil,till,"normal",prods,t) * 0.82;
-    p_OCoeffC(c_ss_t_i(curCrops(arabCrops),soil,till,"fert20p"),prods,t) $ (not sameas(till,"org"))
-     = p_oCoeffC(arabCrops,soil,till,"normal",prods,t) * 0.73;
+     
+c_ss_t_i(curCrops(arabCrops),soil,till,"fert80p")
+c_p_t_i(curCrops,plot,till,intens)
 
-    p_OCoeffC(c_ss_t_i(curCrops(arabCrops),soil,till,"fert80p"),prods,t) $ (not sameas(till,"org"))
-     = p_oCoeffC(arabCrops,soil,till,"normal",prods,t) * 0.95;
-    p_OCoeffC(c_ss_t_i(curCrops(arabCrops),soil,till,"fert60p"),prods,t) $ (not sameas(till,"org"))
-     = p_oCoeffC(arabCrops,soil,till,"normal",prods,t) * 0.85;
-    p_OCoeffC(c_ss_t_i(curCrops(arabCrops),soil,till,"fert40p"),prods,t) $ (not sameas(till,"org"))
-     = p_oCoeffC(arabCrops,soil,till,"normal",prods,t) * 0.71;
-    p_OCoeffC(c_ss_t_i(curCrops(arabCrops),soil,till,"fert20p"),prods,t) $ (not sameas(till,"org"))
-     = p_oCoeffC(arabCrops,soil,till,"normal",prods,t) * 0.53;
+
+    p_OCoeffC(curCrops(arabCrops),plot,soil,till,"fert60p",prods,t) $(c_ss_t_i(curCrops(arabCrops),soil,till,"fert60p") $(not sameas(till,"org")))
+     = p_oCoeffC(arabCrops,plot,soil,till,"normal",prods,t) * 0.90;
+    p_OCoeffC(curCrops(arabCrops),plot,soil,till,"fert40p",prods,t) $(c_ss_t_i(curCrops(arabCrops),soil,till,"fert40p") $(not sameas(till,"org")))
+     = p_oCoeffC(arabCrops,plot,soil,till,"normal",prods,t) * 0.82;
+    p_OCoeffC(curCrops(arabCrops),plot,soil,till,"fert20p",prods,t) $(c_ss_t_i(curCrops(arabCrops),soil,till,"fert20p") $(not sameas(till,"org")))
+     = p_oCoeffC(arabCrops,plot,soil,till,"normal",prods,t) * 0.73;
+
+    p_OCoeffC(curCrops(arabCrops),plot,soil,till,"fert80p",prods,t) $(c_ss_t_i(curCrops(arabCrops),soil,till,"fert80p") $(not sameas(till,"org")))
+     = p_oCoeffC(arabCrops,plot,soil,till,"normal",prods,t) * 0.95;
+    p_OCoeffC(curCrops(arabCrops),plot,soil,till,"fert60p",prods,t) $(c_ss_t_i(curCrops(arabCrops),soil,till,"fert60p") $(not sameas(till,"org")))
+     = p_oCoeffC(arabCrops,plot,soil,till,"normal",prods,t) * 0.85;
+    p_OCoeffC(curCrops(arabCrops),plot,soil,till,"fert40p",prods,t) $(c_ss_t_i(curCrops(arabCrops),soil,till,"fert40p") $(not sameas(till,"org")))
+     = p_oCoeffC(arabCrops,plot,soil,till,"normal",prods,t) * 0.71;
+    p_OCoeffC(curCrops(arabCrops),plot,soil,till,"fert20p",prods,t) $(c_ss_t_i(curCrops(arabCrops),soil,till,"fert20p") $(not sameas(till,"org")))
+     = p_oCoeffC(arabCrops,plot,soil,till,"normal",prods,t) * 0.53;
 
 
 $elseifi.intensOpt "%intensoptions%"=="Heyn_Olfs"
@@ -54,8 +59,8 @@ $elseifi.intensOpt "%intensoptions%"=="Heyn_Olfs"
 
 * --- Calculation of the yield level for different intensities
 
-   p_OCoeffC(c_ss_t_i(curCrops(arabCrops),soil,till,intens),prods,t)
+   p_OCoeffC(curCrops(arabCrops),plot,soil,till,intens,prods,t)
               $ sum(  soil_plot(soil,plot),c_p_t_i(arabCrops,plot,till,intens) )
-                  =   p_OCoeffC(arabCrops,soil,till,"normal",prods,t)  * p_yieldReducN(arabCrops,intens)/100 ;
+                  =   p_OCoeffC(arabCrops,plot,soil,till,"normal",prods,t)  * p_yieldReducN(arabCrops,intens)/100 ;
 
 $endif.intensOpt

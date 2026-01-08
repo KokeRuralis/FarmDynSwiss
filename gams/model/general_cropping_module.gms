@@ -22,7 +22,7 @@ $offtext
          p_maxRotShare(*,sys,soil)                         "Maximal rotation share of crops or groups of crops"
          p_minRotShare(*,sys,soil)                         "Minimal rotation share of crops or groups of crops"
          P_critShare(crops,sys,cropShareLevl)              "Crop shares at which further increase in cost occurs"
-         p_pastNeedMonthly(crops,soil,till,intens,nut,t,m) "Monthly nutrient need for grazing for each crop,soil, tillage, intensity"
+         p_pastNeedMonthly(crops,plot,soil,till,intens,nut,t,m) "Monthly nutrient need for grazing for each crop,soil, tillage, intensity"
          p_nutSurplusMax(crops,plot,till,intens,nut,t)     "Max N losses per crop and year"
          p_basNut(crops,soil,till,soilNutSour,nut,t)       "Nutrient base deliveries from soil and air"
          p_minChemFert(crops,nut)                          "Minimum of share of N and P from mineral fertilizer"
@@ -52,21 +52,21 @@ $offtext
     v_syntDist(crops,plot,till,intens,syntFertilizer,t,n,m)       "Applying of different Synthetic fertilizers to specific crops"
 
 $iftheni.fert %fertilization% =="OrganicFarming"
-     v_legPool(nut,t,n)                                "Total Nutrient carry over from legumes to following crops"
-     v_legPoolDist(crops,plot,till,intens,nut,t,n)     "Nutrient carry over from legumes to following crops"
-     v_legPoolItself(crops,plot,till,intens,nut,t,n)   "Nutrient carry over from legumes to itself"
 
-     v_resiPool(nut,t,n)                               "Total Nutrient carry over from residues following crops"
-     v_resiPoolDist(crops,plot,till,intens,nut,t,n)    "Nutrient carry over from residues to following crops"
+    v_legPool(nut,t,n)                                "Total Nutrient carry over from legumes to following crops"
+    v_legPoolDist(crops,plot,till,intens,nut,t,n)     "Nutrient carry over from legumes to following crops"
+    v_legPoolItself(crops,plot,till,intens,nut,t,n)   "Nutrient carry over from legumes to itself"
+    v_resiPool(nut,t,n)                               "Total Nutrient carry over from residues following crops"
+    v_resiPoolDist(crops,plot,till,intens,nut,t,n)    "Nutrient carry over from residues to following crops"
+    v_leachedFert(crops,plot,till,intens,t,n)         "Leached N from fertilization per crop, year and ha"
 
-     v_leachedFert(crops,plot,till,intens,t,n)         "Leached N from fertilization per crop, year and ha"
 $endif.fert
 
-
-$ifi %MIP%==on   sos1 variables
-
-      v_plotCrop(plot,t,n,crops)                   "Binary combination, only one crop on each plot"
-;
+$iftheni.pltfx %Oneplot% == true
+$ifi %MIP%==on   binary variables
+    v_plotCrop(crops,plot,till,intens,t,n)       "Binary combination, only one crop on each plot"
+$endif.pltfx
+    ;
 
 equations
 
@@ -122,6 +122,11 @@ $iftheni.fert %fertilization% =="OrganicFarming"
 
       leachedFert_(crops,plot,till,intens,t,n)         "Leached N from fertilization per crop, year and ha"
 $endif.fert
+$iftheni.pltfx %onePlot% == true
+
+      fixCropPlot_(plot,t,n)
+      fixCropPlotI_(crops,plot,till,intens,t,n)
+$endif.pltfx
 
 
 ;
@@ -155,8 +160,25 @@ $endif.fert
         v_residuesOwnConsum(prodsResidues,t,nCur) =L= sum( c_p_t_i(crops,plot,till,intens) $ (cropsResidueRemo(crops)
                                            )
                            ,  v_residuesRemoval(crops,plot,till,intens,t,nCur)
-      *  sum(plot_soil(plot,soil), p_OCoeffResidues(crops,soil,till,intens,prodsResidues,t)) );
+      *  sum(plot_soil(plot,soil), p_OCoeffResidues(crops,plot,soil,till,intens,prodsResidues,t)) );
 
+$iftheni.pltfx %onePlot% == true
+
+    fixCropPlot_(plot,t_n(tCur(t),nCur))..
+
+        sum((curcrops,till,intens)$ c_p_t_i(curcrops,plot,till,intens),
+
+            v_plotCrop(curcrops,plot,till,intens,t,%nCur%))
+
+        =l= 1 ;
+
+    fixCropPlotI_(curCrops(crops),plot,till,intens,t_n(tCur(t),nCur))$ c_p_t_i(curcrops,plot,till,intens) ..
+
+        v_cropHa(curcrops,plot,till,intens,t,%nCur%)
+
+        =e= p_plots(plot,"sizeHA") * v_plotCrop(curcrops,plot,till,intens,t,%nCur%) ;
+
+$endif.pltfx
 
 
 $iftheni.cropRot %cropRotations% == true
@@ -425,7 +447,7 @@ $ifi %landLease% == true + v_rentOutPlot(plot,t,%nCur%)*p_plotSize(plot)
 $$iftheni.fert not %Fertilization% == OrganicFarming
          [
             sum(plot_soil(plot,soil),
-                       p_nutNeed(crops,soil,till,intens,nut,t)
+                       p_nutNeed(crops,plot,soil,till,intens,nut,t)
             ) * v_cropHa(crops,plot,till,intens,t,%nCur%)
          ] $sameas(fertSour,"NBcropNeed")
 $$else.fert
@@ -436,7 +458,7 @@ $$else.fert
          ] $  sameas(nut,"N")
 +    [
          sum(plot_soil(plot,soil),
-                p_nutNeed(crops,soil,till,intens,nut,t)
+                p_nutNeed(crops,plot,soil,till,intens,nut,t)
          ) * v_cropHa(crops,plot,till,intens,t,%nCur%)
        ] $  sameas(nut,"P")
      ]$ sameas(fertSour,"NBcropNeed")
@@ -894,7 +916,7 @@ $$iftheni.dh "%cattle%" == "true"
 
                 sum(plot_soil(plot,soil),
 
-                    p_pastNeedMonthly(pastcrops,soil,till,intens,nut,t,m) * v_cropHa(crops,plot,till,intens,t,%nCur%)) * 0.5
+                    p_pastNeedMonthly(pastcrops,plot,soil,till,intens,nut,t,m) * v_cropHa(crops,plot,till,intens,t,%nCur%)) * 0.5
 
                 =l=
 *     --- N excreted during grazing on pasture
@@ -964,7 +986,7 @@ $$iftheni.dh "%cattle%" == "true"
 *               -- assume average fertilizer losses of 10% N with Default is active, to align with nutBalCropSour_
 *
               $$ifi %Fertilization% == Default * 0.9
-                  *  sum(plot_soil(plot,soil),p_nutNeed(crops,soil,till,intens,nut,t));
+                  *  sum(plot_soil(plot,soil),p_nutNeed(crops,plot,soil,till,intens,nut,t));
 
 
 *   --- overall N amount applicated to crops in each month (organic as well as synthetic fertilizer N)
@@ -1060,7 +1082,12 @@ $ifi %cattle%==true      NutBalPast_
 
       nutTotalApplied_
       nutTotalAppliedYear_
+$iftheni.pltfx %onePlot% == true
 
+      fixCropPlot_
+      fixCropPlotI_
+
+$endif.pltfx
 *      nutSurplusMax_
 /
 ;

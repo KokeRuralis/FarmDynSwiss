@@ -19,8 +19,8 @@ $offtext
 $iftheni.fert %Fertilization% == "Default"
 * --- nutrient need, taking into that output coefficient are measured in t and not dt, therefore * 10.
 
-  p_nutNeed(c_ss_t_i(curCrops(crops),soil,till,intens),nut,t)
-         = sum( prods $ p_OCoeffC(crops,soil,till,intens,prods,t), p_OCoeffC(crops,soil,till,intens,prods,t)/p_storageLoss(prods)
+  p_nutNeed(curCrops(crops),plot,soil,till,intens,nut,t)
+         = sum( prods $ p_OCoeffC(crops,plot,soil,till,intens,prods,t), p_OCoeffC(crops,plot,soil,till,intens,prods,t)/p_storageLoss(prods)
              * (  p_nutContent(crops,prods,"conv",nut) $ (not sameas(till,"org"))
                 + p_nutContent(crops,prods,"org",nut)  $      sameas(till,"org") )*10);
 
@@ -30,7 +30,7 @@ $endif.fert
 
 $iftheni.fert %Fertilization% == "FertilizationOrdinance"
 
-     p_nutNeed(c_ss_t_i(curCrops(crops),soil,till,"normal"),nut,t)
+     p_nutNeed(curCrops(crops),plot,soil,till,"normal",nut,t)
                  = p_NneedFerPlan(crops,soil,till,"normal",nut,t)  ;
 $endif.fert
 
@@ -41,12 +41,12 @@ $iftheni.fert %Fertilization% == "OrganicFarming"
 *--- Calculate N removal (N content in harvested products) , storage losses are considered,
 *    taking into that output coefficient are measured in t and not dt, therefore * 10.
 *    here, not only arable crops are considered but also catchcrops
-p_nutNeed(c_ss_t_i(curCrops(crops),soil,till,intens),nut,t) $ (not sameas(till,"org"))
+p_nutNeed(curCrops(crops),plot,soil,till,intens,nut,t) $ (not sameas(till,"org"))
          =     p_cropYieldInt(curCrops,"conv")
               *  ((1.00 + p_cropYieldInt(curCrops,'Change,conv % p.a.')/100)**t.pos)
               *   sum(prods, p_nutContent(curCrops,prods,"conv",nut) * 10 $(sameas(curcrops,prods)))
               ;
-p_nutNeed(c_ss_t_i(curCrops(crops),soil,"org",intens),nut,t)
+p_nutNeed(curCrops(crops),plot,soil,"org",intens,nut,t)
   =  p_cropYieldInt(curCrops,"org")
        *  ((1.00 + p_cropYieldInt(curCrops,'Change,org % p.a.')/100)**t.pos)
        * sum(prods, p_nutContent(curCrops,prods,"org",nut) * 10 $(sameas(curCrops,prods)))
@@ -107,17 +107,17 @@ $endif.fert
 * --- pasture nutrient need, taking into that output coefficient are measured in t and not dt, therefore * 10.
 *       construct is important to distribute excreta from grazing to grazed grassland evenly
 
-  p_pastNeed(c_ss_t_i(curCrops(crops),soil,till,intens),nut,t)
-       = sum( pastOutput $ p_OCoeffC(crops,soil,till,intens,pastOutput,t), p_OCoeffC(crops,soil,till,intens,pastOutput,t)/p_storageLoss(pastOutput)
+  p_pastNeed(curCrops(crops),plot,soil,till,intens,nut,t)$(c_p_t_i(curCrops,plot,till,intens)$plot_soil(plot,soil))
+       = sum( pastOutput $ p_OCoeffC(crops,plot,soil,till,intens,pastOutput,t), p_OCoeffC(crops,plot,soil,till,intens,pastOutput,t)/p_storageLoss(pastOutput)
            * (   p_nutContent(crops,pastOutput,"conv",nut) $ (not sameas(till,"org"))
                + p_nutContent(crops,pastOutput,"org",nut)  $      sameas(till,"org")
               )*10);
 
 $ifthen.grasAttr defined p_grasAttr
 
-  p_pastNeedMonthly(c_ss_t_i(curCrops(crops),soil,till,intens),nut,t,m)
-     $ (sum((m1,pastOutputs),p_grasAttr(curCrops,pastOutputs,m1) * p_nutGras(pastOutputs,"XP")))
-       = p_pastNeed(curCrops,soil,till,intens,nut,t)
+  p_pastNeedMonthly(curCrops(crops),plot,soil,till,intens,nut,t,m)$(c_p_t_i(curCrops,plot,till,intens)$plot_soil(plot,soil)
+     $ (sum((m1,pastOutputs),p_grasAttr(curCrops,pastOutputs,m1) * p_nutGras(pastOutputs,"XP"))))
+       = p_pastNeed(curCrops,plot,soil,till,intens,nut,t)
          * sum(pastOutputs, p_grasAttr(curCrops,pastOutputs,m)* p_nutGras(pastOutputs,"XP"))
      / sum((m1,pastOutputs),p_grasAttr(curCrops,pastOutputs,m1) * p_nutGras(pastOutputs,"XP"))
            ;
@@ -138,14 +138,14 @@ $endif.grasAttr
 
 $ifthen.intensOpt "%intensoptions%"=="Heyn_Olfs"
 
-    p_nutNeed(c_ss_t_i(curCrops(arabCrops),soil,till,intens),"N",t)  $ (not sameas (intens,"normal"))
+    p_nutNeed(curCrops(arabCrops),plot,soil,till,intens,"N",t) $ (not sameas (intens,"normal"))
                   =  p_nutNeed(arabCrops,soil,till,"normal","N",t) *  p_intens(arabCrops,intens);
 
 $else.intensOpt
 
 
-   p_nutNeed(c_ss_t_i(curCrops(arabcrops),soil,till,intens),"N",t)  $ (not sameas (intens,"normal"))
-                = sum( prods, p_OCoeffC(arabcrops,soil,till,"normal",prods,t)
+   p_nutNeed(curCrops(arabcrops),plot,soil,till,intens,"N",t)  $ (not sameas (intens,"normal"))
+                = sum( prods, p_OCoeffC(arabcrops,plot,soil,till,"normal",prods,t)
                    * (    p_nutContent(arabcrops,prods,"conv","N") $ (not sameas(till,"org"))
                         + p_nutContent(arabcrops,prods,"org","N")  $      sameas(till,"org")
                    )*10)  *  p_intens(arabcrops,intens)
@@ -156,8 +156,8 @@ $endif.intensOpt
 * --- (2) Calculation of the nutrient need of the different intensities. Assumption that P need of crops correponds to the
 *     removal with the adjusted yield level
 
-   p_nutNeed(c_ss_t_i(curCrops(arabcrops),soil,till,intens),"P",t)  $ (not sameas (intens,"normal"))
-                  = sum( prods, p_OCoeffC(arabcrops,soil,till,intens,prods,t)
+   p_nutNeed(curCrops(arabcrops),plot,soil,till,intens,"P",t)  $ (not sameas (intens,"normal"))
+                  = sum( prods, p_OCoeffC(arabcrops,plot,soil,till,intens,prods,t)
                    * (    p_nutContent(arabcrops,prods,"conv","P") $ (not sameas(till,"org"))
                          + p_nutContent(arabcrops,prods,"org","P")  $      sameas(till,"org")
                    )*10);

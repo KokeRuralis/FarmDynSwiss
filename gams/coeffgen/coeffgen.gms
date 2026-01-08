@@ -278,12 +278,27 @@ $endif.org
 $$iftheni.PlotEndo  "%landEndo%" == "Land endowment per plot"
 
 $iftheni.cattle "%cattle%"=="true"
-  c_p_t_i(grassCrops,plot,till,intens) 
-    $ (sum((grasOutputs,m),p_grasAttr(grassCrops,grasOutputs,m) ) > p_plots(plot,"maxYield") )= NO;
+
+parameter    reqAttr(grasOutputs);
+
+reqAttr('lateGraz')  = 3;
+reqAttr('hayExt')    = 3;
+
+reqAttr('middleGraz')= 2;
+reqAttr('hayM')      = 2;
+reqAttr('grasSilM')  = 2;
+reqAttr('grasSM')    = 2;
+
+reqAttr('earlyGraz') = 1;
+reqAttr('hay')       = 1;
+reqAttr('grasSil')   = 1;
+reqAttr('grasS')     = 1;
+
+c_p_t_i(grassCrops,plot,till,intens)$((sum(grasOutputs$ (not (p_plots(plot,"elevation") = reqAttr(grasOutputs)) and (sum(m, p_grasAttr(grassCrops,grasOutputs,m)))),1))) = NO;
+
+
 $$endif.cattle 
-
 $$endif.PlotEndo
-
 $ifi %stochProg%==true $include 'coeffgen/stochProg.gms'
 
 $ifi "%cattle%"  == true       $include '%datdir%/%cattleFile%.gms'

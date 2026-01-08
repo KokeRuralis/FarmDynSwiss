@@ -609,15 +609,15 @@ biomassExport_(biogas_exchange,t_n(tCur(t),nCur)) ..
          sum( (c_p_t_i(curCrops,plot,till,intens))  ,
 *export of harvest
                 (v_cropHa(curCrops,plot,till,intens,t,nCur) $ sameas(curCrops,biogas_exchange)
-                    * sum( (plot_soil(plot,soil)) $  p_OCoeffC%l%(curCrops,soil,till,intens,biogas_exchange,t),
-                                                p_OCoeffC(curCrops,soil,till,intens,biogas_exchange,t)/p_storageLoss(curCrops))
+                    * sum( (plot_soil(plot,soil)) $  p_OCoeffC%l%(curCrops,plot,soil,till,intens,biogas_exchange,t),
+                                                p_OCoeffC(curCrops,plot,soil,till,intens,biogas_exchange,t)/p_storageLoss(curCrops))
                                             )
 *export of crop residues (straw)
               +
               sum(prodsResidues,
               (v_residuesRemoval(curCrops,plot,till,intens,t,nCur) $ sum(sameas(curCrops,cropsResidueRemo),1)
                   * sum( (plot_soil(plot,soil)),
-                                              p_OCoeffResidues(curCrops,soil,till,intens,prodsResidues,t)/p_storageLoss(curCrops))
+                                              p_OCoeffResidues(curCrops,plot,soil,till,intens,prodsResidues,t)/p_storageLoss(curCrops))
                                           ))
                                           )  ;
 

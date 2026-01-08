@@ -791,8 +791,8 @@ $offtext
 
          sum( sameas(prodsYearly,curFeeds(feedsY)), v_feedUseProds(feedsY,t,nCur)) =L=
                     sum( c_p_t_i(curCrops(crops),plot,till,intens), v_cropHa(crops,plot,till,intens,t,nCur)
-                      * sum(plot_soil(plot,soil) $ p_OCoeffC%l%(crops,soil,till,intens,prodsYearly,t),
-                                                   p_OCoeffC(crops,soil,till,intens,prodsYearly,t)));
+                      * sum(plot_soil(plot,soil) $ p_OCoeffC%l%(crops,plot,soil,till,intens,prodsYearly,t),
+                                                   p_OCoeffC(crops,plot,soil,till,intens,prodsYearly,t)));
   $$endif.cattle
 
 *
@@ -838,8 +838,8 @@ $offtext
 *      --- crop main output
 *
        sum( c_p_t_i(curCrops(crops),plot,till,intens), v_cropHa(crops,plot,till,intens,t,%nCur%)
-           * sum(plot_soil(plot,soil) $ p_OCoeffC%l%(crops,soil,till,intens,prodsYearly,t),
-               p_OCoeffC(crops,soil,till,intens,prodsYearly,t)
+           * sum(plot_soil(plot,soil) $ p_OCoeffC%l%(crops,plot,soil,till,intens,prodsYearly,t),
+               p_OCoeffC(crops,plot,soil,till,intens,prodsYearly,t)
                   $$iftheni.sp "%stochProg%"=="true"
                      $$iftheni.stochYield "%stochYields%"=="true"
                                    * (p_randVar(crops,nCur) + (p_randVar("gras",nCur)-1))
@@ -851,7 +851,7 @@ $offtext
 *
        +  sum( c_p_t_i(crops,plot,till,intens) $ cropsResidueRemo(crops),
                 v_residuesRemoval(crops,plot,till,intens,t,nCur)
-                  *  sum(plot_soil(plot,soil), p_OCoeffResidues(crops,soil,till,intens,prodsyearly,t)
+                  *  sum(plot_soil(plot,soil), p_OCoeffResidues(crops,plot,soil,till,intens,prodsyearly,t)
                      $$iftheni.sp "%stochProg%"=="true"
                         $$iftheni.stochYield "%stochYields%"=="true"
                                       * p_randVar(crops,nCur)
