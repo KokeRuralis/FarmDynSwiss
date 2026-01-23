@@ -1461,12 +1461,14 @@
                 <Type>tableSimple</Type>
                 <Title>Land endowment per plot</Title>
                 <Value>0.15</Value>
-                <columns>sizeHa,yieldScale,arab,fert,gras,past,elevation,soil,cropFX</columns>
+                <columns>sizeHa,yieldScale,arab,fert,gras,past,elevation,soil,slope,MZone,cropFX</columns>
                 <value>0.0,60.0,40.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,
                        0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,
                        0.0,1.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,
                        0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,
                        0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,
+                       0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,
+                       0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,
                        0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,
                        0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,
                        0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,
@@ -3314,7 +3316,7 @@
                   <Type>singlelist</Type>
                   <Title>Number of plots</Title>
                   <value>1</value>
-                  <options>1*20</options>
+                  <options>1*200</options>
                   <gamsName>nPlot</gamsName>
                   <style>vAlignment:spread,test:false</style>
                   <tasks>%allTasks%</tasks>
