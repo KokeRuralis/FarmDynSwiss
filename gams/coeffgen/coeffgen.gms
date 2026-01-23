@@ -296,6 +296,20 @@ reqAttr('grasS')     = 1;
 
 c_p_t_i(grassCrops,plot,till,intens)$((sum(grasOutputs$ (not (p_plots(plot,"elevation") = reqAttr(grasOutputs)) and (sum(m, p_grasAttr(grassCrops,grasOutputs,m)))),1))) = NO;
 
+$offOrder
+abort$(
+    sum((grassCrops,plot,till,intens)$(
+        ord(grassCrops) = p_plots(plot,"cropFX")
+        and p_plots(plot,"cropFX") <> 0
+        and sum(grasOutputs$(
+            not (p_plots(plot,"elevation") = reqAttr(grasOutputs))
+            and sum(m, p_grasAttr(grassCrops,grasOutputs,m))
+        ),1)
+    ),1)
+)
+"ERROR: cropFX enforces a crop that is forbidden by elevation/attribute constraints.";
+c_p_t_i(grassCrops,plot,till,intens) $(ord(grassCrops) <>  p_plots(plot,"cropFX") and p_plots(plot,"cropFX") <> 0) = no;
+$onorder
 
 $$endif.cattle 
 $$endif.PlotEndo
