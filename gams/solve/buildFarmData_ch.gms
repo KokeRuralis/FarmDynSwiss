@@ -23,7 +23,7 @@ $offtext
   singleTon set farmId(curFarmId) / %farmIds% /;
   parameter p_farmData(curFarmId,*,*);
   parameter p_farmDataPlots(curFarmId,*,*);
-  set plot /Plot1*Plot10/;
+  set plot /Plot1*Plot200/;
   set allCrops;
 $gdxin "%datDir%/%cropsFile%.gdx"
   $$load allCrops=crops
@@ -110,15 +110,19 @@ p_nArabLand = sum(plot, p_farmDataPlots(farmId,plot,"sizeha") $ (p_farmDataPlots
 p_nGrasLand = sum(plot, p_farmDataPlots(farmId,plot,"sizeha") $ (p_farmDataPlots(farmId,plot,"gras") = 1));
 p_nPastLand = sum(plot, p_farmDataPlots(farmId,plot,"sizeha") $ (p_farmDataPlots(farmId,plot,"past") = 1));
 
-p_plots(plot,"Soil") = p_farmDataPlots(farmId,plot,"soil");
 p_plots(plot,"sizeHa") = p_farmDataPlots(farmId,plot,"sizeHa");
-p_plots(plot,"maxYield") = p_farmDataPlots(farmId,plot,"maxYield");
+p_plots(plot,"yieldScale") = p_farmDataPlots(farmId,plot,"yieldScale");
 p_plots(plot,"arab") = p_farmDataPlots(farmId,plot,"arab");
 p_plots(plot,"fert") = p_farmDataPlots(farmId,plot,"fert");
 p_plots(plot,"gras") = p_farmDataPlots(farmId,plot,"gras");
 p_plots(plot,"past") = p_farmDataPlots(farmId,plot,"past");
-p_plots(plot,"relief") = p_farmDataPlots(farmId,plot,"relief");
-p_plots(plot,"margin") = p_farmDataPlots(farmId,plot,"margin");
+p_plots(plot,"elevation") = p_farmDataPlots(farmId,plot,"elevation");
+p_plots(plot,"soil") = p_farmDataPlots(farmId,plot,"soil");
+p_plots(plot,"slope") = p_farmDataPlots(farmId,plot,"slope");
+p_plots(plot,"MZone") = p_farmDataPlots(farmId,plot,"MZone");
+p_plots(plot,"cropFX") = p_farmDataPlots(farmId,plot,"cropFX");
+
+
 display p_plots, p_farmDataPlots;
 *p_plots(plot,*)  p_farmDataPlots(farmId,plot,*) ;
 
