@@ -330,26 +330,7 @@ $iftheni.data "%database%" == "User_database"
 $endif.data
 
 
-   p_crop_op_per_tilla("CCmustard","springtineHarrow","Aug2","plough")= 1;
-   p_crop_op_per_tilla("CCmustard","springtineHarrow","Aug2","org")= 1;
-   p_crop_op_per_tilla("CCmustard","roller","Aug2","plough")= 1;
-   p_crop_op_per_tilla("CCmustard","roller","Aug2","org")= 1;
-   p_crop_op_per_tilla("CCmustard","SeedBedCombi","Aug2","plough")= 1;
-   p_crop_op_per_tilla("CCmustard","seedBedCombi","Aug2","org")= 1;
-   p_crop_op_per_tilla("CCmustard","springtineHarrow","Feb2","plough")= 1;
-   p_crop_op_per_tilla("CCmustard","springtineHarrow","Feb2","org")= 1;
 
-   p_crop_op_per_tilla("CCClover","springtineHarrow","Aug2","plough")= 1;
-   p_crop_op_per_tilla("CCClover","springtineHarrow","Aug2","org")= 1;
-   p_crop_op_per_tilla("CCClover","roller","Aug2","plough")= 1;
-   p_crop_op_per_tilla("CCClover","roller","Aug2","org")= 1;
-   p_crop_op_per_tilla("CCClover","SeedBedCombi","Aug2","plough")= 1;
-   p_crop_op_per_tilla("CCClover","seedBedCombi","Aug2","org")= 1;
-   p_crop_op_per_tilla("CCClover","chopper","Feb2","plough")= 1;
-   p_crop_op_per_tilla("CCClover","chopper","Feb2","org")= 1;
-   p_crop_op_per_tilla("CCClover","chopper","Feb2","minTill")= 1;
-   p_crop_op_per_tilla("CCClover","springtineHarrow","Feb2","plough")= 1;
-   p_crop_op_per_tilla("CCClover","springtineHarrow","Feb2","org")= 1;
 
 
    p_crop_op_per_tilla(grasscrops,"soilSample","Sep2",grasTill)    $ (not sameas(grasscrops,"idleGras")) = 0.25;

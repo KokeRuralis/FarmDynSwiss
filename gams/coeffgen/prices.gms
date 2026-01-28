@@ -356,9 +356,7 @@ $endif.im
   p_price(prods,"org",t) $ (not p_price(prods,"org",t)) = p_price(prods,"conv",t);
 
 
-$iftheni.feedCatchCrop %feedCatchCrop%  == "true"
-p_price("CCclover",sys,t) = EPS;
-$endif.feedCatchCrop
+
 
 * kill prices for eco/conv if not selected in the interface
 $ifi  "%orgTill%" == "enforced" p_price(prods,"conv",t) = 0;

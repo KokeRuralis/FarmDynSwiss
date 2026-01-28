@@ -53,10 +53,7 @@ $iftheni.mode "%1" == "decl"
                           milkFed        "Milk for weaners"
 
                           
-   $$iftheni.feedCatchCrop "%feedCatchCrop%"=="true"
-                          CCclover
-                          set.feed_ccCrops "catchcrops used as feed"
-   $$endif.feedCatchCrop
+
 
 * --- Feed additives for methane reduction
                           feedAdd_Bovaer
@@ -104,7 +101,6 @@ $else.mode
 *       concCattle1 = Gruber Code 8104
 *       concCattle2 = Gruber Code 8126
 *       concCattle3 = Gruber Code 8147
-*       CCclover = Gruber code 1815
 *       alfalfa = Gruber Code 3775
 *       summerPeas = Gruber Code 4345
 *       summerBeans = Gruber Code 4305
@@ -124,9 +120,7 @@ $onmulti
           soyBeanMeal        880     68              500   291   30     34    8.64   13.76  178    14    14   3.1   7.0  3.0  0.2  22
           milkPowder         940      1              223   161   10     10   10.23   15.87  495     2   160   9.6   6.4  2.0  5.3  20
           milkfed            135      0              262   133    5     21   12.53   19.4   345         324   8.6   7.2  0.9  3.2  11
-   $$iftheni.feedCatchCrop "%feedCatchCrop%" == "true"
-          ccClover           170    235  490    241  165   140   15      4    6.33   10.5   150     0    37   5.0   3.2  1.6  2.5  19
-   $$endif.feedCatchCrop
+
 
 
           feedAdd_Bovaer     999

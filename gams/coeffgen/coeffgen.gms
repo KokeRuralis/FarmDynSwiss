@@ -28,7 +28,7 @@ $offtext
 
 * --- Catch crops always activated
 
-   curCrops(standardCatchcrops) = YES;
+   curCrops(standardCatchcrops) = No;
 
    curArabCrops(arabCrops) = Yes;
    curArabCrops(arabCrops) $ (not selCrops(arabCrops))  = NO;

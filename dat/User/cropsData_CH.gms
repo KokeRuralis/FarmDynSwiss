@@ -323,7 +323,6 @@ PARAMETER p_cropYield(*,*) /
 'MaizSil'.'conv' 56.5
 *Silomais ÖLN stehend ab Feld
 *'Alfalfa'.'Yield' 10.2 --> not found in DB Katalog 2019
-*'CCclover'.'Yield' 18 --> not found in DB Katalog 2019
 * --- German data for remaining crops
 'WinterRye'.'conv' 6.0
 'SummerTriticale'.'conv' 6.0
@@ -356,7 +355,6 @@ PARAMETER p_cropYield(*,*) /
        "Alfalfa"         ."conv"       180
        "Potatoes"        ."conv"       475
        "SugarBeet"       ."conv"       57.0
-       "CCclover"        ."conv"       EPS
  /;
 
  p_cropPrice(crops,'Change,conv % p.a.') = eps;
@@ -1066,7 +1064,6 @@ set feedAttr /
 *       concCattle1 = Gruber Code 8104
 *       concCattle2 = Gruber Code 8126
 *       concCattle3 = Gruber Code 8147
-*       CCclover = Gruber code 1815
 
         table p_feedContDMg(feeds,feedAttr)
 
