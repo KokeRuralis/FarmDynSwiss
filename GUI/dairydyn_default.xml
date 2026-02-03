@@ -1461,12 +1461,13 @@
                 <Type>tableSimple</Type>
                 <Title>Land endowment per plot</Title>
                 <Value>0.15</Value>
-                <columns>sizeHa,yieldScale,arab,fert,gras,past,elevation,soil,slope,MZone,cropFX</columns>
+                <columns>sizeHa,yieldScale,arab,fert,gras,past,elevation,soil,slope,MZone,cropFX,BioDivClass</columns>
                 <value>0.0,60.0,40.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,
                        0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,
                        0.0,1.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,
                        0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,
                        0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,
+                       0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,
                        0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,
                        0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,
                        0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,
@@ -4139,6 +4140,16 @@
                    <style>vAlignment:spread,output:none</style>
                    <tasks>%allTasks%</tasks>
                    <dependsOn>Non-EU country:true</dependsOn>
+          </control>
+          <control>
+                <Type>spinner</Type>
+                <Title>Beitrag für die regionale Biodiversität</Title>
+                <Value>0.0</Value>
+                <range>0,31500,1</range>
+                <gamsName>BasisDZ</gamsName>
+                <style>vAlignment:spread</style>
+                <tasks>%allTasks%</tasks>
+                <dependsOn>Non-EU country:true</dependsOn>
           </control>
           <control>
                 <Type>separator</Type>
