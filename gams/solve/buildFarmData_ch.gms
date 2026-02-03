@@ -121,6 +121,7 @@ p_plots(plot,"soil") = p_farmDataPlots(farmId,plot,"soil");
 p_plots(plot,"slope") = p_farmDataPlots(farmId,plot,"slope");
 p_plots(plot,"MZone") = p_farmDataPlots(farmId,plot,"MZone");
 p_plots(plot,"cropFX") = p_farmDataPlots(farmId,plot,"cropFX");
+p_plots(plot,"BioDivClass") = p_farmDataPlots(farmId,plot,"BioDivClass");
 
 
 display p_plots, p_farmDataPlots;
