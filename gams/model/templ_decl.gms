@@ -366,9 +366,7 @@ $$endif.pmp
   p_mDist(t,m,t1,m1) = (p_year(t1)-p_year(t)) * 12 + (m1.pos - m.pos);
 
   set set_crop_prods "crop products" / set.set_crops_and_prods
-                                       $$iftheni.feedCatchCrop %feedCatchCrop%  == "true"
-                                         CCclover
-                                       $$endif.feedCatchCrop
+
                                        set.cropsResidues_prods    /;
 
   set set_crops "crops" /    set.no_cashcropsGDX
@@ -724,7 +722,7 @@ $endif.gras
   set grasCrops(crops);
   grasCrops(crops) $ crops_t_landType(crops,"gras") = YES;
 
-  set arablecrops(crops)/ set.arablecropsGDX,set.catchcrops/;
+  set arablecrops(crops)/ set.arablecropsGDX/;
 
 
 
@@ -2606,7 +2604,6 @@ $iftheni.cattle "%cattle%"=="true"
           set.roughagesGDX
 *          Straw
        $$iftheni.feedCatchCrop "%feedCatchCrop%"=="true"
-            CCclover
             set.feed_ccCrops "catchcrops used as feed"
        $$endif.feedCatchCrop
           
