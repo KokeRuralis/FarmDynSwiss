@@ -281,18 +281,18 @@ $iftheni.cattle "%cattle%"=="true"
 
 parameter    reqAttr(grasOutputs);
 
-reqAttr('lateGraz')  = 3;
-reqAttr('hayExt')    = 3;
+reqAttr('lateGraz')  = 2;
+reqAttr('hayExt')    = 2;
 
-reqAttr('middleGraz')= 2;
-reqAttr('hayM')      = 2;
-reqAttr('grasSilM')  = 2;
-reqAttr('grasSM')    = 2;
+reqAttr('middleGraz')= 1;
+reqAttr('hayM')      = 1;
+reqAttr('grasSilM')  = 1;
+reqAttr('grasSM')    = 1;
 
-reqAttr('earlyGraz') = 1;
-reqAttr('hay')       = 1;
-reqAttr('grasSil')   = 1;
-reqAttr('grasS')     = 1;
+reqAttr('earlyGraz') = 0;
+reqAttr('hay')       = 0;
+reqAttr('grasSil')   = 0;
+reqAttr('grasS')     = 0;
 
 c_p_t_i(grassCrops,plot,till,intens)$((sum(grasOutputs$ (not (p_plots(plot,"elevation") = reqAttr(grasOutputs)) and (sum(m, p_grasAttr(grassCrops,grasOutputs,m)))),1))) = NO;
 
