@@ -4145,7 +4145,7 @@
                 <Type>spinner</Type>
                 <Title>Beitrag für die regionale Biodiversität</Title>
                 <Value>0.0</Value>
-                <range>0,31500,1</range>
+                <range>0,500000,1</range>
                 <gamsName>BasisDZ</gamsName>
                 <style>vAlignment:spread</style>
                 <tasks>%allTasks%</tasks>
