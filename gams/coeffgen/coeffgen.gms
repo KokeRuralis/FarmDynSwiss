@@ -281,6 +281,10 @@ $iftheni.cattle "%cattle%"=="true"
 
 parameter    reqAttr(grasOutputs);
 
+reqAttr('lateGraz')  = 0;
+reqAttr('hayExt')    = 0;
+reqAttr('lateGraz')  = 1;
+reqAttr('hayExt')    = 1;
 reqAttr('lateGraz')  = 2;
 reqAttr('hayExt')    = 2;
 
