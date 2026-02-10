@@ -23,7 +23,7 @@ $offtext
   singleTon set farmId(curFarmId) / %farmIds% /;
   parameter p_farmData(curFarmId,*,*);
   parameter p_farmDataPlots(curFarmId,*,*);
-  set plot /Plot1*Plot200/;
+  set plot /Plot1*Plot250/;
   set allCrops;
 $gdxin "%datDir%/%cropsFile%.gdx"
   $$load allCrops=crops
