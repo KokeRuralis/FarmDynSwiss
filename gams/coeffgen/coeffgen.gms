@@ -283,10 +283,7 @@ parameter    reqAttr(grasOutputs);
 
 reqAttr('lateGraz')  = 0;
 reqAttr('hayExt')    = 0;
-reqAttr('lateGraz')  = 1;
-reqAttr('hayExt')    = 1;
-reqAttr('lateGraz')  = 2;
-reqAttr('hayExt')    = 2;
+
 
 reqAttr('middleGraz')= 1;
 reqAttr('hayM')      = 1;
@@ -298,7 +295,10 @@ reqAttr('hay')       = 0;
 reqAttr('grasSil')   = 0;
 reqAttr('grasS')     = 0;
 
-c_p_t_i(grassCrops,plot,till,intens)$((sum(grasOutputs$ (not (p_plots(plot,"elevation") = reqAttr(grasOutputs)) and (sum(m, p_grasAttr(grassCrops,grasOutputs,m)))),1))) = NO;
+c_p_t_i(grassCrops,plot,till,intens)$((sum(grasOutputs$ (not (p_plots(plot,"elevation") = reqAttr(grasOutputs)) and (sum(m, p_grasAttr(grassCrops,grasOutputs,m)))),1)) 
+                                                $(not sum(m, p_grasAttr(grassCrops,"hayExt",m)) )
+                                                $(not sum(m, p_grasAttr(grassCrops,"lateGraz",m)) ) ) = NO;
+abort c_p_t_i;
 
 $offOrder
 abort$(
