@@ -298,7 +298,6 @@ reqAttr('grasS')     = 0;
 c_p_t_i(grassCrops,plot,till,intens)$((sum(grasOutputs$ (not (p_plots(plot,"elevation") = reqAttr(grasOutputs)) and (sum(m, p_grasAttr(grassCrops,grasOutputs,m)))),1)) 
                                                 $(not sum(m, p_grasAttr(grassCrops,"hayExt",m)) )
                                                 $(not sum(m, p_grasAttr(grassCrops,"lateGraz",m)) ) ) = NO;
-abort c_p_t_i;
 
 $offOrder
 abort$(
