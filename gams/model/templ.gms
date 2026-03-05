@@ -682,24 +682,6 @@ $offtext
 
         $$ifi %EUCountry% == true    $$ifi %policyCAPfile% == "Policy_CAP_de_2023"   + v_sfPremRedi(t,nCur)
 
-
-        $$ifthenI.cattle "%Cattle%"==true
-*
-*           --- income from coupled payments per head of cattle
-*
-            + sum((curBreeds),
-             $$ifi set cowPrem               v_sumherd("cows",curBreeds,t,%nCur%)      * %cowPrem%    $ herds_breeds("cows",curBreeds)
-             $$ifi set mowPrem             + v_sumherd("motherCow",curBreeds,t,%nCur%) * %mcowPrem%   $ herds_breeds("motherCow",curBreeds)
-             $$ifi set heifsPrem           + v_sumherd("heifs",curBreeds,t,%nCur%)     * %heifsPrem%  $ herds_breeds("heifs",curBreeds)
-                                           + (v_sumherd("fCalvsRais",curBreeds,t,%nCur%) + v_sumherd("mCalvsRais",curBreeds,t,nCur)) * %calvsPrem%
-
-             $$ifthenI.bulls defined bulls
-                 $$ifi set bullsPrem           + v_sumherd("bulls",curBreeds,t,%nCur%)     * %bullsPrem%  $ herds_breeds("bulls",curBreeds)
-             $$endif.bulls
-
-            )
-
-        $$endif.cattle
 *
 *        --- premiums for organic farming
 *

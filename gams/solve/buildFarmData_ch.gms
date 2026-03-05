@@ -124,9 +124,6 @@ p_plots(plot,"cropFX") = p_farmDataPlots(farmId,plot,"cropFX");
 p_plots(plot,"BioDivClass") = p_farmDataPlots(farmId,plot,"BioDivClass");
 
 
-display p_plots, p_farmDataPlots;
-*p_plots(plot,*)  p_farmDataPlots(farmId,plot,*) ;
-
 $$endif.PlotEndo
 *
 * --- predefined herd size

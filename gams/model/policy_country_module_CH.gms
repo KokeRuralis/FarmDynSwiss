@@ -62,7 +62,7 @@ parameters
     p_maxConcFeed
     p_maxMaizeFeed
 
-    p_premAnm(*)
+    p_premAnm(herds)
 
     p_areaBFF
     P_premBFF(MZone,BioDivClass,*)
@@ -280,15 +280,9 @@ $iftheni.cattle "%cattle%"=="true"
           premAnimal_(t_n(tCur,nCur)) ..
 
               v_premAnimal(tCur,nCur) =L=
-                        + sum((curBreeds),
-                                  v_sumherd("cows",curBreeds,tCur,nCur)      *  p_premAnm("cows")         $ herds_breeds("cows",curBreeds)
-                                + v_sumherd("motherCow",curBreeds,tCur,nCur) * p_premAnm("motherCow")    $ herds_breeds("motherCow",curBreeds)
-                                + v_sumherd("heifs",curBreeds,tCur,nCur)     * p_premAnm("heifs")        $ herds_breeds("heifs",curBreeds)
-                                + (v_sumherd("fCalvsRais",curBreeds,tCur,nCur) + v_sumherd("mCalvsRais",curBreeds,tCur,nCur)) * p_premAnm("calvs")
-         $$iftheni.bulls defined bulls
-                                + v_sumherd("bulls",curBreeds,tCur,nCur)     * p_premAnm("bulls")        $ herds_breeds("bulls",curBreeds)
-         $$endif.bulls
-                                 );
+                         sum(herds_breeds(sumHerds,curBreeds)$ sum(actHerds(sumHerds,breeds,feedRegime,t,m),1),
+                                  v_sumherd(sumHerds,curBreeds,tCur,nCur)       *  p_premAnm(sumHerds) )
+                            ;
 
 * ------------------------------------------------------------------------------------------------
 *
