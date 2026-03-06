@@ -82,11 +82,14 @@ $offtext
          p_maxMaizeFeed = 0.25;
 
 * --- (V) Payments for animal friendly houzing and grazing - Assumed to be always fulfilled (1500 fixed value times Livestock Units)
-         p_premAnm("cows")         = 425;
-         p_premAnm("motherCow")    = 425;
-         p_premAnm("heifs")        = 425 *  0.33;
-         p_premAnm("calvs")        = 530 *  0.13;
-         p_premAnm("bulls")        = 425 *  0.4;
+$ifi %dairyHerd%==true  p_premAnm("cows")         = 425;
+$ifi "%farmBranchMotherCows%"=="on"  p_premAnm("motherCow")    = 425;
+$iftheni.ch %cowHerd%==true
+        p_premAnm("heifs")        = 425 *  0.33;
+        p_premAnm("fCalvsRais")        = 530 *  0.13;
+        p_premAnm("mCalvsRais")        = 530 *  0.13;
+$endif.ch
+$ifi"%farmBranchBeef%" == "on"  p_premAnm("bulls")        = 425 *  0.4;
 
 * -------------------------------------------------------------------------
 *

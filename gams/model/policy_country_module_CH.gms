@@ -403,12 +403,14 @@ model m_policy_country
       premDiffProds_
 $iftheni.arab "%farmBranchArable%" == "on"
       premArab_
+$iftheni.cRot "%RotaPol%" == "true"   
       triggerDivRotMaxcrop_
       triggerDiVRotMax_
       triggerDivRotMaxConstr_
       triggerDivRotMinCount_
       triggerDivRotMinConstr_
       triggerDivRotMinNum_
+$endif.cRot
 $endif.arab
 $iftheni.cattle "%cattle%"=="true"
 *Productionsystem /PRoduktionssystembeiträge

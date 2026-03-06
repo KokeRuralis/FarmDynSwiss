@@ -4152,6 +4152,15 @@
                 <dependsOn>Non-EU country:true</dependsOn>
           </control>
           <control>
+                <Type>checkbox</Type>
+                <Title>Include rotational constraint</Title>
+                <Value>false</Value>
+                <gamsName>RotaPol</gamsName>
+                <style>vAlignment:spread</style>
+                <tasks>%allTasks%</tasks>
+                <dependsOn>Non-EU country:true</dependsOn>
+          </control>
+          <control>
                 <Type>separator</Type>
                 <Title>Greenhouse gas policies</Title>
                 <style>sameColumn:true</style>
