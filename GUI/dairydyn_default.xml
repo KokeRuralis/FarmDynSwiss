@@ -1486,6 +1486,16 @@
                       Plot8
                       Plot9
                       Plot10
+                      Plot11              
+                      Plot12
+                      Plot13
+                      Plot14
+                      Plot15
+                      Plot16
+                      Plot17
+                      Plot18
+                      Plot19
+                      Plot20
                 </rows>
                 <gamsName>p_plots</gamsName>
                 <tasks>%allTasks%</tasks>
