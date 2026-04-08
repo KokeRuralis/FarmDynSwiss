@@ -299,20 +299,36 @@ c_p_t_i(grassCrops,plot,till,intens)$((sum(grasOutputs$ (not (p_plots(plot,"elev
                                                 $(not sum(m, p_grasAttr(grassCrops,"hayExt",m)) )
                                                 $(not sum(m, p_grasAttr(grassCrops,"lateGraz",m)) ) ) = NO;
 
-$offOrder
-abort$(
-    sum((grassCrops,plot,till,intens)$(
-        ord(grassCrops) = p_plots(plot,"cropFX")
-        and p_plots(plot,"cropFX") <> 0
-        and sum(grasOutputs$(
-            not (p_plots(plot,"elevation") = reqAttr(grasOutputs))
-            and sum(m, p_grasAttr(grassCrops,grasOutputs,m))
-        ),1)
-    ),1)
-)
-"ERROR: cropFX enforces a crop that is forbidden by elevation/attribute constraints.";
-c_p_t_i(grassCrops,plot,till,intens) $(ord(grassCrops) <>  p_plots(plot,"cropFX") and p_plots(plot,"cropFX") <> 0) = no;
-$onorder
+
+
+parameter    grasOrd(grassCrops);
+
+grasOrd("gras1_11.6_graz100")          = 1;  
+grasOrd("gras2_8.6_graz100")           = 2; 
+grasOrd("gras3_5.6_graz100")           = 3; 
+grasOrd("gras4_12.2_4cuts_sil100")     = 4;       
+grasOrd("gras5_9.1_3cuts_silM100")     = 5;       
+grasOrd("gras6_12.2_4cuts_hay100")     = 6;       
+grasOrd("gras7_9.1_3cuts_hayM100")     = 7;       
+grasOrd("gras8_2.7_2cuts_hayExt100")   = 8;         
+grasOrd("gras9_12.2_4cuts_grasS100")   = 9;         
+grasOrd("gras10_9.1_3cuts_grasSM100")  = 10;          
+
+c_p_t_i(grassCrops,plot,till,intens) $(grasOrd(grassCrops) <>  p_plots(plot,"cropFX") and p_plots(plot,"cropFX") <> 0) = no;
+set viol(plot,grassCrops) "violating combinations";
+
+viol(plot,grassCrops) =
+    grasOrd(grassCrops) = p_plots(plot,"cropFX")
+    and p_plots(plot,"cropFX") <> 0
+    and sum(grasOutputs$(
+        not (p_plots(plot,"elevation") = reqAttr(grasOutputs))
+        and sum(m, p_grasAttr(grassCrops,grasOutputs,m))
+    ),1);
+
+display viol;
+abort$(card(viol)) "ERROR: cropFX enforces a crop that is forbidden by elevation/attribute constraints.";
+
+
 
 $$endif.cattle 
 $$endif.PlotEndo
