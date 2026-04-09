@@ -321,11 +321,12 @@ viol(plot,grassCrops) =
     grasOrd(grassCrops) = p_plots(plot,"cropFX")
     and p_plots(plot,"cropFX") <> 0
     and sum(grasOutputs$(
-        not (p_plots(plot,"elevation") = reqAttr(grasOutputs))
-        and sum(m, p_grasAttr(grassCrops,grasOutputs,m))
-    ),1);
-
-display viol;
+      (not sameas(grasOutputs,"lateGraz"))
+      and (not sameas(grasOutputs,"hayExt"))
+      and (p_plots(plot,"elevation") <> reqAttr(grasOutputs))
+      and (sum(m, p_grasAttr(grassCrops,grasOutputs,m)) > 0)
+    ), 1);
+display viol, c_p_t_i,grasOrd,reqAttr,p_plots;
 abort$(card(viol)) "ERROR: cropFX enforces a crop that is forbidden by elevation/attribute constraints.";
 
 
