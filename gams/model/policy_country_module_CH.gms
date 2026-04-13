@@ -61,8 +61,7 @@ parameters
     p_premGMF(t,n)
     p_maxConcFeed
     p_maxMaizeFeed
-
-    p_premAnm(herds)
+$ifi "%cattle%"=="true" p_premAnm(herds)
 
     p_areaBFF
     P_premBFF(MZone,BioDivClass,*)
